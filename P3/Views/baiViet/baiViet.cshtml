@@ -1,0 +1,676 @@
+﻿
+@{
+    ViewBag.Title = "baiViet";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div id="hot-post" class="row hot-post">
+            <div class="col-md-8 hot-post-left">
+                <!-- post -->
+                <div class="post post-thumb">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/images/Phan1.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Phần 1:</a>
+                        </div>
+                        <h3 class="post-title title-lg"><a href="blog-post.html">Ăn các món này với nhau sẽ đem đên sức khoẻ tuyệt vời.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">Thao Nguyen</a></li>
+                            <li>22, T3, 2020</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+            <div class="col-md-4 hot-post-right">
+                <!-- post -->
+                <div class="post post-thumb">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/images/Phan2.png" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Phần 2:</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Tìm hiểu những cách tách lòng đỏ và lòng trắng trứng hiệu quả nhất.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">Thao Nguyen</a></li>
+                            <li>16 T6, 2020</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-thumb">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/images/Phan3.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Phần 3:</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Tổng hợp các loại rau tuyệt vời cho người giảm cân.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">Thao Nguyen</a></li>
+                            <li>18, T11, 2020</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- row -->
+                <div ng-controller="newpost"  class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">BÀI ĐĂNG MỚI NHẤT</h2>
+                        </div>
+                    </div>
+                    <!-- post -->
+                    <div ng-repeat="i in listbaivietmoi" class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+                                
+                                </div>
+                                <h3 class="post-title"><a href="blog-post.html">{{i.TieuDe}}</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">{{i.tacgia}}</a></li>
+                                    <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+
+                </div>
+                <!-- /row -->
+                <!-- row -->
+                <div ng-controller="cakepost" class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">BÁNH NGỌT</h2>
+                        </div>
+                    </div>
+                    <!-- post -->
+                    <div ng-repeat="ii in listbaivietBanhNgot" class="col-md-4">
+                        <div class="post post-sm">
+                            <a class="post-img" href="blog-post.html"><img src="{{ii.HinhAnh}}" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">{{ii.tendanhmuc}}, {{ii.tendanhmuccon}}</a>
+                                </div>
+                                <h3 class="post-title title-sm"><a href="blog-post.html">{{ii.TieuDe}}</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">{{ii.tacgia}}</a></li>
+                                    <li>{{ii.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                <!-- /row -->
+                <!-- row -->
+                <div ng-controller="HaNoipost" class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">Ký ức Hà Nội</h2>
+                        </div>
+                    </div>
+                    <!-- post -->
+                    <div ng-repeat="iii in listbaivietHaNoi" class="col-md-4">
+                        <div class="post post-sm">
+                            <a class="post-img" href="blog-post.html"><img src="{{iii.HinhAnh}}" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">{{iii.tendanhmuc}}, {{iii.tendanhmuccon}}</a>
+                                </div>
+                                <h3 class="post-title title-sm"><a href="blog-post.html">{{iii.TieuDe}}</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">{{iii.tacgia}}</a></li>
+                                    <li>{{iii.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                <!-- /row -->
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">Technology &amp; Health</h2>
+                        </div>
+                    </div>
+                    <!-- post -->
+                    <div class="col-md-4">
+                        <div class="post post-sm">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-4.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Health</a>
+                                </div>
+                                <h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">Thao Nguyen</a></li>
+                                    <li>20, T3, 2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="col-md-4">
+                        <div class="post post-sm">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-1.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Travel</a>
+                                </div>
+                                <h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">Thao Nguyen</a></li>
+                                    <li>20, T3, 2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="col-md-4">
+                        <div class="post post-sm">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-3.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Lifestyle</a>
+                                </div>
+                                <h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">Thao Nguyen</a></li>
+                                    <li>20, T3, 2020</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                <!-- /row -->
+            </div>
+            <div class="col-md-4">
+                <!-- ad widget-->
+                <div class="aside-widget text-center">
+                    <a href="author.html" style="display: inline-block;margin: auto;">
+                        <img style="border-radius: 50%; margin: auto;" class="img-responsive" src="~/Assests/images/avt.jpg" alt="">
+                        <p> Góc nhỏ mày mò chia sẻ công thức nấu ăn, làm bánh, review đồ bếp. Chia sẻ tình yêu gia đình, bếp, vườn, chụp ảnh, du lịch...</p>
+                    </a>
+                </div>
+                <!-- /ad widget -->
+                <!-- social widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Truyền thông &amp; xã hội</h2>
+                    </div>
+                    <div class="social-widget">
+                        <ul>
+                            <li>
+                                <a href="#" class="social-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                    <span>21.2K<br>Theo dõi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <span>10.2K<br>Theo dõi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                    <span>5K<br>Theo dõi</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /social widget -->
+                <!-- newsletter widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Liên hệ với tôi</h2>
+                    </div>
+                    <div class="newsletter-widget">
+                        <form>
+                            <p>Thêm Email để chúng ta cùng nhau chia sẻ ẩm thực.</p>
+                            <input class="input" name="newsletter" placeholder="Nhập Email...">
+                            <button class="primary-button">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /newsletter widget -->
+                <!-- category widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">DANH MỤC</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            <li>
+                                <a href="#">Công thức <span>451</span></a>
+                            </li>
+                            <li><a href="#">Cảm hứng sống <span>230</span></a></li>
+                            <li><a href="#">Mẹo vặt <span>40</span></a></li>
+                            <li><a href="#">Góc review<span>38</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /category widget -->
+                <!-- post widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Bài đăng nổi bật</h2>
+                    </div>
+                    <!-- post -->
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-3.jpg" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">Lifestyle</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-2.jpg" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">Technology</a>
+                                <a href="category.html">Lifestyle</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-4.jpg" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">Health</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-5.jpg" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">Health</a>
+                                <a href="category.html">Lifestyle</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                <!-- /post widget -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ad -->
+            <div class="col-md-12 section-row text-center">
+                <a href="#" style="display: inline-block;margin: auto;">
+                    <img class="img-responsive" src="~/Assests/img/ad-2.jpg" alt="">
+                </a>
+            </div>
+            <!-- /ad -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="section-title">
+                    <h2 class="title">Lifestyle</h2>
+                </div>
+                <!-- post -->
+                <div class="post">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-6.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Fashion</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+            <div class="col-md-4">
+                <div class="section-title">
+                    <h2 class="title">Fashion</h2>
+                </div>
+                <!-- post -->
+                <div class="post">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-5.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+            <div class="col-md-4">
+                <div class="section-title">
+                    <h2 class="title">Health</h2>
+                </div>
+                <!-- post -->
+                <div class="post">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-9.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+        </div>
+        <!-- /row -->
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-1.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Travel</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-2.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Technology</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-3.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+            <div class="col-md-4">
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-4.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Health</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- /post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-5.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Health</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-6.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Fashion</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+            <div class="col-md-4">
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-8.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Travel</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-9.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Technology</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-widget">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-10.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                    </div>
+                </div>
+                <!-- /post -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- post -->
+                <div class="post post-row">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-13.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Travel</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-row">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-1.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Travel</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-row">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-5.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-row">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-6.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Fashion</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </div>
+                </div>
+                <!-- /post -->
+                <!-- post -->
+                <div class="post post-row">
+                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-7.jpg" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Health</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                    </div>
+                </div>
+                <!-- /post -->
+
+                <div class="section-row loadmore text-center">
+                    <a href="#" class="primary-button">Load More</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- galery widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2 class="title">Instagram</h2>
+                    </div>
+                    <div class="galery-widget">
+                        <ul>
+                            <li><a href="#"><img src="~/Assests/img/galery-1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/Assests/img/galery-2.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/Assests/img/galery-3.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/Assests/img/galery-4.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/Assests/img/galery-5.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="~/Assests/img/galery-6.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /galery widget -->
+                <!-- Ad widget -->
+                <div class="aside-widget text-center">
+                    <a href="#" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="~/Assests/img/ad-1.jpg" alt="">
+                    </a>
+                </div>
+                <!-- /Ad widget -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
