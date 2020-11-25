@@ -154,16 +154,7 @@ app.controller("LoaiBanhNgotPost", function ($scope, $http) {
 });
 
 //----------------------------
-//navigator
-
-//app.controller('menuController', ['$scope', '$http', function ($scope, $http) {
-//    $scope.SiteMenu = [];
-//    $http.get('/baiViet/GetMainMenu').then(function (data) {
-//        $scope.SiteMenu = data.data;
-//    }, function (error) {
-//        alert('Error');
-//    })
-//}])   
+//navigator  
 
 app.controller("getMenu", function ($scope, $http) {
     $http.get('/danhmuc/getdanhmuc').then(function (data) {
@@ -188,3 +179,32 @@ app.controller("getMenu", function ($scope, $http) {
         console.log($scope.menus);
     })
 })
+
+//Gmail
+//view gọi hàm thực hiện ng-click gọi hàm bv SendMail
+app.controller("myGmail", function ($scope, $http) {
+   
+    $scope.sendMe = function () {
+        var i4 = { mail: $scope.mail }
+       
+        alert("Đăng ký thành công <3")
+        $http({
+            method: 'post',
+            url: '/baiViet/SendMail',
+            data: i4
+        })
+    }
+});
+
+app.controller("myGmailFooter", function ($scope, $http) {
+
+    $scope.sendMe = function () {
+        var i4 = { mail: $scope.mail }
+        alert("Đăng ký thành công <3")
+        $http({
+            method: 'post',
+            url: '/baiViet/SendMail',
+            data: i4
+        })
+    }
+});

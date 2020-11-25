@@ -70,24 +70,7 @@
             </div>
             <!-- /Top Nav -->
             <!-- Main Nav -->
-            <div id="nav-bottom" ng-controller="getMenu">
-                <div class="container">
-                    <ul class="nav-menu">
-                        <li class="has-dropdown" ng-repeat="item in menus">
-                            <a href="#">{{item.TenDM}}</a>
-                            <div class="dropdown">
-                                <div class="dropdown-body">
-                                    <ul class="dropdown-list">
-                                        <li ng-repeat="key in item.children"><a href="category.html">{{key.tendmc}}</a></li>                                       
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-           <!--Demo github-->
+            @Html.Partial("_PartialNavMenu")
             <!-- /Main Nav -->
             <!-- Aside Nav -->
             <div id="nav-aside">
@@ -173,10 +156,10 @@
                     <div class="footer-widget">
                         <h3 class="footer-title">LIÊN HỆ VỚI TÔI</h3>
                         <div class="newsletter-widget">
-                            <form>
+                            <form ng-controller="myGmailFooter">
                                 <p>Thêm Email để chúng ta cùng nhau chia sẻ ẩm thực.</p>
-                                <input class="input" name="newsletter" placeholder="Nhập Email...">
-                                <button class="primary-button">Đăng ký</button>
+                                <input ng-model="mail" class="input" name="newsletter" placeholder="Nhập Email...">
+                                <button ng-click="sendMe()" class="primary-button">Đăng ký</button>
                             </form>
                         </div>
                     </div>

@@ -6,10 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace P3.Controllers
 {
     public class baiVietController : Controller
     {
+        Tool.Class1 h = new Tool.Class1();
         IBaiViet bv = new BaiViet_bll();
         // GET: baiViet
         public ActionResult Index()
@@ -64,20 +66,10 @@ namespace P3.Controllers
             return View();
         }
 
-        //public JsonResult GetMainMenu()
-        //{
-        //        var menu = bv.DanhMuc.Select(c => new {
-        //            c.tenDM,
-        //            SubMenu = c.DanhMucCon.Select(s => new {
-        //                s.SubName,
-        //            })
-        //        });
-        //        return new JsonResult
-        //        {
-        //            Data = menu,
-        //            JsonRequestBehavior = JsonRequestBehavior.AllowGet
-        //        };
-            
-        //}
+        public void SendMail(string mail)
+        {
+            h.mail(mail);
+        }
+
     }
 }

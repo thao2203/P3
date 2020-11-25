@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7A394049-6DFB-486D-B306-6094C06091CE}</ProjectGuid>
+    <ProjectGuid>{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>P3</RootNamespace>
-    <AssemblyName>P3</AssemblyName>
+    <RootNamespace>P3_Admin</RootNamespace>
+    <AssemblyName>P3_Admin</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44341</IISExpressSSLPort>
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -88,104 +88,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assests\angular.min.js" />
-    <Content Include="Assests\codeangular.js" />
-    <Content Include="Assests\css\bootstrap.min.css" />
-    <Content Include="Assests\css\font-awesome.min.css" />
-    <Content Include="Assests\css\style.css" />
-    <Content Include="Assests\fonts\fontawesome-webfont.svg" />
-    <Content Include="Assests\images\avt.jpg" />
-    <Content Include="Assests\images\BaiDangMoiNhat1.jpg" />
-    <Content Include="Assests\images\BaiDangMoiNhat2.jpg" />
-    <Content Include="Assests\images\BaiDangMoiNhat3.jpg" />
-    <Content Include="Assests\images\BaiDangMoiNhat4.jpg" />
-    <Content Include="Assests\images\BanhNgot1.jpg" />
-    <Content Include="Assests\images\BanhNgot2.jpg" />
-    <Content Include="Assests\images\BanhNgot3.jpg" />
-    <Content Include="Assests\images\KyUcHN1.jpg" />
-    <Content Include="Assests\images\KyUcHN2.jpg" />
-    <Content Include="Assests\images\KyUcHN3.jpg" />
-    <Content Include="Assests\images\logo.png" />
-    <Content Include="Assests\images\pexels-photo-1092730.jpg" />
-    <Content Include="Assests\images\Phan1.jpg" />
-    <Content Include="Assests\images\Phan2.png" />
-    <Content Include="Assests\images\Phan3.jpg" />
-    <Content Include="Assests\img\ad-1.jpg" />
-    <Content Include="Assests\img\ad-2.jpg" />
-    <Content Include="Assests\img\ad-3.jpg" />
-    <Content Include="Assests\img\avatar-1.jpg" />
-    <Content Include="Assests\img\avatar-2.jpg" />
-    <Content Include="Assests\img\avatar-3.jpg" />
-    <Content Include="Assests\img\galery-1.jpg" />
-    <Content Include="Assests\img\galery-2.jpg" />
-    <Content Include="Assests\img\galery-3.jpg" />
-    <Content Include="Assests\img\galery-4.jpg" />
-    <Content Include="Assests\img\galery-5.jpg" />
-    <Content Include="Assests\img\galery-6.jpg" />
-    <Content Include="Assests\img\header-1.jpg" />
-    <Content Include="Assests\img\header-2.jpg" />
-    <Content Include="Assests\img\hot-post-1.jpg" />
-    <Content Include="Assests\img\hot-post-2.jpg" />
-    <Content Include="Assests\img\hot-post-3.jpg" />
-    <Content Include="Assests\img\logo-alt.png" />
-    <Content Include="Assests\img\logo.png" />
-    <Content Include="Assests\img\media-1.jpg" />
-    <Content Include="Assests\img\media-2.jpg" />
-    <Content Include="Assests\img\post-1.jpg" />
-    <Content Include="Assests\img\post-10.jpg" />
-    <Content Include="Assests\img\post-11.jpg" />
-    <Content Include="Assests\img\post-12.jpg" />
-    <Content Include="Assests\img\post-13.jpg" />
-    <Content Include="Assests\img\post-2.jpg" />
-    <Content Include="Assests\img\post-3.jpg" />
-    <Content Include="Assests\img\post-4.jpg" />
-    <Content Include="Assests\img\post-5.jpg" />
-    <Content Include="Assests\img\post-6.jpg" />
-    <Content Include="Assests\img\post-7.jpg" />
-    <Content Include="Assests\img\post-8.jpg" />
-    <Content Include="Assests\img\post-9.jpg" />
-    <Content Include="Assests\img\widget-1.jpg" />
-    <Content Include="Assests\img\widget-10.jpg" />
-    <Content Include="Assests\img\widget-2.jpg" />
-    <Content Include="Assests\img\widget-3.jpg" />
-    <Content Include="Assests\img\widget-4.jpg" />
-    <Content Include="Assests\img\widget-5.jpg" />
-    <Content Include="Assests\img\widget-6.jpg" />
-    <Content Include="Assests\img\widget-7.jpg" />
-    <Content Include="Assests\img\widget-8.jpg" />
-    <Content Include="Assests\img\widget-9.jpg" />
-    <Content Include="Assests\js\bootstrap.min.js" />
-    <Content Include="Assests\js\jquery.min.js" />
-    <Content Include="Assests\js\jquery.stellar.min.js" />
-    <Content Include="Assests\js\main.js" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Assests\fonts\fontawesome-webfont.eot" />
-    <Content Include="Assests\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Assests\fonts\fontawesome-webfont.woff" />
-    <Content Include="Assests\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Assests\fonts\FontAwesome.otf" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\baiVietController.cs" />
-    <Compile Include="Controllers\categoryController.cs" />
-    <Compile Include="Controllers\DanhMucConController.cs" />
-    <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,24 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Shared\_mainLayout.cshtml" />
-    <Content Include="Views\baiViet\baiViet.cshtml" />
-    <Content Include="Views\baiViet\chiTietBaiViet.cshtml" />
-    <Content Include="Views\baiViet\baiviettheoloai.cshtml" />
-    <Content Include="Views\Shared\_PartialNavMenu.cshtml" />
-    <Content Include="Views\DanhMuc\Index.cshtml" />
-    <Content Include="Views\Shared\_PartialGmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -220,23 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\category\" />
-    <Folder Include="Views\DanhMucCon\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL%28Business Logic Layer%29\BLL%28Business Logic Layer%29.csproj">
-      <Project>{01CC7A3B-BE37-48AB-85AD-1ECC6AF7FF9C}</Project>
-      <Name>BLL%28Business Logic Layer%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO%28Data Transfer Object%29\DTO%28Data Transfer Object%29.csproj">
-      <Project>{FC2D61C9-634F-4BEE-AC7A-DE4EAEFB318D}</Project>
-      <Name>DTO%28Data Transfer Object%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tool\Tool.csproj">
-      <Project>{895e257c-3005-4d6e-a1a1-4906d811df3f}</Project>
-      <Name>Tool</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -251,9 +127,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49189</DevelopmentServerPort>
+          <DevelopmentServerPort>53139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44341/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

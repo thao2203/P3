@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO(Data Access Object)", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO(Data Transfer Object)", "DTO(Data Transfer Object)\DTO(Data Transfer Object).csproj", "{FC2D61C9-634F-4BEE-AC7A-DE4EAEFB318D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P3_Admin", "P3_Admin\P3_Admin.csproj", "{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool", "Tool\Tool.csproj", "{895E257C-3005-4D6E-A1A1-4906D811DF3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{FC2D61C9-634F-4BEE-AC7A-DE4EAEFB318D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC2D61C9-634F-4BEE-AC7A-DE4EAEFB318D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC2D61C9-634F-4BEE-AC7A-DE4EAEFB318D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E5403B8-5066-4322-BB14-BFDF5E18BE6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895E257C-3005-4D6E-A1A1-4906D811DF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895E257C-3005-4D6E-A1A1-4906D811DF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895E257C-3005-4D6E-A1A1-4906D811DF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895E257C-3005-4D6E-A1A1-4906D811DF3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
