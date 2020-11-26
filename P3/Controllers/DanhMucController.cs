@@ -16,7 +16,6 @@ namespace P3.Controllers
         {
             return View();
         }
-        
         public JsonResult GetDanhMuc()
         {
             return Json(bv.getdanhmuc(), JsonRequestBehavior.AllowGet);

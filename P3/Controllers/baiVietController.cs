@@ -40,6 +40,10 @@ namespace P3.Controllers
         {
             return Json(bv.getBaiVietHaNoi(), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult getbaivietNoiBat()
+        {
+            return Json(bv.getBaiVietNoiBat(), JsonRequestBehavior.AllowGet);
+        }
 
         public JsonResult getthongtinbaiviet(string mabaiviet)
         {

@@ -22,6 +22,7 @@ namespace DAO_Data_Access_Object_
                 danhmuc bv = new danhmuc();
                 bv.MaDM = dr[0].ToString();
                 bv.TenDM = dr[1].ToString();
+                bv.LuotXem = Convert.ToInt32(dr[2]);
                 li.Add(bv);
             }
             return li;

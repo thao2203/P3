@@ -154,14 +154,14 @@
                 </div>
                 <!-- /row -->
                 <!-- row -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
                             <h2 class="title">Technology &amp; Health</h2>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- post -->
-                    <div class="col-md-4">
+                    <!--<div class="col-md-4">
                         <div class="post post-sm">
                             <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-4.jpg" alt=""></a>
                             <div class="post-body">
@@ -175,10 +175,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- /post -->
                     <!-- post -->
-                    <div class="col-md-4">
+                    <!--<div class="col-md-4">
                         <div class="post post-sm">
                             <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-1.jpg" alt=""></a>
                             <div class="post-body">
@@ -192,10 +192,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- /post -->
                     <!-- post -->
-                    <div class="col-md-4">
+                    <!--<div class="col-md-4">
                         <div class="post post-sm">
                             <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-3.jpg" alt=""></a>
                             <div class="post-body">
@@ -209,9 +209,9 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- /post -->
-                </div>
+                <!--</div>-->
                 <!-- /row -->
             </div>
             <div class="col-md-4">
@@ -224,106 +224,17 @@
                 </div>
                 <!-- /ad widget -->
                 <!-- social widget -->
-                <div class="aside-widget">
-                    <div class="section-title">
-                        <h2 class="title">Truyền thông &amp; xã hội</h2>
-                    </div>
-                    <div class="social-widget">
-                        <ul>
-                            <li>
-                                <a href="#" class="social-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                    <span>21.2K<br>Theo dõi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-twitter">
-                                    <i class="fa fa-twitter"></i>
-                                    <span>10.2K<br>Theo dõi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="social-google-plus">
-                                    <i class="fa fa-google-plus"></i>
-                                    <span>5K<br>Theo dõi</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                @Html.Partial("_PartialTruyenThongXaHoi")
                 <!-- /social widget -->
                 <!-- newsletter widget -->
                 @Html.Partial("_PartialGmail")
                 <!-- /newsletter widget -->
                 <!-- category widget -->
-                <div class="aside-widget">
-                    <div class="section-title">
-                        <h2 class="title">DANH MỤC</h2>
-                    </div>
-                    <div class="category-widget">
-                        <ul>
-                            <li>
-                                <a href="#">Công thức <span>451</span></a>
-                            </li>
-                            <li><a href="#">Cảm hứng sống <span>230</span></a></li>
-                            <li><a href="#">Mẹo vặt <span>40</span></a></li>
-                            <li><a href="#">Góc review<span>38</span></a></li>
-                        </ul>
-                    </div>
-                </div>
+                @Html.Partial("_PartialDanhMuc")
+
                 <!-- /category widget -->
                 <!-- post widget -->
-                <div class="aside-widget">
-                    <div class="section-title">
-                        <h2 class="title">Bài đăng nổi bật</h2>
-                    </div>
-                    <!-- post -->
-                    <div class="post post-widget">
-                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-3.jpg" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-                        </div>
-                    </div>
-                    <!-- /post -->
-                    <!-- post -->
-                    <div class="post post-widget">
-                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-2.jpg" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Technology</a>
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                        </div>
-                    </div>
-                    <!-- /post -->
-                    <!-- post -->
-                    <div class="post post-widget">
-                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-4.jpg" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Health</a>
-                            </div>
-                            <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-                        </div>
-                    </div>
-                    <!-- /post -->
-                    <!-- post -->
-                    <div class="post post-widget">
-                        <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-5.jpg" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Health</a>
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-                        </div>
-                    </div>
-                    <!-- /post -->
-                </div>
+                @Html.Partial("_PartialBvNoiBat")
                 <!-- /post widget -->
             </div>
         </div>

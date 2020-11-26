@@ -211,6 +211,9 @@
     <Content Include="Views\Shared\_PartialNavMenu.cshtml" />
     <Content Include="Views\DanhMuc\Index.cshtml" />
     <Content Include="Views\Shared\_PartialGmail.cshtml" />
+    <Content Include="Views\Shared\_PartialDanhMuc.cshtml" />
+    <Content Include="Views\Shared\_PartialBvNoiBat.cshtml" />
+    <Content Include="Views\Shared\_PartialTruyenThongXaHoi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

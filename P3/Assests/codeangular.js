@@ -79,7 +79,18 @@ app.controller("HaNoipost", function ($scope, $http) {
     };
 });
 
+app.controller("NoiBatpost", function ($scope, $http) {
 
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietNoiBat'
+    }).then(function successCallback(res) {
+
+        $scope.listNoiBat = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        console.log($scope.listNoiBat);
+
+    })
+});
 
 app.controller("bvTheoLoai", function ($scope, $http, $location) {
     var maDMC = $location.search().maLoai;
@@ -89,8 +100,8 @@ app.controller("bvTheoLoai", function ($scope, $http, $location) {
 
     }).then(function successCallback(res) {
 
-        $scope.listbaivietHaNoi = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-        console.log($scope.listbaivietHaNoi);
+        $scope.listBaiVietTheoLoai = res.data;//lưu dữ liệu vào biến $scope 
+        console.log($scope.listBaiVietTheoLoai);
 
     })
 }).filter("filterdate", function () {
@@ -101,37 +112,39 @@ app.controller("bvTheoLoai", function ($scope, $http, $location) {
         else return null;
     };
 });
+//Danh mục
+app.controller("DanhMucPost", function ($scope, $http) {
 
+    $http({
+        method: 'get',
+        url: '/danhmuc/GetDanhMuc'
+    }).then(function successCallback(res) {
 
-//BV theo loại Bánh NGọt
-//app.controller("LoaiBanhNgotPost", function ($scope, $http, $location) {
-//    var maDMC = $location.search().maLoai;
-//    $http({
-//        method: 'get',
-//        url: '/baiViet/getbaiviettheoloai?maLoai=' + maDMC,
+        $scope.listDanhMuc = res.data;//lưu dữ liệu vào biến $scope
+        console.log($scope.listDanhMuc);
 
-//    }).then(function successCallback(res) {
+    })
+});
 
-//        $scope.listdsBNgot = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-//        console.log($scope.listdsBNgot);
+app.controller("_DanhMucPost", function ($scope, $http) {
 
-//    })
-//}).filter("filterdate", function () {
-//    var re = /\/Date\(([0-9]*)\)\//;
-//    return function (x) {
-//        var m = x.match(re);
-//        if (m) return new Date(parseInt(m[1]));
-//        else return null;
-//    };
-//});
+    $http({
+        method: 'get',
+        url: '/danhmuc/GetDanhMuc'
+    }).then(function successCallback(res) {
 
+        $scope.listDanhMuc = res.data;//lưu dữ liệu vào biến $scope
+        console.log($scope.listDanhMuc);
+
+    })
+});
 //-----------------------------------
 
 app.controller("LoaiBanhNgotPost", function ($scope, $http) {
     $scope.pagesize = 5;
     $http({
         method: 'get',
-        url: '/baiViet/getPhanTrangBV?maLoai=dmc14&&pagesize=' + $scope.pagesize,
+        url: '/baiViet/getPhanTrangBV?maLoai=dmc13&&pagesize=' + $scope.pagesize,
     }).then(function successCallback(res) {
 
         $scope.listdsBNgot = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
@@ -139,11 +152,10 @@ app.controller("LoaiBanhNgotPost", function ($scope, $http) {
 
     })
     $scope.load = function () {
-        alert("d")
         $scope.pagesize += 5;
         $http({
             method: 'get',
-            url: '/baiViet/getPhanTrangBV?maLoai=dmc14&&pagesize=' + $scope.pagesize,
+            url: '/baiViet/getPhanTrangBV?maLoai=dmc13&&pagesize=' + $scope.pagesize,
         }).then(function successCallback(res) {
 
             $scope.listdsBNgot = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 

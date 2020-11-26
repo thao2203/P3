@@ -1,0 +1,17 @@
+﻿<div class="aside-widget" ng-controller="NoiBatpost">
+    <div class="section-title">
+        <h2 class="title">Bài đăng nổi bật</h2>
+    </div>
+    <!-- post -->
+    <div ng-repeat="i in listNoiBat" class="post post-widget">
+        <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
+        <div class="post-body">
+            <div class="post-category">
+                <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+            </div>
+            <h3 class="post-title"><a href="blog-post.html">{{i.TieuDe}}</a></h3>
+        </div>
+    </div>
+    <!-- /post -->
+
+</div>

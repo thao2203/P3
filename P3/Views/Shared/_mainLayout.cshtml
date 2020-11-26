@@ -58,7 +58,7 @@
                         <button class="search-btn"><i class="fa fa-search"></i></button>
                         <div id="nav-search">
                             <form>
-                                <input class="input" name="search" placeholder="Enter your search...">
+                                <input class="input" name="search" placeholder="Tìm kiếm...">
                             </form>
                             <button class="nav-close search-close">
                                 <span></span>
@@ -122,12 +122,9 @@
                 <div class="col-md-4">
                     <div class="footer-widget">
                         <h3 class="footer-title">Danh Mục</h3>
-                        <div class="category-widget">
-                            <ul>
-                                <li><a href="#">Công thức <span>451</span></a></li>
-                                <li><a href="#">Cảm hứng sống <span>230</span></a></li>
-                                <li><a href="#">Mẹo vặt <span>40</span></a></li>
-                                <li><a href="#">Góc review<span>38</span></a></li>
+                        <div ng-controller="DanhMucPost" class="category-widget">
+                            <ul >
+                                <li ng-repeat="item in listDanhMuc"><a href="#">{{item.TenDM}}<span>{{item.LuotXem}}</span></a></li>
                             </ul>
                         </div>
                     </div>
