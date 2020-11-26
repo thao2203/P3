@@ -70,9 +70,9 @@ namespace BLL_Business_Logic_Layer_
             throw new NotImplementedException();
         }
 
-        public IList<baiViet> Search(baiViet bviet)
+        public IList<baiViet> Search(string bviet)
         {
-            throw new NotImplementedException();
+            return bv.getbaiviet(string.Format(@"Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where bv.tieuDe like '%{0}%' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC", bviet));
         }
 
         public int Update(baiViet bviet)

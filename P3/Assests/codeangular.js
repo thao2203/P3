@@ -99,7 +99,7 @@ app.controller("bvTheoLoai", function ($scope, $http, $location) {
         url: '/baiViet/getbaiviettheoloai?maLoai=' + maDMC,
 
     }).then(function successCallback(res) {
-
+        $scope.view = res.data.tendanhmuccon;
         $scope.listBaiVietTheoLoai = res.data;//lưu dữ liệu vào biến $scope 
         console.log($scope.listBaiVietTheoLoai);
 
@@ -219,4 +219,34 @@ app.controller("myGmailFooter", function ($scope, $http) {
             data: i4
         })
     }
+});
+
+app.controller('searchbar', function ($scope, $location) {
+    
+    $scope.search = function () {
+       
+        window.location = '/baiViet/search#!?key=' + $scope.searchvalue;
+    }
+})
+
+
+app.controller("timkiem", function ($scope, $http, $location) {
+    
+    $http({
+        method: 'get',
+        url: '/baiViet/searchByName?key=' + $location.search().key,
+
+    }).then(function successCallback(res) {
+
+        $scope.listBaiVietTheoLoai = res.data;//lưu dữ liệu vào biến $scope 
+        console.log($scope.listBaiVietTheoLoai);
+
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
 });

@@ -24,6 +24,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         BaiViet_bll getBaiViet_ID(int bvietID);
         int getBaiViet_ID_Last();
         int checkBaiViet_ID(int bvietID);
-        IList<baiViet> Search(baiViet bviet);
+        IList<baiViet> Search(string tenbaiviet);
     }
 }

@@ -214,6 +214,7 @@
     <Content Include="Views\Shared\_PartialDanhMuc.cshtml" />
     <Content Include="Views\Shared\_PartialBvNoiBat.cshtml" />
     <Content Include="Views\Shared\_PartialTruyenThongXaHoi.cshtml" />
+    <Content Include="Views\baiViet\search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

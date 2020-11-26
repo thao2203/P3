@@ -1,14 +1,17 @@
-﻿@{
-    ViewBag.Title = "baiviettheoloai";
+﻿
+@{
+    ViewBag.Title = "search";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
-<div ng-controller="bvTheoLoai">
+
+
+<div>
     <div class="page-header">
         <div class="page-header-bg" style="background-image: url('/Assests/img/header-2.jpg');" data-stellar-background-ratio="0.5"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-1 col-md-10 text-center">
-                    <h1 class="text-uppercase">{{view}}</h1>
+                    <h1 class="text-uppercase">Lifestyle</h1>
                 </div>
             </div>
         </div>
@@ -23,102 +26,100 @@
                     @*Làm sau*@
                     <!-- post -->
                     @*<div class="post post-thumb">
-            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/hot-post-3.jpg" alt=""></a>
-            <div class="post-body">
-                <div class="post-category">
-                    <a href="category.html">Fashion</a>
-                    <a href="category.html">Lifestyle</a>
-                </div>
-                <h3 class="post-title title-lg"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                <ul class="post-meta">
-                    <li><a href="author.html">John Doe</a></li>
-                    <li>20 April 2018</li>
-                </ul>
-            </div>
-        </div>*@
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/hot-post-3.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Fashion</a>
+                                    <a href="category.html">Lifestyle</a>
+                                </div>
+                                <h3 class="post-title title-lg"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">John Doe</a></li>
+                                    <li>20 April 2018</li>
+                                </ul>
+                            </div>
+                        </div>*@
                     <!-- /post -->
                     @*Làm sau*@
 
 
                     <!--<div class="row">-->
-                        <!-- post -->
-                        <!--<div class="col-md-6">
-                            <div class="post">
-                                <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-3.jpg" alt=""></a>
-                                <div class="post-body">
-                                    <div class="post-category">
-                                        <a href="category.html">Lifestyle</a>
-                                    </div>
-                                    <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-                                    <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
-                                    </ul>
+                    <!-- post -->
+                    <!--<div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-3.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Lifestyle</a>
                                 </div>
+                                <h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">John Doe</a></li>
+                                    <li>20 April 2018</li>
+                                </ul>
                             </div>
-                        </div>-->
-                        <!-- /post -->
-                        <!-- post -->
-                        <!--<div class="col-md-6">
-                            <div class="post">
-                                <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-5.jpg" alt=""></a>
-                                <div class="post-body">
-                                    <div class="post-category">
-                                        <a href="category.html">Lifestyle</a>
-                                    </div>
-                                    <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-                                    <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
-                                    </ul>
+                        </div>
+                    </div>-->
+                    <!-- /post -->
+                    <!-- post -->
+                    <!--<div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-5.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Lifestyle</a>
                                 </div>
+                                <h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">John Doe</a></li>
+                                    <li>20 April 2018</li>
+                                </ul>
                             </div>
-                        </div>-->
-                        <!-- /post -->
-
-                        <!--<div class="clearfix visible-md visible-lg"></div>-->
-
-                        <!-- post -->
-                        <!--<div class="col-md-6">
-                            <div class="post">
-                                <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-9.jpg" alt=""></a>
-                                <div class="post-body">
-                                    <div class="post-category">
-                                        <a href="category.html">Lifestyle</a>
-                                    </div>
-                                    <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-                                    <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
-                                    </ul>
+                        </div>
+                    </div>-->
+                    <!-- /post -->
+                    <!--<div class="clearfix visible-md visible-lg"></div>-->
+                    <!-- post -->
+                    <!--<div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-9.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Lifestyle</a>
                                 </div>
+                                <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">John Doe</a></li>
+                                    <li>20 April 2018</li>
+                                </ul>
                             </div>
-                        </div>-->
-                        <!-- /post -->
-                        <!-- post -->
-                        <!--<div class="col-md-6">
-                            <div class="post">
-                                <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-7.jpg" alt=""></a>
-                                <div class="post-body">
-                                    <div class="post-category">
-                                        <a href="category.html">Health</a>
-                                        <a href="category.html">Lifestyle</a>
-                                    </div>
-                                    <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-                                    <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
-                                    </ul>
+                        </div>
+                    </div>-->
+                    <!-- /post -->
+                    <!-- post -->
+                    <!--<div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-7.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-category">
+                                    <a href="category.html">Health</a>
+                                    <a href="category.html">Lifestyle</a>
                                 </div>
+                                <h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                                <ul class="post-meta">
+                                    <li><a href="author.html">John Doe</a></li>
+                                    <li>20 April 2018</li>
+                                </ul>
                             </div>
-                        </div>-->
-                        <!-- /post -->
+                        </div>
+                    </div>-->
+                    <!-- /post -->
                     <!--</div>-->
                     <br />
                     <br />
-                    <div ng-controller="LoaiBanhNgotPost">
+                    <div ng-controller="timkiem">
                         <!-- post -->
-                        <div ng-repeat="i in listdsBNgot" class="post post-row">
+                        <div ng-repeat="i in listBaiVietTheoLoai" class="post post-row">
                             <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-category">

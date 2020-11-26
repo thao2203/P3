@@ -50,7 +50,15 @@ namespace P3.Controllers
             return Json(bv.getThongTinBV(), JsonRequestBehavior.AllowGet);
 
         }
-
+        public ActionResult search()
+        {
+            return View();
+        }
+        public JsonResult searchByName(string key)
+        {
+            key = key.Replace("%20"," ");
+            return Json(bv.Search(key),JsonRequestBehavior.AllowGet);
+        }
         public JsonResult getbaiviettheoloai(string maLoai)
         {
             return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
