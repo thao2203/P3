@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaiViet_bll.cs" />
+    <Compile Include="ChiTietBaiViet_bll.cs" />
     <Compile Include="DanhMucCon_bll.cs" />
     <Compile Include="DanhMuc_bll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInterface\IBaiViet.cs" />
+    <Compile Include="ServiceInterface\IChiTietBaiViet.cs" />
     <Compile Include="ServiceInterface\IDanhMuc.cs" />
     <Compile Include="ServiceInterface\IDanhMucCon.cs" />
   </ItemGroup>

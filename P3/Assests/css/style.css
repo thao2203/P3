@@ -448,11 +448,6 @@ textarea.input {
   position: relative;
 }
 
-.nav-menu li.has-dropdown>a:after {
-  font-family: 'FontAwesome';
-  content: "\f0d7";
-  margin-left: 5px;
-}
 
 .nav-menu li.has-dropdown>.dropdown {
   position: absolute;

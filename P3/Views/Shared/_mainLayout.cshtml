@@ -49,7 +49,7 @@
                     <!-- /social -->
                     <!-- logo -->
                     <div class="nav-logo">
-                        <a href="index.html" class="logo"><img src="~/Assests/images/logo.png" style="background-color: #ee4266; border: 5px solid #ee4266;width: 60%;" alt=""></a>
+                        <a href="/baiViet/baiViet" class="logo"><img src="~/Assests/images/logo.png" style="background-color: #ee4266; border: 5px solid #ee4266;width: 60%;" alt=""></a>
                     </div>
                     <!-- /logo -->
                     <!-- search & aside toggle -->
@@ -59,7 +59,7 @@
                         <div id="nav-search">
                             <form ng-controller="searchbar">
                                 <input ng-model="searchvalue" class="input" name="search" placeholder="Tìm kiếm...">
-                                <button ng-click="search()">timf</button>
+                                <button ng-click="search()">?</button>
                             </form>
                             <button class="nav-close search-close">
                                 <span></span>
@@ -74,7 +74,8 @@
             @Html.Partial("_PartialNavMenu")
             <!-- /Main Nav -->
             <!-- Aside Nav -->
-            <div id="nav-aside">
+            @*@Html.Partial("_PartialVerticalMenu")*@
+            @*<div id="nav-aside">
                 <ul class="nav-aside-menu">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li class="has-dropdown">
@@ -91,6 +92,19 @@
                     </li>
                     <li><a href="about.html">Về chúng tôi</a></li>
                     <li><a href="contact.html">Liên lạc</a></li>
+                </ul>
+                <button class="nav-close nav-aside-close"><span></span></button>
+            </div>*@
+            <div id="nav-aside" ng-controller="getMenu">
+                <ul class="nav-aside-menu" >
+                    <li class="has-dropdown" ng-repeat="item in menus">
+                        <a>{{item.TenDM}}</a>
+                        <ul class="dropdown">
+                            <li ng-repeat="key in item.children">
+                                <a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <button class="nav-close nav-aside-close"><span></span></button>
             </div>

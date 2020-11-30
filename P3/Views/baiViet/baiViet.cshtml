@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -83,7 +82,7 @@
                     <!-- post -->
                     <div ng-repeat="i in listbaivietmoi" class="col-md-6">
                         <div class="post">
-                            <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
+                            <a class="post-img" href="/baiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-category">
                                     <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
@@ -111,7 +110,7 @@
                     <!-- post -->
                     <div ng-repeat="ii in listbaivietBanhNgot" class="col-md-4">
                         <div class="post post-sm">
-                            <a class="post-img" href="blog-post.html"><img src="{{ii.HinhAnh}}" alt=""></a>
+                            <a class="post-img" href="/baiViet/chiTietBaiViet#!?maLoai={{i.MaDMC}}"><img src="{{ii.HinhAnh}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-category">
                                     <a href="category.html">{{ii.tendanhmuc}}, {{ii.tendanhmuccon}}</a>
@@ -137,7 +136,7 @@
                     <!-- post -->
                     <div ng-repeat="iii in listbaivietHaNoi" class="col-md-4">
                         <div class="post post-sm">
-                            <a class="post-img" href="blog-post.html"><img src="{{iii.HinhAnh}}" alt=""></a>
+                            <a class="post-img" href="/baiViet/chiTietBaiViet#!?maLoai={{i.MaDMC}}"><img src="{{iii.HinhAnh}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-category">
                                     <a href="category.html">{{iii.tendanhmuc}}, {{iii.tendanhmuccon}}</a>
@@ -216,12 +215,7 @@
             </div>
             <div class="col-md-4">
                 <!-- ad widget-->
-                <div class="aside-widget text-center">
-                    <a href="author.html" style="display: inline-block;margin: auto;">
-                        <img style="border-radius: 50%; margin: auto;" class="img-responsive" src="~/Assests/images/avt.jpg" alt="">
-                        <p> Góc nhỏ mày mò chia sẻ công thức nấu ăn, làm bánh, review đồ bếp. Chia sẻ tình yêu gia đình, bếp, vườn, chụp ảnh, du lịch...</p>
-                    </a>
-                </div>
+                @Html.Partial("_PartialAuthor")
                 <!-- /ad widget -->
                 <!-- social widget -->
                 @Html.Partial("_PartialTruyenThongXaHoi")
@@ -231,7 +225,6 @@
                 <!-- /newsletter widget -->
                 <!-- category widget -->
                 @Html.Partial("_PartialDanhMuc")
-
                 <!-- /category widget -->
                 <!-- post widget -->
                 @Html.Partial("_PartialBvNoiBat")

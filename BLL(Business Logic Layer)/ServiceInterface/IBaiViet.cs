@@ -13,6 +13,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         int Insert(baiViet bviet);
         int Delete(int bvietID);
         int Update(baiViet bviet);
+
         IList<baiViet> getBvTheoLoai(string maLoai);
         IList<baiViet> getPhanTrangBV(string maLoai,string pagesize);
         IList<baiViet> getBaiVietNoiBat();
@@ -25,5 +26,9 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         int getBaiViet_ID_Last();
         int checkBaiViet_ID(int bvietID);
         IList<baiViet> Search(string tenbaiviet);
+
+        //admin
+        IList<baiViet> getDSBV();
+
     }
 }

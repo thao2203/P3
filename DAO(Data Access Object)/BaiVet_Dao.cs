@@ -27,7 +27,7 @@ namespace DAO_Data_Access_Object_
                 bv.MaBL = dr[2].ToString();
                 bv.MaDMC = dr[9].ToString();
                 bv.TieuDe = dr[3].ToString();
-                bv.NoiDung = dr[4].ToString();
+                bv.NoiDungCon = dr[4].ToString();
                 bv.HinhAnh = dr[8].ToString();
                 bv.ThoiGianDang =DateTime.Parse(dr[5].ToString());
                 bv.TrangThai = dr[6].ToString();

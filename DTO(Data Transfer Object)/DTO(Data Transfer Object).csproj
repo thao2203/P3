@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="baiViet.cs" />
+    <Compile Include="ChiTietBaiViet.cs" />
     <Compile Include="danhmuc.cs" />
     <Compile Include="danhmuccon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

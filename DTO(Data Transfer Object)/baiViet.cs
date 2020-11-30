@@ -17,7 +17,7 @@ namespace DTO_Data_Transfer_Object_
         public string MaBL { get; set; }
         public string MaDMC { get; set; }
         public string TieuDe { get; set; }
-        public string NoiDung { get; set; }
+        public string NoiDungCon { get; set; }
         public string HinhAnh { get; set; }
         public string TrangThai { get; set; }
         public DateTime ThoiGianDang { get; set; }
@@ -35,6 +35,5 @@ namespace DTO_Data_Transfer_Object_
         public string noiDungTLBL { get; set; }
         public string hinhAnhCusTLBL { get; set; }
         public DateTime TgianTLBL { get; set; }
-
     }
 }

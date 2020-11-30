@@ -34,6 +34,7 @@ namespace BLL_Business_Logic_Layer_
         {
             return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai+ "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC ");
         }
+        
         public IList<baiViet> getThongTinBV()
         {
             return bv.getbaiviet("");
@@ -80,6 +81,9 @@ namespace BLL_Business_Logic_Layer_
             throw new NotImplementedException();
         }
 
-      
+        public IList<baiViet> getDSBV()
+        {
+            return bv.getbaiviet("SELECT * FROM BAIVIET");
+        }
     }
 }

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaiVet_Dao.cs" />
+    <Compile Include="ChiTietBaiViet_Dao.cs" />
     <Compile Include="DanhMucCon_Dao.cs" />
     <Compile Include="DanhMuc_Dao.cs" />
     <Compile Include="DataAccessHelper.cs" />

@@ -1,0 +1,15 @@
+﻿<!-- Aside Nav -->
+<div id="nav-aside" ng-controller="getMenu">
+    <ul class="nav-aside-menu" ng-repeat="item in menus">
+        <li class="has-dropdown">
+            <a>{{item.TenDM}}</a>
+            <ul class="dropdown">
+                <li ng-repeat="key in item.children">
+                    <a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a>
+                </li>                
+            </ul>
+        </li>
+    </ul>
+    <button class="nav-close nav-aside-close"><span></span></button>
+</div>
+<!-- /Aside Nav -->

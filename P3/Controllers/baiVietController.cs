@@ -64,11 +64,12 @@ namespace P3.Controllers
             return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
 
         }
-        public JsonResult getPhanTrangBV(string maLoai, string pagesize)
+        public JsonResult getphantrangBV(string maLoai, string pagesize)
         {
             return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
 
         }
+
         public ActionResult baiviettheoloai()
         {
             return View();

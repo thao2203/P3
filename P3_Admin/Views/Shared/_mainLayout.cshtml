@@ -1,13 +1,760 @@
-﻿<!DOCTYPE html>
-
-<html>
+﻿<html style="height: auto; min-height: 100%;">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE </title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/assets/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/assets/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/assets/dist/css/AdminLTE.min.css">
+    <script src="~/assets/js/angular.min.js"></script>
+    <script src="~/assets/js/MyAngularJS.js"></script>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/assets/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all"
+          rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function deleteRow(r) {
+            var i = confirm("Bạn có chắc chắn muốn xóa hay không?");
+            if (i == true) {
+                var i = r.parentNode.parentNode.rowIndex;
+                document.getElementById("example1").deleteRow(i);
+            }
+        }
+    </script>
+    <style>
+        table tr:not(:first-child) {
+            cursor: pointer;
+            transition: all .25s ease-in-out;
+        }
+
+            table tr:not(:first-child):hover {
+                background-color: #ddd;
+            }
+
+        #shoppingCart {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: none;
+            position: absolute;
+            z-index: 99;
+        }
+
+        .dangxuat1, .dangki1 {
+            top: 0;
+            left: 0;
+            height: 700px;
+            width: 100%;
+            display: none;
+            position: absolute;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .huong1 {
+            top: 0;
+            left: 0;
+            height: 700px;
+            width: 100%;
+            display: none;
+            position: absolute;
+            z-index: 9999;
+        }
+
+        #addRow1 {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: none;
+            position: absolute;
+            z-index: 99;
+        }
+
+        #cartItemsContainer, #cartItemsContainer1 {
+            position: relative;
+            left: 50%;
+            top: 110px;
+            margin-left: -300px;
+            padding: 40px;
+            box-shadow: 0 0 10px black;
+            background: #e9e9e9;
+            overflow: auto;
+        }
+
+        #cartItemsContainer {
+            width: 600px;
+            height: 600px;
+        }
+
+        #cartItemsContainer1 {
+            width: 360px;
+            background: #fff;
+        }
+
+        #cartItemsContainer2 {
+            background: #3c8dbc;
+            width: 300px;
+            position: relative;
+            left: 94%;
+            top: 51px;
+            margin-left: -288px;
+            padding: 10px;
+            overflow: auto;
+        }
+
+            #cartItemsContainer2 p {
+                padding-top: 10px;
+                color: #ffffffa8;
+                text-align: center;
+            }
+
+        #cartItemsContainer i {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .fas {
+            position: absolute;
+            padding-top: 10px;
+            color: #666;
+            margin-left: -24px;
+        }
+
+        .fab {
+            color: #3b5998;
+            font-size: 35px;
+            margin-top: -4px;
+            background: #ffffff;
+            margin-left: 0px;
+            height: 32px;
+            float: left;
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .far {
+            font-size: 20px;
+            float: right;
+            color: #d47979;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            max-width: 100%;
+            padding-top: 10px;
+            margin-bottom: 5px;
+            color: #043c65;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+
+        .form {
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        .dangnhap {
+            position: relative;
+            height: 35px;
+            border: 1px solid #1622b1;
+            color: #fff;
+            margin-top: -20px;
+            background-color: #3b5998;
+        }
+    </style>
+    <!-- /.box-header -->
+    <script type="text/javascript">
+        function huy() {
+            txtmabv.value = "";
+            txtmabl.value = "";
+            txtmadm.value = "";
+            txtmadmc.value = "";
+            txttk.value = "";
+            txttieude.value = "";
+            txttrangthai.value = "";
+            txtthoigian.value = "";
+            txtndnho.value = "";
+            txtanh.value = "";
+
+        }
+        function huy1() {
+            txtmabv1.value = "";
+            txtmabl1.value = "";
+            txtmadm1.value = "";
+            txtmadmc1.value = "";
+            txttk1.value = "";
+            txttieude1.value = "";
+            txttrangthai1.value = "";
+            txtthoigian1.value = "";
+            txtndnho1.value = "";
+            txtanh1.value = "";
+        }
+    </script>
 </head>
-<body>
-    <div>
-        @RenderBody()
+<body ng-app="MyAdminApp" class="skin-blue sidebar-mini" style="height: auto; min-height: 100%;">
+    <div class="wrapper" style="height: auto; min-height: 100%;">
+
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="../../index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>Y</b>MY</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Yum</b>MY</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Bạn có 4 tin nhắn</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <!-- start message -->
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Hỗ trợ khách hàng
+                                                    <small><i class="fa fa-clock-o"></i> 5 phút</small>
+                                                </h4>
+                                                <p>Nước hoa CoCo Chanel được tạo bởi thành?</p>
+                                            </a>
+                                        </li>
+                                        <!-- end message -->
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Phòng Marketing
+                                                    <small><i class="fa fa-clock-o"></i> 2 giờ</small>
+                                                </h4>
+                                                <p>Tổ chức sự kiện tri ân khách hàng</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Phòng nhân sự
+                                                    <small><i class="fa fa-clock-o"></i> Hôm nay</small>
+                                                </h4>
+                                                <p>Tuyển thêm nhân viên bán hàng sale</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Chủ kho
+                                                    <small><i class="fa fa-clock-o"></i> Hôm qua</small>
+                                                </h4>
+                                                <p>Sản phẩm sắp hết</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Giám đốc
+                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                                </h4>
+                                                <p>Báo cáo doanh thu</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">Xem tất cả tin nhắn</a></li>
+                            </ul>
+                        </li>
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">2</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Bạn có 2 thông báo</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 thành viên mới thanh gia hôm nay
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user text-red"></i> Bạn đã thay đổi tên người dúng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">Xem tất cả</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-danger">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Bạn có 1 nhiệm vụ</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <!-- Task item -->
+                                            <a href="#">
+                                                <h3>
+                                                    Hoàn thành thống kê sản phẩm
+                                                    <small class="pull-right">20%</small>
+                                                </h3>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        <span class="sr-only">20% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">Xem tất cả</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/assets/Anh/avt.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">Thảo Nguyễn</span>
+                            </a>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="huong1">
+                    <div id="cartItemsContainer2">
+                        <i class="far fa-times-circle close2" aria-hidden="true" style="color: #f1ea0c;"></i>
+                        <div class="anh">
+                            <img src="~/assets/Anh/avt.jpg" style="width: 100px;
+                  height: 100px;
+                  border-radius: 50%;
+                  margin-left: 92px;
+                  border: 3px solid #1e71a0;">
+                        </div>
+                        <p>Nguyễn Thị Thảo - Web Developer</p>
+                        <p style="margin-top: -20px;">22, T03, 2000</p>
+                        <i class="fas fa-power-off" style="margin-left: 203px;
+                  margin-top: 4px;
+                  color: #fff;"></i><p style="float: right;
+                  font-family: sans-serif;
+                  color: #fff;
+                  font-size: 13px;
+                  border-bottom: 2px solid;">Đăng xuất</p>
+                    </div>
+                </div>
+                <script>
+                    $('.user-image').click(function () {
+                        $('.huong1').toggle();
+                    });
+                </script>
+                <div class="dangxuat1">
+                    <div id="cartItemsContainer1">
+                        <i class="far fa-times-circle close1" aria-hidden="true"></i>
+                        <p style=" text-align: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #138c70;">Đăng nhập tài khoản</p>
+                        <input type="text" name="" placeholder="Email" class="form"><i class="fas fa-envelope"></i>
+                        <input type="password" name="" placeholder="Mật khẩu" class="form"><i class="fas fa-lock"></i>
+                        <input type="checkbox" name="" style="width: 22px;
+            height: 22px;
+            border:none;float: left;margin-right: 4px;"><p style="float: left;
+            padding-top: 5px;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: #666;">Nhớ mật khẩu</p>
+                        <button type="submit" style="height: 35px;
+            background: #3c8dbc;
+            border: none;
+            font-family: sans-serif;
+            color: #fff;
+            margin-left: 84px;
+            margin-top: -5px;">
+                            Đăng nhập
+                        </button>
+                        <p style="line-height: 4.2;
+            color: #666;">- OR -</p>
+                        <div class="dangnhap">
+                            <a href="#" class="dangnhap1">
+                                <i class="fab fa-facebook-f"></i><p style="color: #fff;
+                padding-top: 9px;
+                font-family: sans-serif;
+                font-size: 12px;"> Đăng nhập bằng Facebook</p>
+                            </a>
+                        </div>
+                        <div class="dangnhap" style="margin-top: 10px;
+            background: #dd4b39;
+            border: 1px solid #dd4b39">
+                            <a href="#" class="dangnhap1">
+                                <i class="fab fa-google-plus-g" style="background: #dd4b39;
+            color: #fff;
+            font-size: 23px;
+            margin-top: 4px;
+            height: 30px;"></i><p style="color: #fff;
+            padding-top: 9px;
+            font-family: sans-serif;
+            font-size: 12px;">
+                                    Đăng nhập bằng Google
+                                    +
+                                </p>
+                            </a>
+                        </div>
+                        <a href="#">
+                            <p style="margin-top: 10px;
+    color: #3c8dbc;
+    font-size: 14px;">Bạn quên mật khẩu ?</p>
+                        </a>
+                        <a href="#" class="dangki">
+                            <p style="margin-top: -10px;
+    margin-bottom: -20px;
+    color: #3c8dbc;
+    font-size: 14px;">Đăng ký thành viên mới</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="dangki1">
+                    <div id="cartItemsContainer1">
+                        <p style=" text-align: center;
+   font-family: sans-serif;
+   font-size: 20px;
+   margin-bottom: 20px;
+   color: #138c70;">Đăng ký tài khoản</p>
+                        <input type="text" name="" placeholder="Họ" class="form"><i class="fas fa-user-alt"></i>
+                        <input type="text" name="" placeholder="Tên" class="form"><i class="fas fa-user-alt"></i>
+                        <input type="text" name="" placeholder="Email" class="form"><i class="fas fa-envelope"></i>
+                        <input type="password" name="" placeholder="Mật khẩu" class="form"><i class="fas fa-lock"></i>
+                        <input type="password" name="" placeholder="Nhập lại mật khẩu" class="form"><i class="fas fa-sign-in-alt"></i>
+                        <input type="checkbox" name="" style="width: 22px;
+   height: 22px;
+   border:none;float: left;margin-right: 4px;"><p style="float: left;
+   padding-top: 5px;
+   font-family: sans-serif;
+   font-size: 14px;
+   color: #666;">Tôi đồng ý điều khoản trên</p>
+                        <button type="submit" style="height: 35px;
+   background: #3c8dbc;
+   border: none;
+   font-family: sans-serif;
+   color: #fff;
+   margin-left: 25px;">
+                            Đăng Kí
+                        </button>
+                        <p style="line-height: 4.2;
+   color: #666;
+   margin-left: 124px;">- OR -</p>
+                        <div class="dangnhap">
+                            <a href="#" class="">
+                                <i class="fab fa-facebook-f"></i><p style="color: #fff;
+    padding-top: 9px;
+    font-family: sans-serif;
+    font-size: 12px;"> Đăng nhập bằng Facebook</p>
+                            </a>
+                        </div>
+                        <div class="dangnhap" style="margin-top: 10px;
+background: #dd4b39;
+border: 1px solid #dd4b39">
+                            <a href="#" class="">
+                                <i class="fab fa-google-plus-g" style="background: #dd4b39;
+color: #fff;
+font-size: 23px;
+margin-top: 4px;
+height: 30px;"></i><p style="color: #fff;
+padding-top: 9px;
+font-family: sans-serif;
+font-size: 12px;">
+                                    Đăng nhập bằng Google
+                                    +
+                                </p>
+                            </a>
+                        </div>
+                        <p style="margin-top: 10px;
+color: #0c2635;
+font-size: 14px;
+float: left;" class="close">Bạn đã có tài khoản ?</p>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $('.close').click(function () {
+                        $('.dangki1').toggle();
+                    });
+                </script>
+                <script type="text/javascript">
+                    $('.close1').click(function () {
+                        $('.dangxuat1').toggle();
+                    });
+                </script>
+                <script type="text/javascript">
+                    $('.close2').click(function () {
+                        $('.huong1').toggle();
+                    });
+                </script>
+                <script>
+
+                    $('.fas').click(function () {
+                        $('.dangxuat1').toggle();
+                    });
+                </script>
+                <script>
+
+                    $('.dangki').click(function () {
+                        $('.dangki1').toggle();
+                    });
+                </script>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/assets/Anh/avt.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>Thảo Nguyễn</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Tìm kiếm...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">Thanh điều hướng chính</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-files-o"></i>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Quản lý sản phẩm</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dssp.html"><i class="fa fa-circle-o"></i> Danh sách sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Quản lý loại sản phẩm</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dslsp.html"><i class="fa fa-circle-o"></i>Danh sách loại sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Quản lý đơn hàng</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dsdh.html"><i class="fa fa-circle-o"></i> Danh sách đơn hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Quản lý bán hàng</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dshdxuat.html"><i class="fa fa-circle-o"></i> Danh sách hóa đơn xuất</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i> <span>Quản lý nhập hàng</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dshdnhap.html"><i class="fa fa-circle-o"></i> Danh sách hóa đơn nhập</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i> <span>Quản lý khách hàng</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dskh.html"><i class="fa fa-circle-o"></i> Danh sách khách hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Quản lý nhà cung cấp</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dsncc.html"><i class="fa fa-circle-o"></i> Danh sách nhà cung cấp</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Quản lý mẹo vặt</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="dsmeovat.html"><i class="fa fa-circle-o"></i> Danh sách mẹo vặt</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+       @RenderBody()
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.4.0
+            </div>
+            <strong>Copyright © 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+            reserved.
+        </footer>
+        <!-- DataTables -->
+        <script src="~/assets/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="~/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="~/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="~/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="~/assets/bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/assets/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="~/assets/dist/js/demo.js"></script>
+        <!-- page script -->
+        <script>
+
+            $(function () {
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': false,
+                    'searching': false,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+            })
+        </script>
+
+
     </div>
-</body>
+        </body>
 </html>

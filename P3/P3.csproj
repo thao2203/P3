@@ -184,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\baiVietController.cs" />
     <Compile Include="Controllers\categoryController.cs" />
+    <Compile Include="Controllers\chiTietBaiVietController.cs" />
     <Compile Include="Controllers\DanhMucConController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,6 +216,8 @@
     <Content Include="Views\Shared\_PartialBvNoiBat.cshtml" />
     <Content Include="Views\Shared\_PartialTruyenThongXaHoi.cshtml" />
     <Content Include="Views\baiViet\search.cshtml" />
+    <Content Include="Views\Shared\_PartialAuthor.cshtml" />
+    <Content Include="Views\Shared\_PartialVerticalMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,6 +229,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\category\" />
+    <Folder Include="Views\chiTietBaiViet\" />
     <Folder Include="Views\DanhMucCon\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewBag.Title = "danhSachBaiViet";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="min-height: 916px;">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- /.box -->
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title" style="font-size: 25px;font-family: sans-serif;font-weight: bold;">Bài viết</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <button type="submit" class="addRow" value="Thêm Bài viết" style="margin-left: 910px;width: 168px;font-family: sans-serif;font-size: 16px;color: #fff;font-weight: 700;height: 35px;border: 3px solid #d8d450;background: #1ca8d2;padding: 4px;"><p>Thêm Bài viết</p></button>
+                    <div id="shoppingCart">
+                        <div id="cartItemsContainer">
+                            <p style="color: #212b35;
+                        font-size: 25px;
+                        font-family: sans-serif;
+                        font-weight: bold;">Sửa Bài viết</p>
+                            <i class="fa fa-times-circle-o fa-3x openCloseCart" aria-hidden="true" style="color: #0d71ec;font-size: 30px;"></i>
+                            <div class="tt" style="background: #fff;padding: 10px;height: 772px;">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bài viết</font></label>
+                                <input type="text" class="form-control" name="mabv" id="txtmabv" placeholder="Nhập mã bài viết">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bình luận</font></label>
+                                <input type="text" class="form-control" name="mabl" id="txtmabl" placeholder="Nhập mã bình luận">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục</font></label>
+                                <input type="text" class="form-control" name="madm" id="txtmadm" placeholder="Nhập mã danh mục">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục con</font></label>
+                                <input type="text" class="form-control" name="madmc" id="txtmadmc" placeholder="Nhập mã danh mục con">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tài khoản</font></label>
+                                <input type="text" class="form-control" name="tk" id="txttk" placeholder="Nhập tài khoản">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tiêu đề</font></label>
+                                <input type="text" class="form-control" name="matieude" id="txttieude" placeholder="Nhập tiêu đề">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Trạng thái</font></label>
+                                <input type="text" class="form-control" name="trangthai" id="txttrangthai" placeholder="Nhập trạng thái">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Thời gian</font></label>
+                                <input type="text" class="form-control" name="thoigian" id="txtthoigian" placeholder="Nhập thời gian">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Nội dung nhỏ</font></label>
+                                <input type="text" class="form-control" name="ndnho" id="txtndnho" placeholder="Nhập nội dung nhỏ">
+                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
+                                <input type="file" class="form-control" name="anh" id="txtanh">
+                                <button onclick="editRow();" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Sửa Bài viết</button><br><br>
+                                <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: -15px;border-radius: 3px;" onclick="huy();"><font style="vertical-align: inherit;">Hủy</font></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="addRow1">
+                        <div id="cartItemsContainer">
+                            <p style="color: #212b35;
+                    font-size: 25px;
+                    font-family: sans-serif;
+                    font-weight: bold;">Thêm Bài viết</p>
+                            <i class="fa fa-times-circle-o fa-3x addRow" aria-hidden="true" style="color: #0d71ec;font-size: 30px;"></i>
+                            <div class="tt"></div>
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bài viết</font></label>
+                            <input type="text" class="form-control" name="mabv" id="txtmabv1" placeholder="Nhập mã bài viết">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bình luận</font></label>
+                            <input type="text" class="form-control" name="mabl" id="txtmabl1" placeholder="Nhập mã bình luận">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục</font></label>
+                            <input type="text" class="form-control" name="madm" id="txtmadm1" placeholder="Nhập mã danh mục">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục con</font></label>
+                            <input type="text" class="form-control" name="madmc" id="txtmadmc1" placeholder="Nhập mã danh mục con">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tài khoản</font></label>
+                            <input type="text" class="form-control" name="tk" id="txttk1" placeholder="Nhập tài khoản">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tiêu đề</font></label>
+                            <input type="text" class="form-control" name="matieude" id="txttieude1" placeholder="Nhập tiêu đề">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Trạng thái</font></label>
+                            <input type="text" class="form-control" name="trangthai" id="txttrangthai1" placeholder="Nhập trạng thái">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Thời gian</font></label>
+                            <input type="text" class="form-control" name="thoigian" id="txtthoigian1" placeholder="Nhập thời gian">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Nội dung nhỏ</font></label>
+                            <input type="text" class="form-control" name="ndnho" id="txtndnho1" placeholder="Nhập nội dung nhỏ">
+                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
+                            <input type="file" class="form-control" name="ten" id="txtanh1">
+                            <button onclick="addRow();" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Thêm Bài viết</button>
+                            <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: 25px;border-radius: 3px;" onclick="huy1();"><font style="vertical-align: inherit;">Hủy</font></button>
+
+
+                        </div>
+                    </div>
+
+                    <div class="box-body">
+                        <table class="table table-bordered table-striped" id="example1" style="font-size: 11px">
+                            <thead>
+                                <tr>
+
+                                    <th>Mã BV</th>
+                                    <th>Mã BL</th>
+                                    <th>MÃ DM</th>
+                                    <th>MÃ DMC</th>
+                                    <th>Tài khoản</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thời gian</th>
+                                    <th>ND nhỏ</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: #169dab;" ng-controller="dsBaiVietPost">
+                                <tr ng-repeat="items in listDsBV">
+                                    <td>{{items.maBV}}</td>
+                                    <td>{{items.maBL}}</td>
+                                    <td>{{items.maDM}}</td>
+                                    <td>{{items.maDMC}}</td>
+                                    <td>{{items.TaiKhoanUS}}</td>
+                                    <td>{{items.TieuDe}}</td>
+                                    <td>{{items.TrangThai}}</td>
+                                    <td>{{items.ThoiGianDang}}</td>
+                                    <td>{{items.TieuDe}}</td>
+                                    <td><img style="width:50px; height: 50px" src="{{items.HinhAnh}}"></td>
+                                    <td>
+                                        <button type="submit" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">
+                                            <font style="vertical-align: inherit;">Sửa</font>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <input type="button" value="Xóa" onclick="deleteRow(this)" style="width: 45px; height: 40px;margin-left: 12px; background: #ff0000bd;color: #fff;font-weight: 700;vertical-align: inherit;">
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <script>
+
+                            $('.openCloseCart').click(function () {
+                                $('#shoppingCart').toggle();
+                            });
+                        </script>
+                        <script>
+
+                            // get selected row
+                            // display selected row data in text input
+
+                            var table = document.getElementById("example1"), rIndex;
+
+                            for (var i = 1; i < table.rows.length; i++) {
+                                table.rows[i].onclick = function () {
+                                    rIndex = this.rowIndex;
+                                    console.log(rIndex);
+
+                                    document.getElementById("txtmabv").value = this.cells[0].innerHTML;
+                                    document.getElementById("txtmabl").value = this.cells[1].innerHTML;
+                                    document.getElementById("txtmadm").value = this.cells[2].innerHTML;
+                                    document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
+                                    document.getElementById("txttk").value = this.cells[4].innerHTML;
+                                    document.getElementById("txttieude").value = this.cells[5].innerHTML;
+                                    document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
+                                    document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
+                                    document.getElementById("txtndnho").value = this.cells[8].innerHTML;
+                                    document.getElementById("txtanh").value = this.cells[9].innerHTML;
+                                };
+                            }
+
+                            // edit the row
+                            function editRow() {
+                                table.rows[rIndex].cells[0].innerHTML = document.getElementById("txtmabv").value;
+                                table.rows[rIndex].cells[1].innerHTML = document.getElementById("txtmabl").value;
+                                table.rows[rIndex].cells[2].innerHTML = document.getElementById("txtmadm").value;
+                                table.rows[rIndex].cells[3].innerHTML = document.getElementById("txtmadmc").value;
+                                table.rows[rIndex].cells[4].innerHTML = document.getElementById("txttk").value;
+                                table.rows[rIndex].cells[5].innerHTML = document.getElementById("txttieude").value;
+                                table.rows[rIndex].cells[6].innerHTML = document.getElementById("txttrangthai").value;
+                                table.rows[rIndex].cells[7].innerHTML = document.getElementById("txtthoigian").value;
+                                table.rows[rIndex].cells[8].innerHTML = document.getElementById("txtndnho").value;
+                                table.rows[rIndex].cells[9].innerHTML = document.getElementById("txtanh").value;
+
+                            }
+                        </script>
+                        <script>
+
+                            $('.addRow').click(function () {
+                                $('#addRow1').toggle();
+                            });
+                        </script>
+                        <script>
+
+                            function addRow() {
+
+
+                                var mabv = document.getElementById('txtmabv1').value;
+                                var mabl = document.getElementById('txtmabl1').value;
+                                var madm = document.getElementById('txtmadm1').value;
+                                var madmc = document.getElementById('txtmadmc1').value;
+                                var tk = document.getElementById('txttk1').value;
+                                var tieude = document.getElementById('txttieude1').value;
+                                var trangthai = document.getElementById('txttrangthai1').value;
+                                var thoigian = document.getElementById('txtthoigian1').value;
+                                var ndnho = document.getElementById('txtndnho1').value;
+                                var anh = document.getElementById('txtanh1').value;
+                                // get the html table
+                                // 0 = the first table
+                                var table = document.getElementsByTagName('table')[0];
+
+                                // add new empty row to the table
+                                // 0 = in the top
+                                // table.rows.length = the end
+                                // table.rows.length/2+1 = the center
+                                var newRow = table.insertRow(table.rows.length);
+
+                                // add cells to the row
+                                var cel1 = newRow.insertCell(0);
+                                var cel2 = newRow.insertCell(1);
+                                var cel3 = newRow.insertCell(2);
+                                var cel4 = newRow.insertCell(3);
+                                var cel5 = newRow.insertCell(4);
+                                var cel6 = newRow.insertCell(5);
+                                var cel7 = newRow.insertCell(6);
+                                var cel8 = newRow.insertCell(7);
+                                var cel9 = newRow.insertCell(8);
+                                var cel10 = newRow.insertCell(9);
+                                var cel11 = newRow.insertCell(10);
+                                var cel12 = newRow.insertCell(11);
+
+                                // add values to the cells
+                                cel1.innerHTML = mabv;
+                                cel2.innerHTML = mabl;
+                                cel3.innerHTML = madm;
+                                cel4.innerHTML = madmc;
+                                cel5.innerHTML = tk;
+                                cel6.innerHTML = tieude;
+                                cel7.innerHTML = trangthai;
+                                cel8.innerHTML = thoigian;
+                                cel9.innerHTML = ndnho;
+                                cel10.innerHTML = anh;
+                                cel11.innerHTML = '<input type="button" value="Sửa" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">';
+                                cel12.innerHTML = '<input type="button" value="Xóa" onclick="deleteRow(this)"  style="width: 45px; height: 40px;margin-left: 12px; background: #ff0000bd;color: #fff;font-weight: 700;vertical-align: inherit;">';
+                            }
+                        </script>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
