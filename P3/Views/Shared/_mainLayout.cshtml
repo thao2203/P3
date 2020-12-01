@@ -58,58 +58,58 @@
                         <button class="search-btn"><i class="fa fa-search"></i></button>
                         <div id="nav-search">
                             <form ng-controller="searchbar">
-                                <input ng-model="searchvalue" class="input" name="search" placeholder="Tìm kiếm...">
-                                <button ng-click="search()">?</button>
+                                <input ng-model="searchvalue" class="input" name="search" placeholder="Nhập từ khoá tìm kiếm...">
+                                <button style="width: 100%; background-color: #e8eaed;" ng-click="search()">?</button>
                             </form>
-                            <button class="nav-close search-close">
-                                <span></span>
-                            </button>
-                        </div>
+                        <button class="nav-close search-close">
+                            <span></span>
+                        </button>
                     </div>
-                    <!-- /search & aside toggle -->
                 </div>
+                <!-- /search & aside toggle -->
             </div>
-            <!-- /Top Nav -->
-            <!-- Main Nav -->
-            @Html.Partial("_PartialNavMenu")
-            <!-- /Main Nav -->
-            <!-- Aside Nav -->
-            @*@Html.Partial("_PartialVerticalMenu")*@
-            @*<div id="nav-aside">
-                <ul class="nav-aside-menu">
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li class="has-dropdown">
-                        <a>Công thức</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Bánh mì</a></li>
-                            <li><a href="/baiViet/baiviettheoloai#!?maLoai=dmc02">Bánh Ngọt</a></li>
-                            <li><a href="#">Đồ uống</a></li>
-                            <li><a href="#">Món Khai vị</a></li>
-                            <li><a href="#">MÓn chính</a></li>
-                            <li><a href="#">Món phụ</a></li>
-                            <li><a href="#">MÓn tráng miệng</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">Về chúng tôi</a></li>
-                    <li><a href="contact.html">Liên lạc</a></li>
-                </ul>
-                <button class="nav-close nav-aside-close"><span></span></button>
-            </div>*@
-            <div id="nav-aside" ng-controller="getMenu">
-                <ul class="nav-aside-menu" >
-                    <li class="has-dropdown" ng-repeat="item in menus">
-                        <a>{{item.TenDM}}</a>
-                        <ul class="dropdown">
-                            <li ng-repeat="key in item.children">
-                                <a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <button class="nav-close nav-aside-close"><span></span></button>
-            </div>
-            <!-- /Aside Nav -->
         </div>
+        <!-- /Top Nav -->
+        <!-- Main Nav -->
+        @Html.Partial("_PartialNavMenu")
+        <!-- /Main Nav -->
+        <!-- Aside Nav -->
+        @*@Html.Partial("_PartialVerticalMenu")*@
+                            @*<div id="nav-aside">
+        <ul class="nav-aside-menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="has-dropdown">
+                <a>Công thức</a>
+                <ul class="dropdown">
+                    <li><a href="#">Bánh mì</a></li>
+                    <li><a href="/baiViet/baiviettheoloai#!?maLoai=dmc02">Bánh Ngọt</a></li>
+                    <li><a href="#">Đồ uống</a></li>
+                    <li><a href="#">Món Khai vị</a></li>
+                    <li><a href="#">MÓn chính</a></li>
+                    <li><a href="#">Món phụ</a></li>
+                    <li><a href="#">MÓn tráng miệng</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">Về chúng tôi</a></li>
+            <li><a href="contact.html">Liên lạc</a></li>
+        </ul>
+        <button class="nav-close nav-aside-close"><span></span></button>
+    </div>*@
+                            <div id="nav-aside" ng-controller="getMenu">
+                                <ul class="nav-aside-menu">
+                                    <li class="has-dropdown" ng-repeat="item in menus">
+                                        <a>{{item.TenDM}}</a>
+                                        <ul class="dropdown">
+                                            <li ng-repeat="key in item.children">
+                                                <a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <button class="nav-close nav-aside-close"><span></span></button>
+                            </div>
+                            <!-- /Aside Nav -->
+</div>
         <!-- /NAV -->
     </header>
     <!-- /HEADER -->
@@ -164,6 +164,7 @@
                         </div>
                     </div>
                 </div> -->
+                
                 <div class="col-md-4">
                     <div class="footer-widget">
                         <h3 class="footer-title">LIÊN HỆ VỚI TÔI</h3>

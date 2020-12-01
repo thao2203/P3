@@ -49,7 +49,7 @@
                                 <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
                                 <input type="file" class="form-control" name="anh" id="txtanh">
                                 <button onclick="editRow();" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Sửa Bài viết</button><br><br>
-                                <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: -15px;border-radius: 3px;" onclick="huy();"><font style="vertical-align: inherit;">Hủy</font></button>
+                                <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: -15px;border-radius: 3px;" onclick=""><font style="vertical-align: inherit;">Hủy</font></button>
                             </div>
                         </div>
                     </div>
@@ -81,8 +81,8 @@
                             <input type="text" class="form-control" name="ndnho" id="txtndnho1" placeholder="Nhập nội dung nhỏ">
                             <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
                             <input type="file" class="form-control" name="ten" id="txtanh1">
-                            <button onclick="addRow();" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Thêm Bài viết</button>
-                            <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: 25px;border-radius: 3px;" onclick="huy1();"><font style="vertical-align: inherit;">Hủy</font></button>
+                            <button onclick="" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Thêm Bài viết</button>
+                            <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: 25px;border-radius: 3px;" onclick=""><font style="vertical-align: inherit;">Hủy</font></button>
 
 
                         </div>
@@ -107,20 +107,23 @@
                                     <th>Xóa</th>
                                 </tr>
                             </thead>
+                           
                             <tbody style="color: #169dab;" ng-controller="dsBaiVietPost">
                                 <tr ng-repeat="items in listDsBV">
-                                    <td>{{items.maBV}}</td>
-                                    <td>{{items.maBL}}</td>
-                                    <td>{{items.maDM}}</td>
-                                    <td>{{items.maDMC}}</td>
+                                    <td class="mabv">{{items.MaBV}}</td>
+                                    <td >{{items.MaBL}}</td>
+                                    <td>{{items.MaDM}}</td>
+                                    <td>{{items.MaDMC}}</td>
                                     <td>{{items.TaiKhoanUS}}</td>
                                     <td>{{items.TieuDe}}</td>
                                     <td>{{items.TrangThai}}</td>
-                                    <td>{{items.ThoiGianDang}}</td>
-                                    <td>{{items.TieuDe}}</td>
+                                    <td>
+                                        {{items.ThoiGianDang | filterdate | date:'dd-MM-yyyy'}}</td>
+                                    <td>{{items.TieuDe}}
+                                    </td>
                                     <td><img style="width:50px; height: 50px" src="{{items.HinhAnh}}"></td>
                                     <td>
-                                        <button type="submit" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">
+                                        <button onclick="openpopup($(this))"  type="submit" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">
                                             <font style="vertical-align: inherit;">Sửa</font>
                                         </button>
                                     </td>
@@ -133,34 +136,52 @@
                         </table>
                         <script>
 
-                            $('.openCloseCart').click(function () {
+                            //$('.openCloseCart').click(function () {
+                            //    $('#shoppingCart').toggle();
+                            //});
+
+                            function openpopup(elm) {
+                                var par = elm.parents().parents();
+                                console.log(par)
+                                
+
+
+
+                                document.getElementById("txtmabv").value = par.find(".mabv").html()
+                                //document.getElementById("txtmabl").value = this.cells[1].innerHTML;
+                                //document.getElementById("txtmadm").value = this.cells[2].innerHTML;
+                                //document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
+                                //document.getElementById("txttk").value = this.cells[4].innerHTML;
+                                //document.getElementById("txttieude").value = this.cells[5].innerHTML;
+                                //document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
+                                //document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
+                                //document.getElementById("txtndnho").value = this.cells[8].innerHTML;
+                                //document.getElementById("txtanh").value = this.cells[9].innerHTML;
                                 $('#shoppingCart').toggle();
-                            });
-                        </script>
-                        <script>
+                            }
 
                             // get selected row
                             // display selected row data in text input
 
                             var table = document.getElementById("example1"), rIndex;
 
-                            for (var i = 1; i < table.rows.length; i++) {
-                                table.rows[i].onclick = function () {
-                                    rIndex = this.rowIndex;
-                                    console.log(rIndex);
+                            //for (var i = 1; i < table.rows.length; i++) {
+                            //    table.rows[i].onclick = function () {
+                            //        rIndex = this.rowIndex;
+                            //        console.log(rIndex);
 
-                                    document.getElementById("txtmabv").value = this.cells[0].innerHTML;
-                                    document.getElementById("txtmabl").value = this.cells[1].innerHTML;
-                                    document.getElementById("txtmadm").value = this.cells[2].innerHTML;
-                                    document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
-                                    document.getElementById("txttk").value = this.cells[4].innerHTML;
-                                    document.getElementById("txttieude").value = this.cells[5].innerHTML;
-                                    document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
-                                    document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
-                                    document.getElementById("txtndnho").value = this.cells[8].innerHTML;
-                                    document.getElementById("txtanh").value = this.cells[9].innerHTML;
-                                };
-                            }
+                            //        document.getElementById("txtmabv").value = this.cells[0].innerHTML;
+                            //        document.getElementById("txtmabl").value = this.cells[1].innerHTML;
+                            //        document.getElementById("txtmadm").value = this.cells[2].innerHTML;
+                            //        document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
+                            //        document.getElementById("txttk").value = this.cells[4].innerHTML;
+                            //        document.getElementById("txttieude").value = this.cells[5].innerHTML;
+                            //        document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
+                            //        document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
+                            //        document.getElementById("txtndnho").value = this.cells[8].innerHTML;
+                            //        document.getElementById("txtanh").value = this.cells[9].innerHTML;
+                            //    };
+                            //}
 
                             // edit the row
                             function editRow() {
@@ -233,7 +254,7 @@
                                 cel8.innerHTML = thoigian;
                                 cel9.innerHTML = ndnho;
                                 cel10.innerHTML = anh;
-                                cel11.innerHTML = '<input type="button" value="Sửa" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">';
+                                cel11.innerHTML = '<input type="button" onclick="openpopup(this)" value="Sửa" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">';
                                 cel12.innerHTML = '<input type="button" value="Xóa" onclick="deleteRow(this)"  style="width: 45px; height: 40px;margin-left: 12px; background: #ff0000bd;color: #fff;font-weight: 700;vertical-align: inherit;">';
                             }
                         </script>

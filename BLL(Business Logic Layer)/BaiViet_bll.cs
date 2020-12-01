@@ -83,7 +83,7 @@ namespace BLL_Business_Logic_Layer_
 
         public IList<baiViet> getDSBV()
         {
-            return bv.getbaiviet("SELECT * FROM BAIVIET");
+            return bv.getbaiviet("Select BV.*, US.tenUser, dm.tenDM, dmc.tenDMC From dbo.BAIVIET BV Left join dbo.US US On BV.taiKhoanUs = US.taiKhoanUs left join dbo.DANHMUC DM ON BV.maDM = DM.maDM left join dbo.DANHMUCCON DMC ON BV.maDMC = DMC.maDMC");
         }
     }
 }

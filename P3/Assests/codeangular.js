@@ -253,12 +253,13 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
         url: '/chiTietBaiViet/getChiTietBaiViet?maBV=' + maBV,
 
     }).then(function successCallback(res) {
+        $scope.tenDM = res.data[0].tenDM;
         $scope.tenDMC = res.data[0].tenDMC;
         $scope.tieuDe = res.data[0].tieuDe;
         $scope.tacGia = res.data[0].tacGia;
         $scope.thoiGian = res.data[0].thoiGian;
         $scope.luotXem = res.data[0].luotXem;
-        $scope.tieuDeTiep = res.data[0].tieuDe
+        $scope.tieuDeTiep = res.data[0].tieuDe;
         $scope.noiDung1 = res.data[0].noiDung1;
         $scope.hinhAnh1 = res.data[0].hinhAnh1;
         $scope.noiDung2 = res.data[0].noiDung2;

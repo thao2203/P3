@@ -11,6 +11,7 @@ namespace DTO_Data_Transfer_Object_
         public string maCTBV { get; set; }
         public string maBV { get; set; }
         public string maBL { get; set; }
+        public string tenDM { get; set; }
         public string tenDMC { get; set; }
         public string tieuDe { get; set; }
         public string tacGia { get; set; }

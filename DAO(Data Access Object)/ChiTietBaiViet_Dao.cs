@@ -19,20 +19,21 @@ namespace DAO_Data_Access_Object_
             {
                 ChiTietBaiViet bv = new ChiTietBaiViet();
                 bv.maCTBV= dr[0].ToString();
-                bv.tenDMC = dr[1].ToString();
-                bv.tieuDe = dr[2].ToString();
-                bv.tacGia = dr[3].ToString();
-                bv.thoiGian = DateTime.Parse(dr[4].ToString());
-                bv.luotXem = Convert.ToInt32(dr[5]);
-                bv.noiDung1 = dr[6].ToString();
-                bv.noiDung2 = dr[7].ToString();
-                bv.noiDung3 = dr[8].ToString();
-                bv.hinhAnh1 = dr[9].ToString();
-                bv.hinhAnh2 = dr[10].ToString();
-                bv.hinhAnh3 = dr[11].ToString();
-                bv.nguoiBL = dr[12].ToString();
-                bv.thoiGianBL = DateTime.Parse(dr[13].ToString());
-                bv.noiDungBL = dr[14].ToString();
+                bv.tenDM = dr[1].ToString();
+                bv.tenDMC = dr[2].ToString();
+                bv.tieuDe = dr[3].ToString();
+                bv.tacGia = dr[4].ToString();
+                bv.thoiGian = DateTime.Parse(dr[5].ToString());
+                bv.luotXem = Convert.ToInt32(dr[6]);
+                bv.noiDung1 = dr[7].ToString();
+                bv.noiDung2 = dr[8].ToString();
+                bv.noiDung3 = dr[9].ToString();
+                bv.hinhAnh1 = dr[10].ToString();
+                bv.hinhAnh2 = dr[11].ToString();
+                bv.hinhAnh3 = dr[12].ToString();
+                bv.nguoiBL = dr[13].ToString();
+                bv.thoiGianBL = DateTime.Parse(dr[14].ToString());
+                bv.noiDungBL = dr[15].ToString();
 
                 li.Add(bv);
             }
