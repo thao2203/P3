@@ -16,11 +16,10 @@ namespace DTO_Data_Transfer_Object_
         public string tieuDe { get; set; }
         public string tacGia { get; set; }
         public string nguoiBL { get; set; }
-
         public DateTime thoiGian { get; set; }
+        public int luotXem { get; set; }
         public DateTime thoiGianBL { get; set; }
         public string noiDungBL { get; set; }
-        public int luotXem { get; set; }
         public string noiDung1 { get; set; }
         public string noiDung2 { get; set; }
         public string noiDung3 { get; set; }

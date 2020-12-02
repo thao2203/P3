@@ -1,5 +1,72 @@
 ﻿var app = angular.module("myApp", []);
 //console.clear();
+
+//Slide Post
+app.controller("YmmyPost", function ($scope, $http) {
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietyummy' 
+
+    }).then(function successCallback(res) {
+        $scope.HinhAnh = res.data[0].HinhAnh;
+        $scope.tendanhmuc = res.data[0].tendanhmuc;
+        $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.TieuDe = res.data[0].TieuDe;
+        $scope.tacgia = res.data[0].tacgia;
+        $scope.ThoiGianDang = res.data[0].ThoiGianDang;
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+app.controller("YmmyPost2", function ($scope, $http) {
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietyummy2'
+
+    }).then(function successCallback(res) {
+        $scope.HinhAnh = res.data[0].HinhAnh;
+        $scope.tendanhmuc = res.data[0].tendanhmuc;
+        $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.TieuDe = res.data[0].TieuDe;
+        $scope.tacgia = res.data[0].tacgia;
+        $scope.ThoiGianDang = res.data[0].ThoiGianDang;
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+
+app.controller("YmmyPost3", function ($scope, $http) {
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietyummy3'
+
+    }).then(function successCallback(res) {
+        $scope.HinhAnh = res.data[0].HinhAnh;
+        $scope.tendanhmuc = res.data[0].tendanhmuc;
+        $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.TieuDe = res.data[0].TieuDe;
+        $scope.tacgia = res.data[0].tacgia;
+        $scope.ThoiGianDang = res.data[0].ThoiGianDang;
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+//end Slide Post
 app.controller("hotPost", function ($scope, $http) {
 
     $http({
@@ -91,6 +158,97 @@ app.controller("NoiBatpost", function ($scope, $http) {
 
     })
 });
+//////////////////////////////////////////
+app.controller("NgauNhienPost", function ($scope, $http) {
+
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietngaunhien'
+    }).then(function successCallback(res) {
+
+        $scope.listNgauNhien = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        //console.log($scope.listNgauNhien);
+
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+app.controller("NgauNhienPost1", function ($scope, $http) {
+
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietngaunhien1'
+    }).then(function successCallback(res) {
+
+        $scope.listNgauNhien1 = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        //console.log($scope.listNgauNhien);
+
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+app.controller("NgauNhienPost2", function ($scope, $http) {
+
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietngaunhien2'
+    }).then(function successCallback(res) {
+
+        $scope.listNgauNhien2 = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        //console.log($scope.listNgauNhien);
+
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+app.controller("NgauNhienPost3", function ($scope, $http) {
+    $scope.pagesize = 3;
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietngaunhien3'
+    }).then(function successCallback(res) {
+
+        $scope.listNgauNhien3 = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        //console.log($scope.listNgauNhien);
+
+    })
+    $scope.load = function ()
+    {
+        $scope.pagesize += 3;
+        $http({
+            method: 'get',
+            url: '/baiViet/getbaivietngaunhien3?pagesize=' + $scope.pagesize
+        }).then(function successCallback(res) {
+
+            $scope.listNgauNhien3 = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+            //console.log($scope.listNgauNhien);
+
+        })
+    }
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+/////////////////////////////////////////////////////////
 
 app.controller("bvTheoLoai", function ($scope, $http, $location) {
     var maDMC = $location.search().maLoai;
@@ -114,7 +272,7 @@ app.controller("LoaibvPost", function ($scope, $http, $location) {
         url: '/baiViet/getphantrangBV?maLoai='+ maDMC +'&&pagesize='+$scope.pagesize+''
     }).then(function successCallback(res) {
         $scope.listdsloaibv = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-        console.log($scope.listdsloaibv);
+        //console.log($scope.listdsloaibv);
 
     })
     $scope.load = function () {
@@ -125,7 +283,7 @@ app.controller("LoaibvPost", function ($scope, $http, $location) {
         }).then(function successCallback(res) {
 
             $scope.listdsloaibv = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-            console.log($scope.listdsloaibv);
+            //console.log($scope.listdsloaibv);
 
         })
     }
@@ -167,8 +325,8 @@ app.controller("getMenu", function ($scope, $http) {
         $scope.danhmuc = data.data;
         $http.get('/DanhMucCon/GetDanhMucCon').then(function (data) {
             $scope.danhmuccon = data.data;
-            //console.log($scope.danhmuc);
-            //console.log($scope.danhmuccon);
+            console.log($scope.danhmuc);
+            console.log($scope.danhmuccon);
             for (let i = 0; i < $scope.danhmuc.length; i++) {
                 const node = $scope.danhmuc[i];
                 node.children = [];
@@ -181,7 +339,7 @@ app.controller("getMenu", function ($scope, $http) {
                 $scope.menus.push(node);
             }
         })
-        //console.log($scope.menus);
+        console.log($scope.menus);
     })
 })
 
@@ -279,3 +437,19 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
         else return null;
     };
 });
+
+//Footer 
+//dmc YUMMY
+app.controller("danhMucYUMMYFooter", function ($scope, $http) {
+
+    $http({
+        method: 'get',
+        url: '/danhmuccon/GetDanhMucConYMFOOTER'
+    }).then(function successCallback(res) {
+
+        $scope.listdmYMFooter = res.data;//lưu dữ liệu vào biến $scope
+        //console.log($scope.listdmYMFooter);
+
+    })
+});
+

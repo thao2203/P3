@@ -10,5 +10,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     public interface IChiTietBaiViet
     {
         IList<ChiTietBaiViet> getCTBaiViet(string maBV);
+        IList<ChiTietBaiViet> getCTacGia(string maDMC);
     }
 }

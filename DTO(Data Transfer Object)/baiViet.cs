@@ -25,7 +25,7 @@ namespace DTO_Data_Transfer_Object_
         public string tendanhmuccon { get; set; }
         public string tendanhmuc { get; set; }
         public string  tacgia { get; set; }
-
+        //public int luotXem { get; set; }
         public string cusBL { get; set; }
         public string noiDungBL { get; set; }
         public string hinhAnhCus { get; set; }

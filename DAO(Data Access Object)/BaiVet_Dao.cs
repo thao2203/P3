@@ -35,6 +35,7 @@ namespace DAO_Data_Access_Object_
                 bv.tacgia = dr[10].ToString();
                 bv.tendanhmuc = dr[11].ToString();
                 bv.tendanhmuccon = dr[12].ToString();
+                //bv.luotXem = int.Parse(dr[13].ToString());
                 li.Add(bv);
             }
             return li;

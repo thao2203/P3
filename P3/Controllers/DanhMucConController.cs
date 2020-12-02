@@ -21,5 +21,10 @@ namespace P3.Controllers
         {
             return Json(bv.getdanhmuccon(), JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetDanhMucConYMFOOTER()
+        {
+            return Json(bv.getdanhmucconYMFooter(), JsonRequestBehavior.AllowGet);
+        }
     }
 }

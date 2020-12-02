@@ -7,7 +7,11 @@
                 <div class="dropdown">
                     <div class="dropdown-body">
                         <ul class="dropdown-list">
-                            <li ng-repeat="key in item.children"><a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a></li>
+                            <li ng-repeat="key in item.children">
+                                <a onclick="setTimeout(function () { window.location.reload() }, 100)" href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}" >
+                                    {{key.tendmc}}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

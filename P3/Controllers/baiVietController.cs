@@ -22,6 +22,36 @@ namespace P3.Controllers
         {
             return View();
         }
+        public JsonResult getbaivietngaunhien()
+        {
+            return Json(bv.getBaiVietNgauNhien(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaivietngaunhien1()
+        {
+            return Json(bv.getBaiVietNgauNhien1(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaivietngaunhien2()
+        {
+            return Json(bv.getBaiVietNgauNhien2(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaivietngaunhien3()
+        {
+            return Json(bv.getBaiVietNgauNhien3(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaivietyummy()
+        {
+            return Json(bv.getBaiVietYummy(), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getbaivietyummy2()
+        {
+            return Json(bv.getBaiVietYummy2(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaivietyummy3()
+        {
+            return Json(bv.getBaiVietYummy3(), JsonRequestBehavior.AllowGet);
+
+        }
         public JsonResult getbaiviethot()
         {
             return Json(bv.getBaiVietHot(), JsonRequestBehavior.AllowGet);

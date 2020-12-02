@@ -23,6 +23,7 @@ namespace DAO_Data_Access_Object_
                 bv.madmc = dr[0].ToString();
                 bv.tendmc = dr[1].ToString();
                 bv.madm = dr[2].ToString();
+                bv.luotXem = int.Parse(dr[3].ToString());
                 li.Add(bv);
             }
             return li;

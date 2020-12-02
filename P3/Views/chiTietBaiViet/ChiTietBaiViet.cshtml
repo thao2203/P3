@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "chiTietBaiViet";
+    ViewBag.Title = "ChiTietBaiViet";
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
+
 <div ng-controller="CTBVPost">
     <!-- PAGE HEADER -->
     <div id="post-header" class="page-header">
@@ -18,7 +19,7 @@
                     <ul class="post-meta">
                         <li><a href="author.html">{{tacGia}}</a></li>
                         <li>{{thoiGian | filterdate | date:'dd, TMM, yyyy'}}</li>
-                       @* <li><i class="fa fa-comments"></i> 3</li>*@
+                        @* <li><i class="fa fa-comments"></i> 3</li>*@
                         <li><i class="fa fa-eye"></i>{{luotXem}}</li>
                     </ul>
                 </div>
@@ -328,4 +329,5 @@
     </div>
     <!-- /SECTION -->
 </div>
-   
+
+

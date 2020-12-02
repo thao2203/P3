@@ -14,7 +14,7 @@ namespace BLL_Business_Logic_Layer_
         DanhMuc_Dao bv = new DanhMuc_Dao();
         public IList<danhmuc> getdanhmuc()
         {
-            return bv.getdanhmuc("select DANHMUC.maDM,DANHMUC.tenDM,DANHMUC.luotXem from dbo.DANHMUC");
+            return bv.getdanhmuc("select DANHMUC.maDM,DANHMUC.tenDM from dbo.DANHMUC");
         }
     }
 }

@@ -25,7 +25,14 @@ namespace P3.Controllers
         public JsonResult getChiTietBaiViet(string maBV)
         {
             return Json(bv.getCTBaiViet(maBV), JsonRequestBehavior.AllowGet);
-
+        }
+        public ActionResult ChiTietTacGia()
+        {
+            return View();
+        }
+        public JsonResult getChiTietTacGia(string maDMC)
+        {
+            return Json(bv.getCTacGia(maDMC), JsonRequestBehavior.AllowGet);
         }
     }
 }
