@@ -4,12 +4,12 @@
     </div>
     <!-- post -->
     <div ng-repeat="i in listNoiBat" class="post post-widget">
-        <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
+        <a class="post-img" onclick="setTimeout(function () { window.location.reload() }, 100)" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
         <div class="post-body">
             <div class="post-category">
-                <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+                <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
             </div>
-            <h3 class="post-title"><a href="blog-post.html">{{i.TieuDe}}</a></h3>
+            <h3 class="post-title"><a onclick="setTimeout(function () { window.location.reload() }, 100)" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
         </div>
     </div>
     <!-- /post -->

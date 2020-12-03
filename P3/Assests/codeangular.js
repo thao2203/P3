@@ -5,12 +5,14 @@
 app.controller("YmmyPost", function ($scope, $http) {
     $http({
         method: 'get',
-        url: '/baiViet/getbaivietyummy' 
+        url: '/baiViet/getbaivietyummy?'
 
     }).then(function successCallback(res) {
         $scope.HinhAnh = res.data[0].HinhAnh;
         $scope.tendanhmuc = res.data[0].tendanhmuc;
         $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.MaDMC = res.data[0].MaDMC;
+        $scope.MaBV = res.data[0].MaBV;
         $scope.TieuDe = res.data[0].TieuDe;
         $scope.tacgia = res.data[0].tacgia;
         $scope.ThoiGianDang = res.data[0].ThoiGianDang;
@@ -32,6 +34,8 @@ app.controller("YmmyPost2", function ($scope, $http) {
         $scope.HinhAnh = res.data[0].HinhAnh;
         $scope.tendanhmuc = res.data[0].tendanhmuc;
         $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.MaDMC = res.data[0].MaDMC;
+        $scope.MaBV = res.data[0].MaBV;
         $scope.TieuDe = res.data[0].TieuDe;
         $scope.tacgia = res.data[0].tacgia;
         $scope.ThoiGianDang = res.data[0].ThoiGianDang;
@@ -54,6 +58,8 @@ app.controller("YmmyPost3", function ($scope, $http) {
         $scope.HinhAnh = res.data[0].HinhAnh;
         $scope.tendanhmuc = res.data[0].tendanhmuc;
         $scope.tendanhmuccon = res.data[0].tendanhmuccon;
+        $scope.MaDMC = res.data[0].MaDMC;
+        $scope.MaBV = res.data[0].MaBV;
         $scope.TieuDe = res.data[0].TieuDe;
         $scope.tacgia = res.data[0].tacgia;
         $scope.ThoiGianDang = res.data[0].ThoiGianDang;
@@ -431,6 +437,7 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
         url: '/chiTietBaiViet/getChiTietBaiViet?maBV=' + maBV,
 
     }).then(function successCallback(res) {
+        $scope.maDMC = res.data[0].maDMC;
         $scope.tenDM = res.data[0].tenDM;
         $scope.tenDMC = res.data[0].tenDMC;
         $scope.tieuDe = res.data[0].tieuDe;

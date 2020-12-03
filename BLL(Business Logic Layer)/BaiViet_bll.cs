@@ -24,15 +24,15 @@ namespace BLL_Business_Logic_Layer_
         }
         public IList<baiViet> getBaiVietNgauNhien()
         {
-            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
+            return bv.getbaivietngaunhien12("SELECT Top(3) bv.maBV, dmc.maDMC, bv.tieuDe, bv.hinhAnh, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
         }
         public IList<baiViet> getBaiVietNgauNhien1()
         {
-            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
+            return bv.getbaivietngaunhien12("SELECT Top(3) bv.maBV, dmc.maDMC, bv.tieuDe, bv.hinhAnh, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
         }
         public IList<baiViet> getBaiVietNgauNhien2()
         {
-            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
+            return bv.getbaivietngaunhien12("SELECT Top(3) bv.maBV, dmc.maDMC, bv.tieuDe, bv.hinhAnh, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
         }
         public IList<baiViet> getBaiVietNgauNhien3()
         {
@@ -40,7 +40,7 @@ namespace BLL_Business_Logic_Layer_
         }
         public IList<baiViet> getBaiVietNoiBat()
         {
-            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
+            return bv.getbaivietnoibat_DAO("SELECT Top(3) bv.maBV, bv.maDMC, bv.tieuDe, dm.tenDM, dmc.tenDMC, bv.hinhAnh, ct.luotXem FROM (BAIVIET bv INNER JOIN DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC inner join CTBAIVIET ct on ct.maBV=bv.maBV) Order By ct.luotXem DESC");
         }
         public IList<baiViet> getPhanTrangBV(string maLoai ,string pagesize)
         {
@@ -74,10 +74,6 @@ namespace BLL_Business_Logic_Layer_
         public IList<baiViet> getBaiVietMoiNhat()
         {
             return bv.getbaiviet("SELECT Top(4) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
-        }
-        public IList<baiViet> getBaiVietMoiNhatCT()
-        {
-            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
         }
         public IList<baiViet> getBaiVietBanhNgot()
         {
@@ -116,6 +112,12 @@ namespace BLL_Business_Logic_Layer_
         public IList<baiViet> getDSBV()
         {
             return bv.getbaiviet("Select BV.*, US.tenUser, dm.tenDM, dmc.tenDMC From dbo.BAIVIET BV Left join dbo.US US On BV.taiKhoanUs = US.taiKhoanUs left join dbo.DANHMUC DM ON BV.maDM = DM.maDM left join dbo.DANHMUCCON DMC ON BV.maDMC = DMC.maDMC");
+        }
+
+        public IList<baiViet> getBaiVietMoiNhatCT()
+        {
+            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
+
         }
     }
 }

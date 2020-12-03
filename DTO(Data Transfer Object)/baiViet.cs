@@ -14,7 +14,6 @@ namespace DTO_Data_Transfer_Object_
         //khoi tao gtri ban dau
         public string MaBV { get; set; }
         public string TaiKhoanUS { get; set; }
-        public string MaBL { get; set; }
         public string MaDMC { get; set; }
         public string TieuDe { get; set; }
         public string NoiDungCon { get; set; }
@@ -25,7 +24,7 @@ namespace DTO_Data_Transfer_Object_
         public string tendanhmuccon { get; set; }
         public string tendanhmuc { get; set; }
         public string  tacgia { get; set; }
-        //public int luotXem { get; set; }
+        public int luotXem { get; set; }
         public string cusBL { get; set; }
         public string noiDungBL { get; set; }
         public string hinhAnhCus { get; set; }

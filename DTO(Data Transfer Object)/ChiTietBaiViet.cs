@@ -9,6 +9,7 @@ namespace DTO_Data_Transfer_Object_
     public class ChiTietBaiViet
     {
         public string maCTBV { get; set; }
+        public string maDMC { get; set; }
         public string maBV { get; set; }
         public string maBL { get; set; }
         public string tenDM { get; set; }

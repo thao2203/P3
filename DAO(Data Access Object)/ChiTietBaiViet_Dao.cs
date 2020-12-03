@@ -34,10 +34,14 @@ namespace DAO_Data_Access_Object_
                 bv.nguoiBL = dr[13].ToString();
                 bv.thoiGianBL = DateTime.Parse(dr[14].ToString());
                 bv.noiDungBL = dr[15].ToString();
+                bv.maDMC = dr[16].ToString();
 
                 li.Add(bv);
             }
             return li;
+
+
         }
+        
     }
 }

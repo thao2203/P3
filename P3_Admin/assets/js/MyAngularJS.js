@@ -38,22 +38,22 @@ app1.controller("login", function ($scope, $http, $window) {
                 $scope.btntext = "Thành công!";
                 //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
                 //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taikhoan', $scope.US.taikhoan);
+                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
                 localStorage.setItem('matkhau', $scope.US.matkhau);
-                $window.location.href = '/Index/Index"';
+                $window.location.href = '/Admin/danhSachBaiViet"';
             } else if (bool.data[0].Active == "1") { //nếu là 1 thì chưa điền thông tin cá nhận
                 $scope.btntext = "Thành công!";
                 //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
                 //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taikhoan', $scope.US.taikhoan);
+                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
                 localStorage.setItem('matkhau', $scope.US.matkhau);
 
-                $window.location.href = '/Account/FillInfo';
+                $window.location.href = '/Admin/danhSachBaiViet';
             } else if (bool.data[0].Active == "0") { //nếu là 1 thì chưa điền thông tin cá nhận
                 $scope.btntext = "Thành công!";
                 //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
                 //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taikhoan', $scope.US.taikhoan);
+                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
                 localStorage.setItem('matkhau', $scope.US.matkhau);
 
                 $window.location.href = '/Account/sent';

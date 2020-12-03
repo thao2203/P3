@@ -9,8 +9,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
 {
     public interface IUS
     {
-        object US { get; set; }
 
-        IList<US> getLogin();
+        IList<US> getLogin1(string tk, string mk);
     }
 }

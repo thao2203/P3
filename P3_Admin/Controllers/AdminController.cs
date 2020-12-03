@@ -22,14 +22,13 @@ namespace P3_Admin.Controllers
         {
             return View();
         }
-        [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-        public JsonResult doLogin()
+        public JsonResult DoLogin(string tk, string mk)
         {
-            return Json(bv.getDSBV(), JsonRequestBehavior.AllowGet);
+            return Json(us.getLogin1(tk, mk), JsonRequestBehavior.AllowGet);
         }
         public JsonResult getdanhsachbaiviet()
         {

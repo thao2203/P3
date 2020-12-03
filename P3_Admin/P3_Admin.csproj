@@ -7027,8 +7027,6 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_mainLayout.cshtml" />
     <Content Include="Views\Admin\danhSachBaiViet.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

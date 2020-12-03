@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="post-category">
-                        <a href="category.html">{{tenDM}} - {{tenDMC}}</a>
+                        <a href="/baiViet/baiviettheoloai#!?maLoai={{maDMC}}">{{tenDM}} - {{tenDMC}}</a>
                     </div>
                     <h1>{{tieuDe}}</h1>
                     <ul class="post-meta">
@@ -132,13 +132,13 @@
                             <!-- post -->
                             <div class="col-md-4" ng-repeat="i in listbaivietmoiCT">
                                 <div class="post post-sm">
-                                    <a class="post-img" href="/baiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
+                                    <a class="post-img" onclick="setTimeout(function () { window.location.reload() }, 100)" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-category">
-                                            <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+                                            <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
 
                                         </div>
-                                        <h3 class="post-title"><a href="/baiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
+                                        <h3 class="post-title"><a onclick="setTimeout(function () { window.location.reload() }, 100)" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
                                         <ul class="post-meta">
                                             <li><a href="author.html">{{i.tacgia}}</a></li>
                                             <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
@@ -153,7 +153,7 @@
                     <!-- post comments -->
                     <div class="section-row">
                         <div class="section-title">
-                            <h3 class="title">3 Comments</h3>
+                            <h3 class="title">Bình luận</h3>
                         </div>
                         <div class="post-comments">
                             <!-- comment -->
@@ -167,7 +167,7 @@
                                         <span class="time">{{thoiGianBL | filterdate | date:'dd, TMM, yyyy'}}</span>
                                     </div>
                                     <p>{{noiDungBL}}</p>
-                                    <a href="#" class="reply">Reply</a>
+                                    <a href="#" class="reply">Trả lời</a>
                                     <!-- comment -->
                                     <div class="media media-author">
                                         <div class="media-left">
@@ -175,11 +175,11 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="media-heading">
-                                                <h4>John Doe</h4>
-                                                <span class="time">5 min ago</span>
+                                                <h4>Thảo Nguyễn</h4>
+                                                <span class="time">22, T03, 2020</span>
                                             </div>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                            <a href="#" class="reply">Reply</a>
+                                            <a href="#" class="reply">Trả lời</a>
                                         </div>
                                     </div>
                                     <!-- /comment -->
@@ -187,7 +187,7 @@
                             </div>
                             <!-- /comment -->
                             <!-- comment -->
-                            <div class="media">
+                            @*<div class="media">
                                 <div class="media-left">
                                     <img class="media-object" src="~/Assests/img/avatar-3.jpg" alt="">
                                 </div>
@@ -199,7 +199,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                     <a href="#" class="reply">Reply</a>
                                 </div>
-                            </div>
+                            </div>*@
                             <!-- /comment -->
                         </div>
                     </div>
@@ -207,35 +207,32 @@
                     <!-- post reply -->
                     <div class="section-row">
                         <div class="section-title">
-                            <h3 class="title">Leave a reply</h3>
+                            <h3 class="title">Để lại câu trả lời</h3>
                         </div>
                         <form class="post-reply">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="input" name="message" placeholder="Message"></textarea>
+                                        <textarea class="input" name="message" placeholder="Nhập nội dung..."></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="text" name="name" placeholder="Name">
+                                        <input class="input" type="text" name="name" placeholder="Nhập tên...">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="email" name="email" placeholder="Email">
+                                        <input class="input" type="email" name="email" placeholder="Nhập Email...">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="text" name="website" placeholder="Website">
+                                        <button class="primary-button">Đăng</button>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="primary-button">Submit</button>
-                                </div>
 
-                            </div>
+                                </div>
+                                </div>
                         </form>
                     </div>
                     <!-- /post reply -->
@@ -263,12 +260,12 @@
                         </div>
                         <div class="galery-widget">
                             <ul>
-                                <li><a href="#"><img src="~/Assests/img/galery-1.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="~/Assests/img/galery-2.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="~/Assests/img/galery-3.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="~/Assests/img/galery-4.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="~/Assests/img/galery-5.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="~/Assests/img/galery-6.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-1.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-2.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-3.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-4.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-5.jpg" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-6.jpg" alt=""></a></li>
                             </ul>
                         </div>
                     </div>

@@ -10,11 +10,9 @@ namespace BLL_Business_Logic_Layer_
     {
         US_Dao bv = new US_Dao();
 
-        public object US { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public IList<US> getLogin()
+        public IList<US> getLogin1(string tk, string mk)
         {
-            throw new NotImplementedException();
+            return bv.getLogin(tk, mk);
         }
     }
 }
