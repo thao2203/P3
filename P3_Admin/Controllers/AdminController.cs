@@ -11,7 +11,7 @@ namespace P3_Admin.Controllers
     public class AdminController : Controller
     {
         IBaiViet bv = new BaiViet_bll();
-
+        IUS us = new US_bll();
         // GET: Admin
         public ActionResult Index()
         {
@@ -22,7 +22,15 @@ namespace P3_Admin.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public JsonResult doLogin()
+        {
+            return Json(bv.getDSBV(), JsonRequestBehavior.AllowGet);
+        }
         public JsonResult getdanhsachbaiviet()
         {
             return Json(bv.getDSBV(), JsonRequestBehavior.AllowGet);

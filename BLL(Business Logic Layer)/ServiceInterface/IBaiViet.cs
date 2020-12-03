@@ -20,6 +20,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         IList<baiViet> getThongTinBV();
         IList<baiViet> getBaiVietHot();
         IList<baiViet> getBaiVietMoiNhat();
+        IList<baiViet> getBaiVietMoiNhatCT();
         IList<baiViet> getBaiVietNgauNhien();
         IList<baiViet> getBaiVietNgauNhien1();
         IList<baiViet> getBaiVietNgauNhien2();

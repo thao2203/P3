@@ -50,6 +50,8 @@
     <Compile Include="ServiceInterface\IChiTietBaiViet.cs" />
     <Compile Include="ServiceInterface\IDanhMuc.cs" />
     <Compile Include="ServiceInterface\IDanhMucCon.cs" />
+    <Compile Include="ServiceInterface\IUS.cs" />
+    <Compile Include="US_bll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO%28Data Access Object%29\DAO%28Data Access Object%29.csproj">

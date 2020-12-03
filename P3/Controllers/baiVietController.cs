@@ -20,6 +20,7 @@ namespace P3.Controllers
         }
         public ActionResult baiViet()
         {
+            
             return View();
         }
         public JsonResult getbaivietngaunhien()
@@ -59,6 +60,11 @@ namespace P3.Controllers
         public JsonResult getbaivietmoinhat()
         {
             return Json(bv.getBaiVietMoiNhat(),JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getbaivietmoinhatCT()
+        {
+            return Json(bv.getBaiVietMoiNhatCT(), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult getbaivietBanhNgot()

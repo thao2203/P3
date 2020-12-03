@@ -86,6 +86,7 @@ app.controller("hotPost", function ($scope, $http) {
         else return null;
     };
 });
+////////////////////////////////
 app.controller("newpost", function ($scope, $http) {
 
     $http({
@@ -105,7 +106,26 @@ app.controller("newpost", function ($scope, $http) {
         else return null;
     };
 });
+app.controller("newpostCT", function ($scope, $http) {
 
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietmoinhatCT'
+    }).then(function successCallback(res) {
+
+        $scope.listbaivietmoiCT = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
+        //console.log($scope.listbaivietmoi);
+
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
+/////////////////////////////////
 app.controller("cakepost", function ($scope, $http) {
 
     $http({

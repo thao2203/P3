@@ -61,9 +61,6 @@
                         <p>{{noiDung2}}</p>
                         <p>{{noiDung2}}</p>
                         <p>{{noiDung2}}</p>
-                        <p>{{noiDung2}}</p>
-                        <p>{{noiDung2}}</p>
-                        <p>{{noiDung2}}</p>
                         <figure class="pull-left">
                             <img style="width:300px; height:200px;" src="{{hinhAnh2}}" alt="">
                             <figcaption>Cùng nhau tạo ra những điều thú vị.</figcaption>
@@ -77,20 +74,17 @@
                     </div>
                     <!-- /post content -->
                     <!-- post tags -->
-                    <div class="section-row">
+                    <div class="section-row" ng-controller="danhMucYUMMYFooter">
                         <div class="post-tags">
                             <ul>
                                 <li>TAGS:</li>
-                                <li><a href="#">Social</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Health</a></li>
+                                <li style=" padding-left: 3px;" ng-repeat="i in listdmYMFooter"><a href="/baiViet/baiviettheoloai#!?maLoai={{i.madmc}}">{{i.tendmc}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- /post tags -->
                     <!-- post nav -->
-                    <div class="section-row">
+                    @*<div class="section-row">
                         <div class="post-nav">
                             <div class="prev-post">
                                 <a class="post-img" href="blog-post.html"><img src="~/Assests/img/widget-8.jpg" alt=""></a>
@@ -104,21 +98,21 @@
                                 <span>Next post</span>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- /post nav  -->
                     <!-- post author -->
                     <div class="section-row">
                         <div class="section-title">
-                            <h3 class="title">About <a href="author.html">John Doe</a></h3>
+                            <h3 class="title">About <a href="author.html">Thảo Nguyễn</a></h3>
                         </div>
                         <div class="author media">
                             <div class="media-left">
                                 <a href="author.html">
-                                    <img class="author-img media-object" src="~/Assests/img/avatar-1.jpg" alt="">
+                                    <img class="author-img media-object" src="~/Assests/images/avt.jpg" alt="">
                                 </a>
                             </div>
                             <div class="media-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p>Để lên ý tưởng và tạo ra những bài viết hay, thú vị tôi rất muốn lắng nghe ý kiến đóng góp của các bạn hy vọng chúng ta sẽ đồng hành cùng nhau khám phá ẩm thực.</p>
                                 <ul class="author-social">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -129,60 +123,25 @@
                         </div>
                     </div>
                     <!-- /post author -->
-                    <!-- /related post -->
+                    <!-- /new post -->
                     <div>
                         <div class="section-title">
-                            <h3 class="title">Related Posts</h3>
+                            <h3 class="title">Bài đăng mới nhất</h3>
                         </div>
-                        <div class="row">
+                        <div class="row" ng-controller="newpostCT">
                             <!-- post -->
-                            <div class="col-md-4">
+                            <div class="col-md-4" ng-repeat="i in listbaivietmoiCT">
                                 <div class="post post-sm">
-                                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-4.jpg" alt=""></a>
+                                    <a class="post-img" href="/baiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
                                     <div class="post-body">
                                         <div class="post-category">
-                                            <a href="category.html">Health</a>
+                                            <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+
                                         </div>
-                                        <h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                                        <h3 class="post-title"><a href="/baiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
                                         <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
-                                            <li>20 April 2018</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /post -->
-                            <!-- post -->
-                            <div class="col-md-4">
-                                <div class="post post-sm">
-                                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-6.jpg" alt=""></a>
-                                    <div class="post-body">
-                                        <div class="post-category">
-                                            <a href="category.html">Fashion</a>
-                                            <a href="category.html">Lifestyle</a>
-                                        </div>
-                                        <h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                                        <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
-                                            <li>20 April 2018</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /post -->
-                            <!-- post -->
-                            <div class="col-md-4">
-                                <div class="post post-sm">
-                                    <a class="post-img" href="blog-post.html"><img src="~/Assests/img/post-7.jpg" alt=""></a>
-                                    <div class="post-body">
-                                        <div class="post-category">
-                                            <a href="category.html">Health</a>
-                                            <a href="category.html">Lifestyle</a>
-                                        </div>
-                                        <h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-                                        <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
-                                            <li>20 April 2018</li>
+                                            <li><a href="author.html">{{i.tacgia}}</a></li>
+                                            <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -190,7 +149,7 @@
                             <!-- /post -->
                         </div>
                     </div>
-                    <!-- /related post -->
+                    <!-- /new post -->
                     <!-- post comments -->
                     <div class="section-row">
                         <div class="section-title">

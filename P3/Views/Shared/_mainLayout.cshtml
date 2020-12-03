@@ -60,7 +60,7 @@
                         <div id="nav-search">
                             <form ng-controller="searchbar">
                                 <input ng-model="searchvalue" class="input" name="search" placeholder="Nhập từ khoá tìm kiếm...">
-                                <button style="width: 100%; background-color: #e8eaed;" ng-click="search()">?</button>
+                                <button style="display: none;" onclick="setTimeout(function () { window.location.reload() }, 100)" ng-click="search()">?</button>
                             </form>
                             <button class="nav-close search-close">
                                 <span></span>
@@ -75,39 +75,24 @@
             @Html.Partial("_PartialNavMenu")
             <!-- /Main Nav -->
             <!-- Aside Nav -->
-            <div id="nav-aside">
+                <div style="padding: 10px 20px;"  id="nav-aside" ng-controller="getMenu">
                     <ul class="nav-aside-menu">
-                        <li><a href="index.html">Trang chủ</a></li>
-                        <li class="has-dropdown">
-                            <a>Công thức</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Bánh mì</a></li>
-                                <li><a href="/baiViet/baiviettheoloai#!?maLoai=dmc02">Bánh Ngọt</a></li>
-                                <li><a href="#">Đồ uống</a></li>
-                                <li><a href="#">Món Khai vị</a></li>
-                                <li><a href="#">MÓn chính</a></li>
-                                <li><a href="#">Món phụ</a></li>
-                                <li><a href="#">MÓn tráng miệng</a></li>
-                            </ul>
+                        <li ng-repeat="item in menus" style=" border-bottom: none;padding: 5px 0px;">
+                            <a href="#">{{item.TenDM}}</a>
+                            <div class="dropdown">
+                                <div class="dropdown-body">
+                                    <ul class="dropdown-list" style="font-size: 12px;">
+                                        <li style="border-bottom: none;" ng-repeat="key in item.children" style=" padding: 0px 0px;">
+                                            <a style=" padding: 5px 15px;" onclick="setTimeout(function () { window.location.reload() }, 100)" href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">
+                                                <i class="fas fa-angle-right"></i> {{key.tendmc}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="contact.html">Liên lạc</a></li>
                     </ul>
-                    <button class="nav-close nav-aside-close"><span></span></button>
                 </div>
-            @*<div id="nav-aside" ng-controller="getMenu">
-                <ul class="nav-aside-menu">
-                    <li class="has-dropdown" ng-repeat="item in menus">
-                        <a>{{item.TenDM}}</a>
-                        <ul class="dropdown">
-                            <li ng-repeat="key in item.children">
-                                <a href="/baiViet/baiviettheoloai#!?maLoai={{key.madmc}}">{{key.tendmc}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <button class="nav-close nav-aside-close"><span></span></button>
-            </div>*@
             <!-- /Aside Nav -->
             <!-- /NAV -->
         </div>
@@ -135,6 +120,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
+                    
                     @*<div class="footer-widget">
                         <h3 class="footer-title">Danh Mục</h3>
                         <div ng-controller="DanhMucPost" class="category-widget">

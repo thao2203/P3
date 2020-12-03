@@ -75,6 +75,10 @@ namespace BLL_Business_Logic_Layer_
         {
             return bv.getbaiviet("SELECT Top(4) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
         }
+        public IList<baiViet> getBaiVietMoiNhatCT()
+        {
+            return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
+        }
         public IList<baiViet> getBaiVietBanhNgot()
         {
             return bv.getbaiviet("SELECT Top(6) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM ((BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC)) WHERE bv.maDMC='dmc02'");

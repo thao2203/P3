@@ -6397,6 +6397,7 @@
     <Content Include="assets\dist\js\demo.js" />
     <Content Include="assets\js\angular.min.js" />
     <Content Include="assets\js\MyAngularJS.js" />
+    <Content Include="assets\js\Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -7026,6 +7027,9 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_mainLayout.cshtml" />
     <Content Include="Views\Admin\danhSachBaiViet.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -7082,7 +7086,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44300/</IISUrl>
+          <IISUrl>https://localhost:44341/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
