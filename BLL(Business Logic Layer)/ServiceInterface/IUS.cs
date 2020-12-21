@@ -9,7 +9,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
 {
     public interface IUS
     {
-
-        IList<US> getLogin1(string tk, string mk);
+        IList<US> checkUser(string tk, string mk);
     }
 }

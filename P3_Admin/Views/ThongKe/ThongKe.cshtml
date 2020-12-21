@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "ThongKe";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<p class="right__desc">Thống Kê</p>
+<div ng-controller="ThongKeController" class="right__cards">
+    <a class="right__card" href="view_product.html">
+        <div class="right__cardTitle">Bài viết</div>
+        <div class="right__cardNumber">{{ThongKe.BAIVIET}}</div>
+        <div class="right__cardDesc">
+            Xem Chi Tiết
+            <img src="~/assets/assets/arrow-right.svg" />
+        </div>
+    </a>
+    <a class="right__card" href="view_customers.html">
+        <div class="right__cardTitle">Danh mục</div>
+        <div class="right__cardNumber">{{ThongKe.DANHMUC}}</div>
+        <div class="right__cardDesc">
+            Xem Chi Tiết
+            <img src="~/assets/assets/arrow-right.svg" />
+        </div>
+    </a>
+    <a class="right__card" href="view_p_category.html">
+        <div class="right__cardTitle">Người dùng</div>
+        <div class="right__cardNumber">{{ThongKe.CUSTOMER}}</div>
+        <div class="right__cardDesc">
+            Xem Chi Tiết
+            <img src="~/assets/assets/arrow-right.svg" />
+        </div>
+    </a>
+</div>
+

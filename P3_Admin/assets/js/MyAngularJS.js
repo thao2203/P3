@@ -1,66 +1,317 @@
-﻿var app = angular.module("MyAdminApp", []);
-//console.clear();
-app.controller("dsBaiVietPost", function ($scope, $http) {
-
+﻿var app = angular.module('Homeapp', []);
+app.controller('ThongKeController', function ($scope, $http) {
     $http({
         method: 'get',
-        url: '/Admin/getdanhsachbaiviet'
+        url: '/ThongKe/getThongKe',
+
     }).then(function successCallback(res) {
 
-        $scope.listDsBV = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-        console.log($scope.listDsBV);
+        $scope.ThongKe = res.data[0];
+        console.log($scope.ThongKe)
 
-    })
-}).filter("filterdate", function () {
-    var re = /\/Date\(([0-9]*)\)\//;
-    return function (x) {
-        var m = x.match(re);
-        if (m) return new Date(parseInt(m[1]));
-        else return null;
-    };
+    }, function (error) {
+
+        alert('failed');
+
+    });
 });
+//app.controller('GetAllThongTinController', function ($scope, $http) {
+//    $http.get('/ThongTin/getAllRecord').then(function (d) {
 
+//        $scope.ThongTin = d.data;
+//        console.log($scope.ThongTin)
+//    }, function (error) {
 
-var app1 = angular.module("LoginApp", []);
-// đăng nhập
-app1.controller("login", function ($scope, $http, $window) {
+//        alert('failed');
 
-    $scope.btntext = "Đăng Nhập"; //giá trị nút đăng nhập
-    $scope.DangNhap = function () { //được gọi khi bấm nút đăng nhập
-        $scope.btntext = "Đang Đang Nhập....";
-        $http({
-            method: "POST", //method gửi dữ liệu
-            url: '/Admin/DoLogin', //gọi hàm controller/account/Login
-            params: $scope.US //dữ liệu truyền vào user là tên biến đặt bên input
-        }).then(function (bool) { //gọi  khi thành công và lấy giá trị hàm trên trả vê
-            console.log(bool)
-            if (bool.data[0].Active == "2") { //kiểm tra dữ liệu đăng nhập trả về nếu là 2 thì đã hoàn tát đăng ký
-                $scope.btntext = "Thành công!";
-                //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
-                //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
-                localStorage.setItem('matkhau', $scope.US.matkhau);
-                $window.location.href = '/Admin/danhSachBaiViet"';
-            } else if (bool.data[0].Active == "1") { //nếu là 1 thì chưa điền thông tin cá nhận
-                $scope.btntext = "Thành công!";
-                //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
-                //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
-                localStorage.setItem('matkhau', $scope.US.matkhau);
+//    });
+//})
+//app.controller('info_userController', function ($scope, $http) {
+//    $scope.UserName = localStorage.getItem('taikhoan');
+//    $scope.logout = function () {
 
-                $window.location.href = '/Admin/danhSachBaiViet';
-            } else if (bool.data[0].Active == "0") { //nếu là 1 thì chưa điền thông tin cá nhận
-                $scope.btntext = "Thành công!";
-                //$cookies.put('taikhoan', $scope.KHACH_HANG.taikhoan); //lưu tên tài khoản và mật khẩu vào cookie để tự động đăng nhập lần sau
-                //$cookies.put('matkhau', $scope.KHACH_HANG.matkhau);
-                localStorage.setItem('taiKhoanUS', $scope.US.taiKhoanUS);
-                localStorage.setItem('matkhau', $scope.US.matkhau);
-
-                $window.location.href = '/Account/sent';
-            }
-            else //thông tin đăng nhập k đúng
-                $scope.btntext = "Thông tin đăng nhập không chính xác";
+//        localStorage.clear();
+//        window.location.href = '/Admin/Login';
+//    }
+//})
+app.controller("Paging_ThongTinController", function ($scope, $http) {
+    $scope.txtSearch = '';
+    $scope.maxsize = 5;
+    $scope.totalcount = 0;
+    $scope.pageIndex = 1;
+    $scope.pageSize = 5;
+    $scope.addfn = function () {
+        window.location.href = 'ThemThongTin';
+    }
+    $scope.ThongTinlist = function () {
+        $http.get("/Admin/Get_data?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
+            $scope.ThongTindata = response.data.ThongTindata;
+            $scope.totalcount = response.data.totalcount;
+        }, function (error) {
+            alert('failed');
         });
     }
+    $scope.ThongTinlist();
+    $scope.pagechanged = function () {
+        $scope.ThongTinlist();
+    }
+    $scope.changePageSize = function () {
+        $scope.pageIndex = 1;
+        $scope.ThongTinlist();
+    }
+});
+//app.controller("CRUD_ThongTinController", function ($scope, $http) {
+//    $scope.btntext = "Lưu";
+//    // Add record
+//    $scope.savedata = function () {
+//        $scope.btntext = "Please Wait..";
+//        $scope.ThongTin.MaLoai = document.getElementById('MaLoai').value;
+//        $http({
+//            method: 'POST',
+//            url: '/Admin/ThongTin/Addrecord',
+//            data: $scope.ThongTin
+//        }).then(function (d) {
+//            $scope.btntext = "Lưu ";
+//            window.location.href = 'Index';
+//            $scope.ThongTin = null;
+//            alert(d.data);
+//        }), function error() {
+//            alert('Failed');
+//        };
+//    };
+//    // Display record by id
+//    $scope.loadrecord = function (id) {
+//        $http.get("/Admin/ThongTin/Get_databyid?id=" + id).then(function (d) {
+//            $scope.ThongTin = d.data[0];
+//            //$scope.ThongTin.LuotXem = $scope.ThongTin.LuotXem + 1;
+//            //console.log($scope.ThongTin)
+//            //$http({
+//            //    method: 'POST',
+//            //    url: '/Admin/ThongTin/update_record',
+//            //    data: $scope.ThongTin
+//            //}).then(function (d) {
+//            //    $scope.btntext = "Update";
+//            //    alert(d.data);
+//            //}), function error() {
+//            //    alert('Failed');
+//            //};
+//        }, function (error) {
+//            alert('Failed');
+//        });
+//    };
+//    //Delete record by id
+//    $scope.deleterecord = function (id) {
+//        $http.get("/Admin/ThongTin/delete_record?id=" + id).then(function (d) {
+//            alert(d.data);
+//            window.location.href = 'Index';
+//        }, function (error) {
+//            alert('Failed');
+//        });
+//    };
+//    // Update record
+//    $scope.updatedata = function () {
+//        $scope.btntext = "Please Wait..";
+//        $scope.ThongTin.MaLoai = document.getElementById('MaLoai').value;
+//        $scope.ThongTin.Anh = document.getElementById('Anh').value;
+//        delete $scope.ThongTin._Index;
+//        console.log($scope.ThongTin)
+//        $http({
+//            method: 'POST',
+//            url: '/Admin/ThongTin/update_record',
+//            data: $scope.ThongTin
+//       }).then(function (d) {
+//            $scope.btntext = "Update";
+//            window.location.href = '/Admin/ThongTin/Index';
+//            $scope.ThongTin = null;
+//            alert(d.data);
+//        }), function error() {
 
-})
+//            alert('Failed');
+
+//        };
+//    };
+
+
+//});
+//app.controller("LoginController", function ($scope, $http, $window) {
+
+//    $scope.btntext = "Login";
+
+//    $scope.login = function () {
+
+//        $scope.btntext = "Please wait..!";
+
+//        $http({
+
+//            method: "POST",
+
+//            url: '/Admin/Login/userlogin',
+
+//            data: $scope.user
+
+//        }).then(function (d) {
+
+//            $scope.btntext = 'Login';
+
+//            if (d.data == 1) {
+
+
+//                $http.get("/Admin/Login/get_info_user?taikhoan=" + $scope.user.TaiKhoan).then(function (d) {
+
+//                    $scope.infoUser = d.data[0];
+//                    localStorage.setItem('taikhoan', $scope.infoUser.TaiKhoan);
+//                    localStorage.setItem('avatar', $scope.infoUser.Avatar);
+//                    window.location.href = 'home'
+
+//                }, function (error) {
+
+//                    alert('Failed');
+
+//                });
+
+
+
+//            }
+//            else {
+
+//                alert(d.data);
+
+//            }
+
+//            $scope.user = null;
+
+//        }), function error() {
+
+//            alert('Can not connect to server');
+
+//        };
+
+//    };
+
+
+
+//})
+
+
+
+
+//app.controller('LoaiTinController', function ($scope, $http) {
+//    $http.get('/LoaiThongTin/getAllRecord').then(function (d) {
+//        $scope.LoaiThongTin = d.data;
+//        $scope.LoaiThongTin1 = $scope.LoaiThongTin[0].TenLoai;
+//        $scope.LoaiThongTin2 = $scope.LoaiThongTin[1].TenLoai;
+//        $scope.LoaiThongTin3 = $scope.LoaiThongTin[2].TenLoai;
+//        $scope.LoaiThongTin4 = $scope.LoaiThongTin[3].TenLoai;
+//        $scope.LoaiThongTin5 = $scope.LoaiThongTin[4].TenLoai;
+
+//        $scope.MaLoai1 = $scope.LoaiThongTin[0].MaLoai;
+//        $scope.MaLoai2 = $scope.LoaiThongTin[1].MaLoai;
+//        $scope.MaLoai3 = $scope.LoaiThongTin[2].MaLoai;
+//        $scope.MaLoai4 = $scope.LoaiThongTin[3].MaLoai;
+//        $scope.MaLoai5 = $scope.LoaiThongTin[4].MaLoai;
+
+//        $http.get("/ThongTin/get_TenTTbyLoaiTT?id=" + $scope.MaLoai1).then(function (d) {
+
+//            $scope.Title1 = d.data;
+//            console.log($scope.Title1)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+//        $http.get("/ThongTin/get_TenTTbyLoaiTT?id=" + $scope.MaLoai2).then(function (d) {
+
+//            $scope.Title2 = d.data;
+//            console.log($scope.Title2)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+//        $http.get("/ThongTin/get_TenTTbyLoaiTT?id=" + $scope.MaLoai3).then(function (d) {
+
+//            $scope.Title3 = d.data;
+//            console.log($scope.Title3)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+//        $http.get("/ThongTin/get_TenTTbyLoaiTT?id=" + $scope.MaLoai4).then(function (d) {
+
+//            $scope.Title4 = d.data;
+//            console.log($scope.Title4)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+//        $http.get("/ThongTin/get_TenTTbyLoaiTT?id=" + $scope.MaLoai5).then(function (d) {
+
+//            $scope.Title5 = d.data;
+//            console.log($scope.Title5)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+
+
+//    })
+//});
+//app.controller('LoaiThongTinController', function ($scope, $http) {
+
+//    $http.get('/LoaiThongTin/getAllRecord').then(function (d) {
+
+//        $scope.LoaiThongTin = d.data;
+
+//    }, function (error) {
+
+//        alert('failed');
+
+//    });
+
+//});
+//app.controller('GetTTbyLoaiTinController', function ($scope, $http) {
+
+//    $scope.loadrecord = function (id) {
+
+//        $http.get("/ThongTin/get_TenTTbyLoaiTin?id=" + id).then(function (d) {
+
+//            $scope.ThongTin = d.data;
+//            console.log($scope.ThongTin)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+
+//    };
+
+
+//});
+//app.controller('GetTTbyIDController', function ($scope, $http) {
+
+//    $scope.loadrecord = function (id) {
+
+//        $http.get("/ThongTin/Get_databyid?id=" + id).then(function (d) {
+
+//            $scope.ThongTin = d.data;
+//            console.log($scope.ThongTin)
+
+//        }, function (error) {
+
+//            alert('Failed');
+
+//        });
+
+//    };
+
+
+//});

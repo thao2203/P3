@@ -1,6 +1,7 @@
 ﻿using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -79,6 +80,48 @@ namespace DAO_Data_Access_Object_
                 li.Add(bv);
             }
             return li;
+        }
+
+        //admin
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
+        SqlDataAdapter da;
+        SqlDataReader dr;
+        SqlCommand com;
+        DataSet ds;
+        ListBV bvlist = new ListBV();
+        public ListBV Get_Paging_BV(int pageindex, int pagesize)
+        {
+            com = new SqlCommand("sp_data_baiViet", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@Pageindex", pageindex);
+            com.Parameters.AddWithValue("@Pagesize", pagesize);
+
+            con.Open();
+            dr = com.ExecuteReader();
+            List<baiViet> list = new List<baiViet>();
+            while (dr.Read())
+
+            {
+                baiViet dt = new baiViet();
+                dt.MaBV = dr["MaBV"].ToString();
+                dt.MaDM = dr["MaDM"].ToString();
+                dt.MaDMC = dr["MaDMC"].ToString();
+                dt.TaiKhoanUS = dr["TaiKhoanUS"].ToString();
+                dt.TieuDe = dr["TieuDe"].ToString();
+                dt.TrangThai = dr["TrangThai"].ToString();
+                dt.ThoiGianDang = DateTime.Parse(dr["ThoiGianDang"].ToString());
+                dt.NoiDungCon = dr["NoiDungCon"].ToString();
+                dt.HinhAnh = dr["HinhAnh"].ToString();
+               
+                list.Add(dt);
+            }
+            dr.NextResult();
+            while (dr.Read())
+            {
+                bvlist.totalcount = Convert.ToInt32(dr["totalcount"]);
+            }
+            bvlist.listBaiViet = list;
+            return bvlist;
         }
     }
 }

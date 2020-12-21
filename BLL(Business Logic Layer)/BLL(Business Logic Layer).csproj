@@ -50,7 +50,9 @@
     <Compile Include="ServiceInterface\IChiTietBaiViet.cs" />
     <Compile Include="ServiceInterface\IDanhMuc.cs" />
     <Compile Include="ServiceInterface\IDanhMucCon.cs" />
+    <Compile Include="ServiceInterface\IthongKe.cs" />
     <Compile Include="ServiceInterface\IUS.cs" />
+    <Compile Include="thongKe_BLL.cs" />
     <Compile Include="US_bll.cs" />
   </ItemGroup>
   <ItemGroup>

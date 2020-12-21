@@ -45,7 +45,9 @@
     <Compile Include="ChiTietBaiViet.cs" />
     <Compile Include="danhmuc.cs" />
     <Compile Include="danhmuccon.cs" />
+    <Compile Include="ListBV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="thongKe.cs" />
     <Compile Include="US.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

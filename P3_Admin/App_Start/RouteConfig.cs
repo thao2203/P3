@@ -16,7 +16,7 @@ namespace P3_Admin
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Adnmin", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Adnmin", action = "danhSachBaiViet", id = UrlParameter.Optional }
             );
         }
     }

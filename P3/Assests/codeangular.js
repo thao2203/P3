@@ -243,7 +243,6 @@ app.controller("NgauNhienPost2", function ($scope, $http) {
     };
 });
 app.controller("NgauNhienPost3", function ($scope, $http) {
-    $scope.pagesize = 3;
     $http({
         method: 'get',
         url: '/baiViet/getbaivietngaunhien3'
@@ -253,19 +252,6 @@ app.controller("NgauNhienPost3", function ($scope, $http) {
         //console.log($scope.listNgauNhien);
 
     })
-    $scope.load = function ()
-    {
-        $scope.pagesize += 3;
-        $http({
-            method: 'get',
-            url: '/baiViet/getbaivietngaunhien3?pagesize=' + $scope.pagesize
-        }).then(function successCallback(res) {
-
-            $scope.listNgauNhien3 = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-            //console.log($scope.listNgauNhien);
-
-        })
-    }
 }).filter("filterdate", function () {
     var re = /\/Date\(([0-9]*)\)\//;
     return function (x) {
@@ -351,8 +337,8 @@ app.controller("getMenu", function ($scope, $http) {
         $scope.danhmuc = data.data;
         $http.get('/DanhMucCon/GetDanhMucCon').then(function (data) {
             $scope.danhmuccon = data.data;
-            console.log($scope.danhmuc);
-            console.log($scope.danhmuccon);
+            //console.log($scope.danhmuc);
+            //console.log($scope.danhmuccon);
             for (let i = 0; i < $scope.danhmuc.length; i++) {
                 const node = $scope.danhmuc[i];
                 node.children = [];
@@ -365,7 +351,7 @@ app.controller("getMenu", function ($scope, $http) {
                 $scope.menus.push(node);
             }
         })
-        console.log($scope.menus);
+        //console.log($scope.menus);
     })
 })
 

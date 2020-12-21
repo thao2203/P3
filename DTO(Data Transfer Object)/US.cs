@@ -11,6 +11,8 @@ namespace DTO_Data_Transfer_Object_
         public string taiKhoanUS { get; set; }
         public string matKhau { get; set; }
         public string tenUser { get; set; }
+        public string chucVu { get; set; }
+        public string ghiChu { get; set; }
 
     }
 }

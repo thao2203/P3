@@ -34,5 +34,7 @@ namespace DTO_Data_Transfer_Object_
         public string noiDungTLBL { get; set; }
         public string hinhAnhCusTLBL { get; set; }
         public DateTime TgianTLBL { get; set; }
+        //admin
+        public int totalcount { get; set; }
     }
 }

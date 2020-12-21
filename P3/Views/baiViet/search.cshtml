@@ -120,12 +120,12 @@
                     <div ng-controller="timkiem">
                         <!-- post -->
                         <div ng-repeat="i in listBaiVietTheoLoai" class="post post-row">
-                            <a class="post-img" href="blog-post.html"><img src="{{i.HinhAnh}}" alt=""></a>
+                            <a class="post-img" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
                             <div class="post-body">
                                 <div class="post-category">
-                                    <a href="category.html">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+                                    <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
                                 </div>
-                                <h3 class="post-title title-sm"><a href="blog-post.html">{{i.TieuDe}}</a></h3>
+                                <h3 class="post-title title-sm"><a href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
                                 <ul class="post-meta">
                                     <li><a href="author.html">{{i.tacgia}}</a></li>
                                     <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>

@@ -1,0 +1,14 @@
+﻿.bag{
+    padding:3em;
+}
+.name_input{
+font-size:1.5em;
+}
+.text_input {
+    outline: none;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    padding:5px;
+}

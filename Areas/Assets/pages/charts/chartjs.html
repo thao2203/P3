@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | ChartJS</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <header class="main-header">
+    <a href="../../index2.html" class="logo">
+      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-lg"><b>Admin</b>LTE</span>
+    </a>
+    <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>  
+          </li>
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+          </li>
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+          </li>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="../../../../Anh/111.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Đào Ngọc</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="../../../../Anh/111.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Đào Thị Ánh Ngọc
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../../../../Anh/111.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Đào Ngọc</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview active">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Quản lý sản phẩm</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>Danh sách sản phẩm mới</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Thêm sản phẩm mới</a></li>
+            
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Đơn hàng</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>Xác thực đơn hàng</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Xác thực giao hàng</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Xác thực nhận hàng</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Quản lý sản phẩm</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href=""><i class="fa fa-circle-o"></i>Thêm loại sản phẩm mới</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Danh sách loại sản phẩm</a></li>
+           
+          </ul>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+              <small class="label pull-right bg-green">16</small>
+              <small class="label pull-right bg-red">5</small>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Hóa đơn</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>Chi tiết hóa đơn</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </section>
+  </aside>
+<div class="content-wrapper">
+   <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+          </div>
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Danh sách sản phẩm</h3>
+            </div>
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                 <tr>
+                  <th>Tên sản phẩm</th>
+                  <th>Gía</th>
+                  <th>Số lượng</th>
+                  <th>Sửa/Xóa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="1">
+                  <td>Rượu Cross Sauvignon</td>
+                  <td>1.500.000</td>
+                  <td>4</td>
+                  <td> <input type="button" onclick="sửa1()" name="button" value="sửa">
+                    <input type="button" onclick="xoa1()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="2">
+                  <td>Rượu Merlot</td>
+                  <td>1.300.000</td>
+                  <td>7</td>
+                  <td> <input type="button" onclick="sửa2()" name="button" value="sửa">
+                  <input type="button" onclick="xoa2()" name="button" value="xóa">
+                </tr>
+                <tr id="3">
+                  <td>Rượu Rhum</td>
+                  <td>3.550.000</td>
+                  <td>5</td>
+                  <td> <input type="button" onclick="sửa3()" name="button" value="sửa">
+                    <input type="button" onclick="xoa3()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="4">
+                  <td>Rượu Royal</td>
+                  <td>1.130.000</td>
+                  <td>8</td>
+                  <td> <input type="button" onclick="sửa4()" name="button" value="sửa">
+                    <input type="button" onclick="xoa4()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="5">
+                  <td>Rượu Whysky</td>
+                  <td>13.300.000</td>
+                  <td>7</td>
+                  <td> <input type="button" onclick="sửa5()" name="button" value="sửa">
+                    <input type="button" onclick="xoa5()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="6">
+                  <td>Rượu Mugi ShoChu</td>
+                  <td>750.000</td>
+                  <td>5</td>
+                  <td> <input type="button" onclick="sửa6()" name="button" value="sửa">
+                    <input type="button" onclick="xoa6()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="7">
+                  <td>Rượu Merlotn</td>
+                  <td>1.290.000</td>
+                  <td>8</td>
+                  <td> <input type="button" onclick="sửa7()" name="button" value="sửa">
+                    <input type="button" onclick="xoa7()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="8">
+                  <td>Rượu Chivas</td>
+                  <td>690.000</td>
+                  <td>7</td>
+                  <td> <input type="button" onclick="sửa()" name="button" value="sửa">
+                    <input type="button" onclick="xoa8()" name="button" value="xóa"></td>
+                </tr>
+                <tr id="9">
+                  <td>Rượu California</td>
+                  <td>150.000</td>
+                  <td>5</td>
+                  <td> <input type="button" onclick="sửa9()" name="button" value="sửa">
+                    <input type="button" onclick="xoa9()" name="button" value="xóa"></td>
+                </tr>
+                </tfoot>
+              </table>
+             Tên sản phẩm:<input type="text" name="fname" id="fname" / style="margin-left: 20px;"><br/><br/>
+             Gía:<input type="text" name="lname" id="lname" / style="margin-left: 80px;"><br/><br/>
+             Số lượng:<input type="text" name="age" id="age" / style="margin-left: 50px;"><br/><br/>
+            <button onclick="addRow();">Thêm</button><br/><br/>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+  
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../bower_components/Chart.js/Chart.js"></script>
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/demo.js"></script>
+<script>
+  $(function () {
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+    var areaChart       = new Chart(areaChartCanvas)
+
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Electronics',
+          fillColor           : 'rgba(210, 214, 222, 1)',
+          strokeColor         : 'rgba(210, 214, 222, 1)',
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label               : 'Digital Goods',
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        }
+      ]
+    }
+
+    var areaChartOptions = {
+      showScale               : true,
+      scaleShowGridLines      : false,
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      scaleGridLineWidth      : 1,
+      scaleShowHorizontalLines: true,
+      scaleShowVerticalLines  : true,
+      bezierCurve             : true,
+      bezierCurveTension      : 0.3,
+      pointDot                : false,
+      pointDotRadius          : 4,
+      pointDotStrokeWidth     : 1,
+      pointHitDetectionRadius : 20,
+      datasetStroke           : true,
+      datasetStrokeWidth      : 2,
+      datasetFill             : true,
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      maintainAspectRatio     : true,
+      responsive              : true
+    }
+    areaChart.Line(areaChartData, areaChartOptions)
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas          = $('#lineChart').get(0).getContext('2d')
+    var lineChart                = new Chart(lineChartCanvas)
+    var lineChartOptions         = areaChartOptions
+    lineChartOptions.datasetFill = false
+    lineChart.Line(areaChartData, lineChartOptions)
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieChart       = new Chart(pieChartCanvas)
+    var PieData        = [
+      {
+        value    : 700,
+        color    : '#f56954',
+        highlight: '#f56954',
+        label    : 'Chrome'
+      },
+      {
+        value    : 500,
+        color    : '#00a65a',
+        highlight: '#00a65a',
+        label    : 'IE'
+      },
+      {
+        value    : 400,
+        color    : '#f39c12',
+        highlight: '#f39c12',
+        label    : 'FireFox'
+      },
+      {
+        value    : 600,
+        color    : '#00c0ef',
+        highlight: '#00c0ef',
+        label    : 'Safari'
+      },
+      {
+        value    : 300,
+        color    : '#3c8dbc',
+        highlight: '#3c8dbc',
+        label    : 'Opera'
+      },
+      {
+        value    : 100,
+        color    : '#d2d6de',
+        highlight: '#d2d6de',
+        label    : 'Navigator'
+      }
+    ]
+    var pieOptions     = {
+      segmentShowStroke    : true,
+      segmentStrokeColor   : '#fff',
+      segmentStrokeWidth   : 2,
+      percentageInnerCutout: 50,
+      animationSteps       : 100,
+      animationEasing      : 'easeOutBounce',
+      animateRotate        : true,
+      animateScale         : false,
+      responsive           : true,
+      maintainAspectRatio  : true,
+      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
+    }
+    pieChart.Doughnut(PieData, pieOptions)
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
+    var barChart                         = new Chart(barChartCanvas)
+    var barChartData                     = areaChartData
+    barChartData.datasets[1].fillColor   = '#00a65a'
+    barChartData.datasets[1].strokeColor = '#00a65a'
+    barChartData.datasets[1].pointColor  = '#00a65a'
+    var barChartOptions                  = {
+      scaleBeginAtZero        : true,
+      scaleShowGridLines      : true,
+      scaleGridLineColor      : 'rgba(0,0,0,.05)',
+      scaleGridLineWidth      : 1,
+      scaleShowHorizontalLines: true,
+      scaleShowVerticalLines  : true,
+      barShowStroke           : true,
+      barStrokeWidth          : 2,
+      barValueSpacing         : 5,
+      barDatasetSpacing       : 1,
+      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+      responsive              : true,
+      maintainAspectRatio     : true
+    }
+
+    barChartOptions.datasetFill = false
+    barChart.Bar(barChartData, barChartOptions)
+  })
+</script>
+</body>
+<script>
+    function xoa1()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("1").remove();
+        }
+    }
+    function xoa2()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("2").remove();
+        }
+    }
+     function xoa3()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("3").remove();
+        }
+    }
+     function xoa4()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("4").remove();
+        }
+    }
+     function xoa5()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("5").remove();
+        }
+    }
+     function xoa6()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("6").remove();
+        }
+    }
+     function xoa7()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("7").remove();
+        }
+    }
+     function xoa8()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("8").remove();
+        }
+    }
+      function xoa9()
+    {
+        var xoa= confirm("Bạn có chắc chắn xóa không");
+        if (xoa == true)
+        {
+            document.getElementById ("9").remove();
+        }
+    }
+</script>
+ <script>
+            
+            function addRow()
+            {
+                // get input values
+                var fname = document.getElementById('fname').value;
+                 var lname = document.getElementById('lname').value;
+                  var age = document.getElementById('age').value;
+                  
+                  // get the html table
+                  // 0 = the first table
+                  var table = document.getElementsByTagName('table')[0];
+                  
+                  // add new empty row to the table
+                  // 0 = in the top 
+                  // table.rows.length = the end
+                  // table.rows.length/2+1 = the center
+                  var newRow = table.insertRow(table.rows.length);
+                  
+                  // add cells to the row
+                  var cel1 = newRow.insertCell(0);
+                  var cel2 = newRow.insertCell(1);
+                  var cel3 = newRow.insertCell(2);
+                  
+                  // add values to the cells
+                  cel1.innerHTML = fname;
+                  cel2.innerHTML = lname;
+                  cel3.innerHTML = age;
+            }
+        </script>
+</html>

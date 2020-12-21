@@ -3,6 +3,7 @@ using DAO_Data_Access_Object_;
 using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,7 @@ namespace BLL_Business_Logic_Layer_
     {
         BaiVet_Dao bv = new BaiVet_Dao();
 
-        public int checkBaiViet_ID(int bvietID)
-        {
-            throw new NotImplementedException();
-        }
 
-        public int Delete(int bvietID)
-        {
-            throw new NotImplementedException();
-        }
         public IList<baiViet> getBaiVietNgauNhien()
         {
             return bv.getbaivietngaunhien12("SELECT Top(3) bv.maBV, dmc.maDMC, bv.tieuDe, bv.hinhAnh, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Order By NEWID()");
@@ -84,40 +77,29 @@ namespace BLL_Business_Logic_Layer_
             return bv.getbaiviet("SELECT Top(6) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM ((BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC)) WHERE bv.maDMC='dmc14'");
         }
 
-        public BaiViet_bll getBaiViet_ID(int bvietID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int getBaiViet_ID_Last()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Insert(baiViet bviet)
-        {
-            throw new NotImplementedException();
-        }
-
         public IList<baiViet> Search(string bviet)
         {
-            return bv.getbaiviet(string.Format(@"Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where bv.tieuDe like '%{0}%' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC", bviet));
+            return bv.getbaiviet(string.Format(@"Select Top(5) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where bv.tieuDe like '%{0}%' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC", bviet));
         }
 
-        public int Update(baiViet bviet)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<baiViet> getDSBV()
-        {
-            return bv.getbaiviet("Select BV.*, US.tenUser, dm.tenDM, dmc.tenDMC From dbo.BAIVIET BV Left join dbo.US US On BV.taiKhoanUs = US.taiKhoanUs left join dbo.DANHMUC DM ON BV.maDM = DM.maDM left join dbo.DANHMUCCON DMC ON BV.maDMC = DMC.maDMC");
-        }
-
+        
         public IList<baiViet> getBaiVietMoiNhatCT()
         {
             return bv.getbaiviet("SELECT Top(3) bv.*, US.tenUser, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) order by bv.thoiGianDang DESC");
 
+        }
+
+        //public IList<baiViet> Get_Paging_BaiViet(int pageindex, int pagesize)
+        //{
+        //    return bv.Get_Paging_BaiViet(pageindex, pagesize);
+        //}
+
+        // ADmin
+        public ListBV Get_Paging_BV(int pageindex, int pagesize)
+        {
+            ListBV bvlist = new ListBV();
+            bvlist = bv.Get_Paging_BV(pageindex, pagesize);
+            return bvlist;
         }
     }
 }

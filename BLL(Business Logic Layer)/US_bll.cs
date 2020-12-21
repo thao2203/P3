@@ -8,11 +8,13 @@ namespace BLL_Business_Logic_Layer_
 {
     public class US_bll : IUS
     {
-        US_Dao bv = new US_Dao();
-
-        public IList<US> getLogin1(string tk, string mk)
+        US_Dao ud = new US_Dao();
+        //phương thức Lấy về tài khoản người dùng với user name và password
+        public IList<US> checkUser(string tk, string mk)
         {
-            return bv.getLogin(tk, mk);
+            return ud.checkAcount(tk, mk);
         }
+
+       
     }
 }

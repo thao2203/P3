@@ -4,270 +4,274 @@
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="min-height: 916px;">
-    <!-- Content Header (Page header) -->
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
+<style>
+    .left-option {
+        display: flex;
+        justify-content: space-between;
+    }
 
-                <!-- /.box -->
+    .button-add {
+        height: 36px;
+        width: 80px;
+        margin-right: 12px;
+    }
 
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title" style="font-size: 25px;font-family: sans-serif;font-weight: bold;">Bài viết</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <button type="submit" class="addRow" value="Thêm Bài viết" style="margin-left: 910px;width: 168px;font-family: sans-serif;font-size: 16px;color: #fff;font-weight: 700;height: 35px;border: 3px solid #d8d450;background: #1ca8d2;padding: 4px;"><p>Thêm Bài viết</p></button>
-                    <div id="shoppingCart">
-                        <div id="cartItemsContainer">
-                            <p style="color: #212b35;
-                        font-size: 25px;
-                        font-family: sans-serif;
-                        font-weight: bold;">Sửa Bài viết</p>
-                            <i class="fa fa-times-circle-o fa-3x openCloseCart" aria-hidden="true" style="color: #0d71ec;font-size: 30px;"></i>
-                            <div class="tt" style="background: #fff;padding: 10px;height: 772px;">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bài viết</font></label>
-                                <input type="text" class="form-control" name="mabv" id="txtmabv" placeholder="Nhập mã bài viết">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bình luận</font></label>
-                                <input type="text" class="form-control" name="mabl" id="txtmabl" placeholder="Nhập mã bình luận">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục</font></label>
-                                <input type="text" class="form-control" name="madm" id="txtmadm" placeholder="Nhập mã danh mục">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục con</font></label>
-                                <input type="text" class="form-control" name="madmc" id="txtmadmc" placeholder="Nhập mã danh mục con">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tài khoản</font></label>
-                                <input type="text" class="form-control" name="tk" id="txttk" placeholder="Nhập tài khoản">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tiêu đề</font></label>
-                                <input type="text" class="form-control" name="matieude" id="txttieude" placeholder="Nhập tiêu đề">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Trạng thái</font></label>
-                                <input type="text" class="form-control" name="trangthai" id="txttrangthai" placeholder="Nhập trạng thái">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Thời gian</font></label>
-                                <input type="text" class="form-control" name="thoigian" id="txtthoigian" placeholder="Nhập thời gian">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Nội dung nhỏ</font></label>
-                                <input type="text" class="form-control" name="ndnho" id="txtndnho" placeholder="Nhập nội dung nhỏ">
-                                <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
-                                <input type="file" class="form-control" name="anh" id="txtanh">
-                                <button onclick="editRow();" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Sửa Bài viết</button><br><br>
-                                <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: -15px;border-radius: 3px;" onclick=""><font style="vertical-align: inherit;">Hủy</font></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="addRow1">
-                        <div id="cartItemsContainer">
-                            <p style="color: #212b35;
-                    font-size: 25px;
-                    font-family: sans-serif;
-                    font-weight: bold;">Thêm Bài viết</p>
-                            <i class="fa fa-times-circle-o fa-3x addRow" aria-hidden="true" style="color: #0d71ec;font-size: 30px;"></i>
-                            <div class="tt"></div>
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bài viết</font></label>
-                            <input type="text" class="form-control" name="mabv" id="txtmabv1" placeholder="Nhập mã bài viết">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã Bình luận</font></label>
-                            <input type="text" class="form-control" name="mabl" id="txtmabl1" placeholder="Nhập mã bình luận">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục</font></label>
-                            <input type="text" class="form-control" name="madm" id="txtmadm1" placeholder="Nhập mã danh mục">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Mã danh mục con</font></label>
-                            <input type="text" class="form-control" name="madmc" id="txtmadmc1" placeholder="Nhập mã danh mục con">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tài khoản</font></label>
-                            <input type="text" class="form-control" name="tk" id="txttk1" placeholder="Nhập tài khoản">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Tiêu đề</font></label>
-                            <input type="text" class="form-control" name="matieude" id="txttieude1" placeholder="Nhập tiêu đề">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Trạng thái</font></label>
-                            <input type="text" class="form-control" name="trangthai" id="txttrangthai1" placeholder="Nhập trạng thái">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Thời gian</font></label>
-                            <input type="text" class="form-control" name="thoigian" id="txtthoigian1" placeholder="Nhập thời gian">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Nội dung nhỏ</font></label>
-                            <input type="text" class="form-control" name="ndnho" id="txtndnho1" placeholder="Nhập nội dung nhỏ">
-                            <label for="exampleInputPassword1"><font style="vertical-align: inherit;">Ảnh Bài viết</font></label>
-                            <input type="file" class="form-control" name="ten" id="txtanh1">
-                            <button onclick="" style="margin-top: 25px;color: #fff; background: #3c8dbc;border: none;border-radius: 3px;height: 35px;float: left;font-weight: 500">Thêm Bài viết</button>
-                            <button type="submit" class="btnprimary" style="width: 80px;height: 36px; background: #3c8dbc;color: #fff;font-weight: 500;border: none;float: left;margin-left: 10px;margin-top: 25px;border-radius: 3px;" onclick=""><font style="vertical-align: inherit;">Hủy</font></button>
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
 
+        .pagination > li {
+            display: inline;
+        }
 
-                        </div>
-                    </div>
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #337ab7;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
 
-                    <div class="box-body">
-                        <table class="table table-bordered table-striped" id="example1" style="font-size: 11px">
-                            <thead>
-                                <tr>
-                                    <th>Mã BV</th>
-                                    <th>Mã BL</th>
-                                    <th>MÃ DM</th>
-                                    <th>MÃ DMC</th>
-                                    <th>Tài khoản</th>
-                                    <th>Tiêu đề</th>
-                                    <th>Trạng thái</th>
-                                    <th>Thời gian</th>
-                                    <th>ND nhỏ</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Sửa</th>
-                                    <th>Xóa</th>
-                                </tr>
-                            </thead>
-                           
-                            <tbody style="color: #169dab;" ng-controller="dsBaiVietPost">
-                                <tr ng-repeat="items in listDsBV">
-                                    <td class="mabv">{{items.MaBV}}</td>
-                                    <td >{{items.MaBL}}</td>
-                                    <td>{{items.MaDM}}</td>
-                                    <td>{{items.MaDMC}}</td>
-                                    <td>{{items.TaiKhoanUS}}</td>
-                                    <td>{{items.TieuDe}}</td>
-                                    <td>{{items.TrangThai}}</td>
-                                    <td>
-                                        {{items.ThoiGianDang | filterdate | date:'dd-MM-yyyy'}}</td>
-                                    <td>
-                                        {{items.NoiDungCon}}
-                                    </td>
-                                    <td><img style="width:50px; height: 50px" src="{{items.HinhAnh}}"></td>
-                                    <td>
-                                        <button onclick="openpopup($(this))"  type="submit" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">
-                                            <font style="vertical-align: inherit;">Sửa</font>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <input type="button" value="Xóa" onclick="deleteRow(this)" style="width: 45px; height: 40px;margin-left: 12px; background: #ff0000bd;color: #fff;font-weight: 700;vertical-align: inherit;">
-                                    </td>
-                                </tr>
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
 
-                            </tbody>
-                        </table>
-                        <script>
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
 
-                            //$('.openCloseCart').click(function () {
-                            //    $('#shoppingCart').toggle();
-                            //});
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                z-index: 2;
+                color: #23527c;
+                background-color: #eee;
+                border-color: #ddd;
+            }
 
-                            function openpopup(elm) {
-                                var par = elm.parents().parents();
-                                console.log(par)
-                                
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
 
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:hover,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #777;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #ddd;
+        }
 
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+    }
 
-                                document.getElementById("txtmabv").value = par.find(".mabv").html()
-                                //document.getElementById("txtmabl").value = this.cells[1].innerHTML;
-                                //document.getElementById("txtmadm").value = this.cells[2].innerHTML;
-                                //document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
-                                //document.getElementById("txttk").value = this.cells[4].innerHTML;
-                                //document.getElementById("txttieude").value = this.cells[5].innerHTML;
-                                //document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
-                                //document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
-                                //document.getElementById("txtndnho").value = this.cells[8].innerHTML;
-                                //document.getElementById("txtanh").value = this.cells[9].innerHTML;
-                                $('#shoppingCart').toggle();
-                            }
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
 
-                            // get selected row
-                            // display selected row data in text input
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
 
-                            var table = document.getElementById("example1"), rIndex;
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
 
-                            //for (var i = 1; i < table.rows.length; i++) {
-                            //    table.rows[i].onclick = function () {
-                            //        rIndex = this.rowIndex;
-                            //        console.log(rIndex);
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
 
-                            //        document.getElementById("txtmabv").value = this.cells[0].innerHTML;
-                            //        document.getElementById("txtmabl").value = this.cells[1].innerHTML;
-                            //        document.getElementById("txtmadm").value = this.cells[2].innerHTML;
-                            //        document.getElementById("txtmadmc").value = this.cells[3].innerHTML;
-                            //        document.getElementById("txttk").value = this.cells[4].innerHTML;
-                            //        document.getElementById("txttieude").value = this.cells[5].innerHTML;
-                            //        document.getElementById("txttrangthai").value = this.cells[6].innerHTML;
-                            //        document.getElementById("txtthoigian").value = this.cells[7].innerHTML;
-                            //        document.getElementById("txtndnho").value = this.cells[8].innerHTML;
-                            //        document.getElementById("txtanh").value = this.cells[9].innerHTML;
-                            //    };
-                            //}
+    .pagination-sm > li:last-child > a,
+    .pagination-sm > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
 
-                            // edit the row
-                            function editRow() {
-                                table.rows[rIndex].cells[0].innerHTML = document.getElementById("txtmabv").value;
-                                table.rows[rIndex].cells[1].innerHTML = document.getElementById("txtmabl").value;
-                                table.rows[rIndex].cells[2].innerHTML = document.getElementById("txtmadm").value;
-                                table.rows[rIndex].cells[3].innerHTML = document.getElementById("txtmadmc").value;
-                                table.rows[rIndex].cells[4].innerHTML = document.getElementById("txttk").value;
-                                table.rows[rIndex].cells[5].innerHTML = document.getElementById("txttieude").value;
-                                table.rows[rIndex].cells[6].innerHTML = document.getElementById("txttrangthai").value;
-                                table.rows[rIndex].cells[7].innerHTML = document.getElementById("txtthoigian").value;
-                                table.rows[rIndex].cells[8].innerHTML = document.getElementById("txtndnho").value;
-                                table.rows[rIndex].cells[9].innerHTML = document.getElementById("txtanh").value;
+    .pager {
+        padding-left: 0;
+        margin: 20px 0;
+        text-align: center;
+        list-style: none;
+    }
 
-                            }
-                        </script>
-                        <script>
+        .pager li {
+            display: inline;
+        }
 
-                            $('.addRow').click(function () {
-                                $('#addRow1').toggle();
-                            });
-                        </script>
-                        <script>
+            .pager li > a,
+            .pager li > span {
+                display: inline-block;
+                padding: 5px 14px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 15px;
+            }
 
-                            function addRow() {
+                .pager li > a:hover,
+                .pager li > a:focus {
+                    text-decoration: none;
+                    background-color: #eee;
+                }
 
+        .pager .next > a,
+        .pager .next > span {
+            float: right;
+        }
 
-                                var mabv = document.getElementById('txtmabv1').value;
-                                var mabl = document.getElementById('txtmabl1').value;
-                                var madm = document.getElementById('txtmadm1').value;
-                                var madmc = document.getElementById('txtmadmc1').value;
-                                var tk = document.getElementById('txttk1').value;
-                                var tieude = document.getElementById('txttieude1').value;
-                                var trangthai = document.getElementById('txttrangthai1').value;
-                                var thoigian = document.getElementById('txtthoigian1').value;
-                                var ndnho = document.getElementById('txtndnho1').value;
-                                var anh = document.getElementById('txtanh1').value;
-                                // get the html table
-                                // 0 = the first table
-                                var table = document.getElementsByTagName('table')[0];
+        .pager .previous > a,
+        .pager .previous > span {
+            float: left;
+        }
 
-                                // add new empty row to the table
-                                // 0 = in the top
-                                // table.rows.length = the end
-                                // table.rows.length/2+1 = the center
-                                var newRow = table.insertRow(table.rows.length);
+        .pager .disabled > a,
+        .pager .disabled > a:hover,
+        .pager .disabled > a:focus,
+        .pager .disabled > span {
+            color: #777;
+            cursor: not-allowed;
+            background-color: #fff;
+        }
 
-                                // add cells to the row
-                                var cel1 = newRow.insertCell(0);
-                                var cel2 = newRow.insertCell(1);
-                                var cel3 = newRow.insertCell(2);
-                                var cel4 = newRow.insertCell(3);
-                                var cel5 = newRow.insertCell(4);
-                                var cel6 = newRow.insertCell(5);
-                                var cel7 = newRow.insertCell(6);
-                                var cel8 = newRow.insertCell(7);
-                                var cel9 = newRow.insertCell(8);
-                                var cel10 = newRow.insertCell(9);
-                                var cel11 = newRow.insertCell(10);
-                                var cel12 = newRow.insertCell(11);
+    .page-number {
+        text-align: center;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        height: 30px;
+        border: 1px solid #e5e5e5;
+    }
 
-                                // add values to the cells
-                                cel1.innerHTML = mabv;
-                                cel2.innerHTML = mabl;
-                                cel3.innerHTML = madm;
-                                cel4.innerHTML = madmc;
-                                cel5.innerHTML = tk;
-                                cel6.innerHTML = tieude;
-                                cel7.innerHTML = trangthai;
-                                cel8.innerHTML = thoigian;
-                                cel9.innerHTML = ndnho;
-                                cel10.innerHTML = anh;
-                                cel11.innerHTML = '<input type="button" onclick="openpopup(this)" value="Sửa" class="openCloseCart" style="width: 45px;height: 40px;background: #61bf94;margin-left: 12px;color: #fff;font-weight: 700;">';
-                                cel12.innerHTML = '<input type="button" value="Xóa" onclick="deleteRow(this)"  style="width: 45px; height: 40px;margin-left: 12px; background: #ff0000bd;color: #fff;font-weight: 700;vertical-align: inherit;">';
-                            }
-                        </script>
+    .head-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
+<p class="right__desc">Xem sản phẩm</p>
+<div ng-controller="Paging_ThongTinController" class="right__table">
+    <div class="right__tableWrapper">
+        <div class="head-option">
+            <div class="form-group pull-left page-size form-inline">
+                <select id="ddlPageSize" class="form-control control-color"
+                        ng-model="pageSize"
+                        ng-change="changePageSize()">
 
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
+                    <option value="5">5</option>
+
+                    <option value="10">10</option>
+
+                    <option value="25">25</option>
+
+                    <option value="50">50</option>
+
+                </select>
+
             </div>
-            <!-- /.col -->
+
+            <div class="left-option form-group pull-left page-size form-inline">
+                <button ng-click="addfn()" type="button" class="button-add btn btn-success"><i class="fas fa-plus"></i>&#160;Thêm</button>
+                <div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="txtSearch" ng-model="txtSearch" />
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã BV</th>
+                    <th>MÃ DM</th>
+                    <th>MÃ DMC</th>
+                    <th>Tài khoản</th>
+                    <th>Tiêu đề</th>
+                    <th>Trạng thái</th>
+                    <th>Thời gian</th>
+                    <th>ND nhỏ</th>
+                    <th>Hình ảnh</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="items in ThongTindata | filter: txtSearch">
+                    <td>{{items.MaTT}}</td>
+                    <td>{{items.MaBV}}</td>
+                    <td>{{items.MaDM}}</td>
+                    <td>{{items.MaDMC}}</td>
+                    <td>{{items.TaiKhoanUS}}</td>
+                    <td>{{items.TieuDe}}</td>
+                    <td>{{items.TrangThai}}</td>
+                    <td>
+                        {{items.ThoiGianDang | filterdate | date:'dd-MM-yyyy'}}
+                    </td>
+                    <td>
+                        {{items.NoiDungCon}}
+                    </td>
+                    <td data-label="Sửa" class="right__iconTable"><a href="~/Admin/SanPham/SuaSanPham?id={{i.MaSP}}"><img src="~/Areas/Admin/Asset/icon/icon-edit.svg" alt="lỗi"></a></td>
+                    <td ng-controller="CRUD_SanPhamController" data-label="Xoá" class="right__iconTable"><a style="cursor: pointer" href="" ng-click="deleterecord(i.MaSP)"><img src="~/Areas/Admin/Asset/icon/icon-trash-black.svg" alt="lỗi"></a></td>
+
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td align="left" colspan="12">
+                        <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                        <div class="page-number">Page: {{pageIndex}} / {{numPages}}</div>
+                    </td>
+                </tr>
+
+            </tfoot>
+        </table>
+    </div>
 </div>
-<!-- /.content-wrapper -->
+<script>
+    $(document).ready(function () {
+        var x = document.getElementById("ddlPageSize");
+        x.remove(0);
+    });
+</script>
