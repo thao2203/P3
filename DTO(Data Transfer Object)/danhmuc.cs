@@ -10,5 +10,7 @@ namespace DTO_Data_Transfer_Object_
     {
         public string MaDM { get; set; }
         public string TenDM { get; set; }
+        public string MoTa { get; set; }
+
     }
 }

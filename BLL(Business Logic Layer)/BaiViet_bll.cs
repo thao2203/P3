@@ -95,11 +95,77 @@ namespace BLL_Business_Logic_Layer_
         //}
 
         // ADmin
+        DataSet ds;
         public ListBV Get_Paging_BV(int pageindex, int pagesize)
         {
             ListBV bvlist = new ListBV();
             bvlist = bv.Get_Paging_BV(pageindex, pagesize);
             return bvlist;
+        }
+        public List<baiViet> Get_BV_byid(string id)
+        {
+            ds = bv.Get_bv_byid(id);
+            List<baiViet> list = new List<baiViet>();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                list.Add(new baiViet
+                {
+                    MaBV = dr["MaBV"].ToString(),
+                    MaDM = dr["MaDM"].ToString(),
+                    MaDMC = dr["MaDMC"].ToString(),
+                    TaiKhoanUS = dr["TaiKhoanUS"].ToString(),
+                    TieuDe = dr["TieuDe"].ToString(),
+                    TrangThai = dr["TrangThai"].ToString(),
+                    ThoiGianDang = DateTime.Parse(dr["ThoiGianDang"].ToString()),
+                    NoiDungCon = dr["NoiDungNho"].ToString(),
+                    HinhAnh = dr["HinhAnh"].ToString(),
+                });
+            }
+            return list;
+        }
+
+        public string Add_BV(baiViet dt)
+        {
+            string result = string.Empty;
+            try
+            {
+                bv.Add_BV(dt);
+                result = "Thêm thành công";
+            }
+            catch (Exception)
+            {
+                result = "Thêm thất bại";
+
+            }
+            return result;
+        }
+        public string Update_BV(baiViet dt)
+        {
+            string res = string.Empty;
+            try
+            {
+                bv.Update_BV(dt);
+                res = "Cập nhật thành công";
+            }
+            catch (Exception)
+            {
+                res = "Cập nhật thất bại";
+            }
+            return res;
+        }
+        public string Delete_BV(string id)
+        {
+            string res = string.Empty;
+            try
+            {
+                bv.Delete_BV(id);
+                res = "Xóa thành công";
+            }
+            catch (Exception)
+            {
+                res = "Xóa thất bại";
+            }
+            return res;
         }
     }
 }

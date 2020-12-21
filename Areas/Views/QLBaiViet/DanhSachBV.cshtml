@@ -25,7 +25,7 @@
                         <h3 class="box-title">Danh sách bài viết</h3>
                     </div>
                     <div>
-                        <a href="/Admin/QuanLyLoaiSanPham/ThemLoaiSP">Thêm</a>
+                        <a href="/QLBaiViet/ThemBV">Thêm</a>
                     </div>
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
@@ -61,8 +61,8 @@
                                         <img src="{{items.HinhAnh}}" style="width:50px" />
                                     </td>
                                     <td>
-                                        <a href="/Admin/QuanLyLoaiSanPham/SuaLoaiSP/#!?id={{items.maloai}}">sửa</a>
-                                        <input type="button" ng-click="Xoaloaisp(items.maloai)" name="button" value="xóa">
+                                        <a href="/QLBaiViet/SuaBV/#!?id={{items.maBV}}">sửa</a>
+                                        <input type="button" ng-click="Xoaloaisp(items.maBV)" name="button" value="xóa">
                                     </td>
                                 </tr>
                             </tbody>

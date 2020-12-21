@@ -1,4 +1,5 @@
 ﻿using BLL_Business_Logic_Layer_;
+using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace Areas.Controllers
     public class QLBaiVietController : Controller
     {
         BaiViet_bll bvb = new BaiViet_bll();
+        DanhMuc_bll dmb = new DanhMuc_bll();
+        DanhMucCon_bll dmcb = new DanhMucCon_bll();
+        US_bll usb = new US_bll();
         // GET: Admin
         public ActionResult Index()
         {
@@ -30,6 +34,35 @@ namespace Areas.Controllers
         public JsonResult Get_data_BV(int pageindex, int pagesize)
         {
             return Json(bvb.Get_Paging_BV(pageindex, pagesize), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Get_BV_byid(string id)
+        {
+            return Json(bvb.Get_BV_byid(id), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult Them_BV(baiViet dt)
+        {
+            return Json(bvb.Add_BV(dt), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Sua_BV(baiViet dt)
+        {
+            return Json(bvb.Update_BV(dt), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Xoa_BV(string id)
+        {
+            return Json(bvb.Delete_BV(id), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Get_maDM()
+        {
+            return Json(dmb.Get_maDM(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Get_maDMC()
+        {
+            return Json(dmcb.Get_maDMC(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Get_US()
+        {
+            return Json(usb.Get_US(), JsonRequestBehavior.AllowGet);
         }
     }
 }

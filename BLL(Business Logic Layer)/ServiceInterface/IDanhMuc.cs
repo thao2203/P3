@@ -10,5 +10,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     public interface IDanhMuc
     {
         IList<danhmuc> getdanhmuc();
+        //IList<danhmuc> Get_maDM();
     }
 }

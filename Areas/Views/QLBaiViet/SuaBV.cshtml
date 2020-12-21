@@ -4,5 +4,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SuaBV</h2>
+<section class="content-header">
+    <h1>
+        General Form Elements
+        <small>Preview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">General Elements</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-sm-12">
+            <div class="box box-primary" ng-controller="SuaBVController">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Sửa bài viết</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Mã bài viết</label>
+                            <input ng-model="bv.MaBV" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Mã danh mục</label>
+                            <input ng-model="bv.MaDM" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Mã danh mục con</label>
+                            <input ng-model="bv.MaDMC" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tài khoản US</label>
+                            <input ng-model="bv.TaiKhoanUS" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tiêu Đề</label>
+                            <input ng-model="bv.TieuDe" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            <input ng-model="bv.TrangThai" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Thời gian đăng</label>
+                            <input ng-model="bv.ThoiGianDang" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung nhỏ</label>
+                            <input ng-model="bv.NoiDungCon" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Hình ảnh</label>
+                            <input ng-model="bv.HinhAnh" type="file" id="exampleInputFile">
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button ng-click="suabv()" class="btn btn-primary">Sửa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+
 

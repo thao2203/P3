@@ -10,7 +10,10 @@ namespace DTO_Data_Transfer_Object_
     {
         public string madmc { get; set; }
         public string tendmc { get; set; }
+        public string mota { get; set; }
+
         public string madm { get; set; }
         public int luotXem { get; set; }
+        
     }
 }

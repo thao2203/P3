@@ -4,5 +4,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ThemBV</h2>
+<section class="content-header">
+    <h1>
+        General Form Elements
+        <small>Preview</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Forms</a></li>
+        <li class="active">General Elements</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-sm-12">
+            <div class="box box-primary" ng-controller="ThemBVController">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thêm bài viết</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Mã bài viết</label>
+                            <input ng-model="MaBV" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Mã danh mục</label>
+                            <select ng-model="MaDM">
+                                <option ng-repeat="items in listmaDM" value="{{items.MaDM}}">{{items.MaDM}}</option>
+                            </select>                        
+                        </div>
+                        <div class="form-group">
+                            <label>Mã danh mục con</label>
+                            <select ng-model="MaDMC">
+                                <option ng-repeat="items in listmaDMC" value="{{items.MaDMC}}">{{items.MaDMC}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tài khoản US</label>
+                            <select ng-model="TaiKhoanUS">
+                                <option ng-repeat="items in listUS" value="{{items.TaiKhoanUS}}">{{items.TaiKhoanUS}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tiêu Đề</label>
+                            <input ng-model="TieuDe" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            <input ng-model="TrangThai" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Thời gian đăng</label>
+                            <input ng-model="ThoiGianDang" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Nội dung nhỏ</label>
+                            <input ng-model="NoiDungCon" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Hình ảnh</label>
+                            <input ng-model="HinhAnh" type="file" id="exampleInputFile">
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button ng-click="thembv()" class="btn btn-primary">Thêm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+
+
+
 

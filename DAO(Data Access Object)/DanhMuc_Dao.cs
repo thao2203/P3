@@ -1,7 +1,9 @@
 ﻿using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,18 @@ namespace DAO_Data_Access_Object_
                 li.Add(bv);
             }
             return li;
+        }
+        //admin
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
+
+        public DataSet Get_maDM()
+        {
+            string sql = "select*from DanhMuc";
+            SqlCommand com = new SqlCommand(sql, con);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
         }
     }
 }
