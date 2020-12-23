@@ -11,5 +11,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     {
         IList<danhmuccon> getdanhmuccon();
         IList<danhmuccon> getdanhmucconYMFooter();
+        IList<danhmuccon> getmaDMC();
+
     }
 }

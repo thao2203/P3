@@ -1,4 +1,5 @@
 ﻿using BLL_Business_Logic_Layer_;
+using BLL_Business_Logic_Layer_.ServiceInterface;
 using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace Areas.Controllers
         DanhMuc_bll dmb = new DanhMuc_bll();
         DanhMucCon_bll dmcb = new DanhMucCon_bll();
         US_bll usb = new US_bll();
+        IDanhMucCon idmc = new DanhMucCon_bll();
+        IDanhMuc idm = new DanhMuc_bll();
+        IUS ius = new US_bll();
+
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -52,17 +58,31 @@ namespace Areas.Controllers
         {
             return Json(bvb.Delete_BV(id), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Get_maDM()
+        //public JsonResult Get_maDM()
+        //{
+        //    return Json(dmb.Get_maDM(), JsonRequestBehavior.AllowGet);
+        //}
+        public JsonResult GetmaDM()
         {
-            return Json(dmb.Get_maDM(), JsonRequestBehavior.AllowGet);
+            return Json(idm.GetmaDM(), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Get_maDMC()
+        //public JsonResult Get_maDMC()
+        //{
+        //    return Json(dmcb.Get_maDMC(), JsonRequestBehavior.AllowGet);
+        //}
+        //public JsonResult Get_US()
+        //{
+        //    return Json(usb.Get_US(), JsonRequestBehavior.AllowGet);
+        //}
+
+        public JsonResult Gettaikhoanus()
         {
-            return Json(dmcb.Get_maDMC(), JsonRequestBehavior.AllowGet);
+            return Json(ius.Gettaikhoanus(), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Get_US()
+
+        public JsonResult getmaDMC()
         {
-            return Json(usb.Get_US(), JsonRequestBehavior.AllowGet);
+            return Json(idmc.getmaDMC(), JsonRequestBehavior.AllowGet);
         }
     }
 }

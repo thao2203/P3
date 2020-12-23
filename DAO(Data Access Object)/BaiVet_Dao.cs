@@ -139,15 +139,15 @@ namespace DAO_Data_Access_Object_
         {
             SqlCommand com = new SqlCommand("them_baiviet", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@MaBV", dt.MaBV);
-            com.Parameters.AddWithValue("@MaDM", dt.MaDM);
-            com.Parameters.AddWithValue("@MaDMC", dt.MaDMC);
-            com.Parameters.AddWithValue("@TaiKhoanUS", dt.TaiKhoanUS);
-            com.Parameters.AddWithValue("@TieuDe", dt.TieuDe);
-            com.Parameters.AddWithValue("@TrangThai", dt.TrangThai);
-            com.Parameters.AddWithValue("@ThoiGianDang", dt.ThoiGianDang);
-            com.Parameters.AddWithValue("@NoiDungCon", dt.NoiDungCon);
-            com.Parameters.AddWithValue("@HinhAnh", dt.HinhAnh);
+            com.Parameters.AddWithValue("@maBV", dt.MaBV);
+            com.Parameters.AddWithValue("@maDM", dt.MaDM);
+            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
+            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
+            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
+            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
+            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
+            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
+            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
@@ -156,15 +156,15 @@ namespace DAO_Data_Access_Object_
         {
             SqlCommand com = new SqlCommand("sua_baiviet", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@MaBV", dt.MaBV);
-            com.Parameters.AddWithValue("@MaDM", dt.MaDM);
-            com.Parameters.AddWithValue("@MaDMC", dt.MaDMC);
-            com.Parameters.AddWithValue("@TaiKhoanUS", dt.TaiKhoanUS);
-            com.Parameters.AddWithValue("@TieuDe", dt.TieuDe);
-            com.Parameters.AddWithValue("@TrangThai", dt.TrangThai);
-            com.Parameters.AddWithValue("@ThoiGianDang", dt.ThoiGianDang);
-            com.Parameters.AddWithValue("@NoiDungCon", dt.NoiDungCon);
-            com.Parameters.AddWithValue("@HinhAnh", dt.HinhAnh);
+            com.Parameters.AddWithValue("@maBV", dt.MaBV);
+            com.Parameters.AddWithValue("@maDM", dt.MaDM);
+            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
+            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
+            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
+            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
+            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
+            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
+            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
@@ -173,7 +173,7 @@ namespace DAO_Data_Access_Object_
         {
             SqlCommand com = new SqlCommand("xoa_baiviet", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@MaBV", MaBV);
+            com.Parameters.AddWithValue("@maBV", MaBV);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();

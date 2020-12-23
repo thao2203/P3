@@ -28,17 +28,33 @@ namespace DAO_Data_Access_Object_
             }
             return li;
         }
-        //admin
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
-
-        public DataSet Get_maDM()
+        public IList<danhmuc> GetmaDM(string sql)
         {
-            string sql = "select*from DanhMuc";
-            SqlCommand com = new SqlCommand(sql, con);
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            return ds;
+            DataTable dt = new DataTable();
+            string cmdtext = sql;
+            dt = DataAccessHelper.exc(cmdtext);
+            List<danhmuc> li = new List<danhmuc>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                danhmuc bv = new danhmuc();
+                bv.MaDM = dr[0].ToString();
+                bv.TenDM = dr[1].ToString();
+                li.Add(bv);
+            }
+            return li;
         }
+        //admin
+        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
+
+        //public DataSet Get_maDM()
+        //{
+        //    string sql = "select*from DanhMuc";
+        //    SqlCommand com = new SqlCommand(sql, con);
+        //    SqlDataAdapter da = new SqlDataAdapter(com);
+        //    DataSet ds = new DataSet();
+        //    da.Fill(ds);
+        //    return ds;
+        //}
     }
 }

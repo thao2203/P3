@@ -20,20 +20,24 @@ namespace BLL_Business_Logic_Layer_
         }
 
         //admin
-        DataSet ds;
-        public List<danhmuccon> Get_maDMC()
+        //DataSet ds;
+        //public List<danhmuccon> Get_maDMC()
+        //{
+        //    ds = dmc.Get_maDMC();
+        //    List<danhmuccon> l = new List<danhmuccon>();
+        //    foreach (DataRow dr in ds.Tables[0].Rows)
+        //    {
+        //        l.Add(new danhmuccon
+        //        {
+        //            madmc = dr["maDMC"].ToString(),
+        //        });
+        //    }
+        //    return l;
+        //}
+
+        public IList<danhmuccon> getmaDMC()
         {
-            ds = dmc.Get_maDMC();
-            List<danhmuccon> l = new List<danhmuccon>();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                l.Add(new danhmuccon
-                {
-                    madmc = dr["MaDMC"].ToString(),
-                   
-                });
-            }
-            return l;
+            return dmc.getmadmc("select DANHMUCCON.maDMC, DANHMUCCON.tenDMC from dbo.DANHMUCCON");
         }
     }
 }

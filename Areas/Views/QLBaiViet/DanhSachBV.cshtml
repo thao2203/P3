@@ -4,28 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div ng-controller="DanhSachBVController">
-    <section class="content-header">
-        <h1>
-            Data Tables
-            <small>advanced tables</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
-        </ol>
-    </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Danh sách bài viết</h3>
                     </div>
-                    <div>
-                        <a href="/QLBaiViet/ThemBV">Thêm</a>
+                    <div class="col-sm-12">
+                        <div class="header-table col-sm-6">
+                            <span class="form-group pull-left page-size form-inline">
+                                <select class="form-control control-color"
+                                        ng-model="pageSize"
+                                        ng-change="changePageSize()">
+                                    <option value="5" >5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="/QLBaiViet/ThemBV" class=" btn btn-primary pull-right">Thêm</a>
+                        </div>
                     </div>
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
@@ -43,8 +46,8 @@
                                     <th>Sửa/Xóa</th>
                                 </tr>
                             </thead>
-                            <tbody ng-repeat="items in listbv">
-                                <tr>
+                            <tbody>
+                                <tr ng-repeat="items in listbv">
                                     <td>{{items.MaBV}}</td>
                                     <td>{{items.MaDM}}</td>
                                     <td>{{items.MaDMC}}</td>
@@ -61,48 +64,31 @@
                                         <img src="{{items.HinhAnh}}" style="width:50px" />
                                     </td>
                                     <td>
-                                        <a href="/QLBaiViet/SuaBV/#!?id={{items.maBV}}">sửa</a>
-                                        <input type="button" ng-click="Xoaloaisp(items.maBV)" name="button" value="xóa">
+                                        <a href="/QLBaiViet/SuaBV/#!?id={{items.MaBV}}">sửa</a>
+                                        <input type="button" ng-click="Xoabv(items.MaBV)" name="button" value="xóa">
                                     </td>
                                 </tr>
                             </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <tfoot>
+                                <tr>
+                                    <td align="center" colspan="8">
+                                        <div>
+                                            <div style="display:flex;justify-content:space-between;align-items:center" class="col-xs-pull-6">
+
+                                                <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+
+                                                <a class=" btn btn-primary pull-right">Page: {{pageIndex}} / {{numPages}}</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <table class="table table-bordered">
-        <tfoot>
-            <tr>
-                <td align="center" colspan="8">
-                    <div>
-                        <div style="display:flex;justify-content:space-between;align-items:center" class="col-xs-pull-6">
-                            <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
-                            <a class=" btn btn-primary pull-right">Page: {{pageIndex}} / {{numPages}}</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </tfoot>
-        <thead>
-            <tr>
-                <td class="header-table" colspan="12">
-
-                    <span class="form-group pull-left page-size form-inline">
-
-                        <select class="form-control control-color"
-                                ng-model="pageSize"
-                                ng-change="changePageSize()">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                        </select>
-                    </span>
-                </td>
-            </tr>
-        </thead>
-    </table>
 </div>
-

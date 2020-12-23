@@ -18,20 +18,25 @@ namespace BLL_Business_Logic_Layer_
             return dm.getdanhmuc("select DANHMUC.maDM,DANHMUC.tenDM from dbo.DANHMUC");
         }
 
-        DataSet ds;
-        public List<danhmuc> Get_maDM()
-        {
-            ds = dm.Get_maDM();
-            List<danhmuc> l = new List<danhmuc>();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                l.Add(new danhmuc
-                {
-                    MaDM = dr["MaDM"].ToString(),
+        //DataSet ds;
+        //public List<danhmuc> Get_maDM()
+        //{
+        //    ds = dm.Get_maDM();
+        //    List<danhmuc> l = new List<danhmuc>();
+        //    foreach (DataRow dr in ds.Tables[0].Rows)
+        //    {
+        //        l.Add(new danhmuc
+        //        {
+        //            MaDM = dr["MaDM"].ToString(),
 
-                });
-            }
-            return l;
+        //        });
+        //    }
+        //    return l;
+        //}
+
+        public IList<danhmuc> GetmaDM()
+        {
+            return dm.GetmaDM("select DANHMUC.maDM, DANHMUC.tenDM from dbo.DANHMUC");
         }
     }
 }

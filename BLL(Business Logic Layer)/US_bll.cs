@@ -17,20 +17,25 @@ namespace BLL_Business_Logic_Layer_
         }
 
         //admin
-        DataSet ds;
-        public List<US> Get_US()
-        {
-            ds = ud.Get_US();
-            List<US> l = new List<US>();
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                l.Add(new US
-                {
-                    taiKhoanUS = dr["TaiKhoanUS"].ToString(),
+        //DataSet ds;
+        //public List<US> Get_US()
+        //{
+        //    ds = ud.Get_US();
+        //    List<US> l = new List<US>();
+        //    foreach (DataRow dr in ds.Tables[0].Rows)
+        //    {
+        //        l.Add(new US
+        //        {
+        //            taiKhoanUS = dr["TaiKhoanUS"].ToString(),
 
-                });
-            }
-            return l;
+        //        });
+        //    }
+        //    return l;
+        //}
+
+        public IList<US> Gettaikhoanus()
+        {
+            return ud.Gettaikhoanus("select US.taiKhoanUS, US.tenUser from dbo.US");
         }
     }
 }

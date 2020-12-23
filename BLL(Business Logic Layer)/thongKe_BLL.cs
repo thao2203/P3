@@ -22,8 +22,9 @@ namespace BLL_Business_Logic_Layer_
                 listreg.Add(new thongKe
                 {
                     BAIVIET = Convert.ToInt32(dr["BAIVIET"]),
-                    DANHMUC = Convert.ToInt32(dr["DANHMUC"]),
+                    BINHLUAN = Convert.ToInt32(dr["BINHLUAN"]),
                     CUSTOMER = Convert.ToInt32(dr["CUSTOMER"]),
+                    QUANGCAO = Convert.ToInt32(dr["QUANGCAO"]),
                 });
             }
             return listreg;

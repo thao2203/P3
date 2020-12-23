@@ -41,16 +41,33 @@ namespace DAO_Data_Access_Object_
         }
 
         //admin
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
+        //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
 
-        public DataSet Get_US()
+        //public DataSet Get_US()
+        //{
+        //    string sql = "select*from US";
+        //    SqlCommand com = new SqlCommand(sql, con);
+        //    SqlDataAdapter da = new SqlDataAdapter(com);
+        //    DataSet ds = new DataSet();
+        //    da.Fill(ds);
+        //    return ds;
+        //}
+
+        public IList<US> Gettaikhoanus(string sql)
         {
-            string sql = "select*from US";
-            SqlCommand com = new SqlCommand(sql, con);
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            return ds;
+            DataTable dt = new DataTable();
+            string cmdtext = sql;
+            dt = DataAccessHelper.exc(cmdtext);
+            List<US> li = new List<US>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                US bv = new US();
+                bv.taiKhoanUS = dr[0].ToString();
+                bv.tenUser = dr[1].ToString();
+                li.Add(bv);
+            }
+            return li;
         }
     }
 }

@@ -25,16 +25,7 @@ namespace DTO_Data_Transfer_Object_
         public string tendanhmuc { get; set; }
         public string  tacgia { get; set; }
         public int luotXem { get; set; }
-        public string cusBL { get; set; }
-        public string noiDungBL { get; set; }
-        public string hinhAnhCus { get; set; }
-        public DateTime TgianBL { get; set; }
-
-        public string cusTLBL { get; set; }
-        public string noiDungTLBL { get; set; }
-        public string hinhAnhCusTLBL { get; set; }
-        public DateTime TgianTLBL { get; set; }
+        
         //admin
-        public int totalcount { get; set; }
     }
 }

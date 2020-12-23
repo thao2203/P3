@@ -9,7 +9,9 @@ namespace DTO_Data_Transfer_Object_
     public class thongKe
     {
         public int BAIVIET { get; set; }
-        public int DANHMUC { get; set; }
+        public int BINHLUAN { get; set; }
         public int CUSTOMER { get; set; }
+        public int QUANGCAO { get; set; }
+
     }
 }

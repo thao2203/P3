@@ -10,5 +10,8 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     public interface IUS
     {
         IList<US> checkUser(string tk, string mk);
+
+        IList<US> Gettaikhoanus();
+
     }
 }
