@@ -89,10 +89,6 @@ namespace BLL_Business_Logic_Layer_
 
         }
 
-        //public IList<baiViet> Get_Paging_BaiViet(int pageindex, int pagesize)
-        //{
-        //    return bv.Get_Paging_BaiViet(pageindex, pagesize);
-        //}
 
         // ADmin
         DataSet ds;
@@ -124,12 +120,12 @@ namespace BLL_Business_Logic_Layer_
             return list;
         }
 
-        public string Add_BV(baiViet dt)
+        public string Add_BV(baiViet info)
         {
             string result = string.Empty;
             try
             {
-                bv.Add_BV(dt);
+                bv.Add_BV(info);
                 result = "Thêm thành công";
             }
             catch (Exception)
@@ -167,5 +163,6 @@ namespace BLL_Business_Logic_Layer_
             }
             return res;
         }
+
     }
 }

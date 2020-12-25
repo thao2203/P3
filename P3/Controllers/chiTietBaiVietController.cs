@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DTO_Data_Transfer_Object_;
 
 namespace P3.Controllers
 {
@@ -33,6 +34,10 @@ namespace P3.Controllers
         public JsonResult getChiTietTacGia(string maDMC)
         {
             return Json(bv.getCTacGia(maDMC), JsonRequestBehavior.AllowGet);
+        }
+        public void updateView(string mbv)
+        {
+            bv.upview(mbv);
         }
     }
 }

@@ -21,5 +21,10 @@ namespace BLL_Business_Logic_Layer_
         {
             return bv.getCTBV("  Select ct.maCTBV, dm.tenDM, dmc.tenDMC, bv.tieuDe, US.tenUser, bv.thoiGianDang, ct.luotXem, ct.noiDung1, ct.noiDung2, ct.noiDung3, ct.hinhAnh1, ct.hinhAnh2, ct.hinhAnh3, bl.tenNguoiDang, bl.thoiGianDang, bl.noiDung, dmc.maDMC From CTBAIVIET ct, BAIVIET bv, DANHMUCCON dmc, US, BINHLUAN bl, DANHMUC dm Where ct.maBV = bv.maBV and ct.maBL=bl.maBL and bv.maDMC=dmc.maDMC and dm.maDM=dmc.maDM and bv.taiKhoanUs=US.taiKhoanUs and bv.maBV = '" + maDMC + "' ");
         }
+
+        public void upview(string mbv)
+        {
+            DataAccessHelper.execCmd(string.Format("update CTBAIVIET set luotXem= (select luotXem from CTBAIVIET where maBV ='{0}')+1 where  maBV ='{0}'",mbv));
+        }
     }
 }

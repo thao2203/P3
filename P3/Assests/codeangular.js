@@ -1,6 +1,8 @@
 ﻿var app = angular.module("myApp", []);
 //console.clear();
 
+
+
 //Slide Post
 app.controller("YmmyPost", function ($scope, $http) {
     $http({
@@ -418,6 +420,7 @@ app.controller("timkiem", function ($scope, $http, $location) {
 //CTBV
 app.controller("CTBVPost", function ($scope, $http, $location) {
     var maBV = $location.search().maBV;
+    $http.post("/chiTietBaiViet/updateView?mbv=" + maBV);
     $http({
         method: 'get',
         url: '/chiTietBaiViet/getChiTietBaiViet?maBV=' + maBV,

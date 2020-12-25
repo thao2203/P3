@@ -11,5 +11,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     {
         IList<ChiTietBaiViet> getCTBaiViet(string maBV);
         IList<ChiTietBaiViet> getCTacGia(string maDMC);
+        void upview(string mbv);
     }
 }

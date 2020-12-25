@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DAO_Data_Access_Object_
 {
-    internal class DataAccessHelper
+    public class DataAccessHelper
     {   public static string ConnectionString= ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
 
         internal static DataTable exc(string cmdtext)
@@ -18,6 +18,14 @@ namespace DAO_Data_Access_Object_
             DataTable dt = new DataTable();
             cmd.Fill(dt);
             return dt;
+        }
+        public static void execCmd(string sql)
+        {
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

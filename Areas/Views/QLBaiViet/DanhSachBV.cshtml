@@ -3,7 +3,7 @@
     ViewBag.Title = "DanhSachBV";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+  
 
 <div ng-controller="DanhSachBVController">
     <section class="content">
@@ -14,36 +14,47 @@
                         <h3 class="box-title">Danh sách bài viết</h3>
                     </div>
                     <div class="col-sm-12">
-                        <div class="header-table col-sm-6">
+                        <div class="header-table col-sm-4">
                             <span class="form-group pull-left page-size form-inline">
                                 <select class="form-control control-color"
                                         ng-model="pageSize"
                                         ng-change="changePageSize()">
-                                    <option value="5" >5</option>
+                                    <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="25">25</option>
                                     <option value="50">50</option>
                                 </select>
                             </span>
                         </div>
-                        <div class="col-sm-6">
+                        <form action="#" method="get" class="col-sm-4">
+                            <div class="input-group">
+                                <input type="text" placeholder="Tìm kiếm ..." class="form-control">
+                                <span class="input-group-btn">
+                                    <button type="submit" name="search" id="search-btn" class="btn btn-primary btn-flat"> <i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                        
+                        <div class="col-sm-4">
                             <a href="/QLBaiViet/ThemBV" class=" btn btn-primary pull-right">Thêm</a>
                         </div>
                     </div>
+
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr style="font-size: 12px;">
                                     <th>Mã BV</th>
                                     <th>MÃ DM</th>
                                     <th>MÃ DMC</th>
                                     <th>Tài khoản</th>
                                     <th>Tiêu đề</th>
+                                    <th>Hình ảnh</th>
                                     <th>Trạng thái</th>
                                     <th>Thời gian</th>
                                     <th>ND nhỏ</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Sửa/Xóa</th>
+                                    <th>Sửa</th>
+                                    <th>Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +64,9 @@
                                     <td>{{items.MaDMC}}</td>
                                     <td>{{items.TaiKhoanUS}}</td>
                                     <td>{{items.TieuDe}}</td>
+                                    <td>
+                                        <img src="{{items.HinhAnh}}" style="width:50px" />
+                                    </td>
                                     <td>{{items.TrangThai}}</td>
                                     <td>
                                         {{items.ThoiGianDang | filterdate | date:'dd-MM-yyyy'}}
@@ -60,12 +74,14 @@
                                     <td>
                                         {{items.NoiDungCon}}
                                     </td>
+
                                     <td>
-                                        <img src="{{items.HinhAnh}}" style="width:50px" />
+                                        <a href="/QLBaiViet/SuaBV/#!?id={{items.MaBV}}">
+                                            <input class="btn btn-success" type="button" name="button" value="SỬA">
+                                        </a>
                                     </td>
                                     <td>
-                                        <a href="/QLBaiViet/SuaBV/#!?id={{items.MaBV}}">sửa</a>
-                                        <input type="button" ng-click="Xoabv(items.MaBV)" name="button" value="xóa">
+                                        <input class="btn btn-danger" type="button" ng-click="Xoabv(items.MaBV)" name="button" value="XOÁ">
                                     </td>
                                 </tr>
                             </tbody>

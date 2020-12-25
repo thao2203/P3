@@ -4,17 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="content-header">
-    <h1>
-        General Form Elements
-        <small>Preview</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-    </ol>
-</section>
 <section class="content">
     <div class="row">
         <!-- left column -->
@@ -33,35 +22,49 @@
                         </div>
                         <div class="form-group">
                             <label>Mã danh mục</label>
-                            <input ng-model="bv.MaDM" type="text" class="form-control">
+                            <select ng-change="getdmc(bv.MaDM)" ng-model="bv.MaDM">
+                                <option ng-repeat="items in listmaDM" value="{{items.MaDM}}">{{items.TenDM}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Mã danh mục con</label>
-                            <input ng-model="bv.MaDMC" type="text" class="form-control">
+                            <select ng-model="bv.MaDMC">
+                                <option ng-repeat="items in listdmc" value="{{items.madmc}}">{{items.tendmc}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tài khoản US</label>
-                            <input ng-model="bv.TaiKhoanUS" type="text" class="form-control">
+                            <select ng-model="bv.TaiKhoanUS">
+                                <option ng-repeat="items in listUS" value="{{items.taiKhoanUS}}">{{items.tenUser}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tiêu Đề</label>
                             <input ng-model="bv.TieuDe" type="text" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputFile">Hình ảnh</label>
+                            <div>
+                                <input class="col-6" type="file" onchange="change(this)" id="exampleInputFile">
+                                <img class="col-6" id="img" style="width: 100px;" src="{{bv.HinhAnh}}" />
+                            </div>
+
+                        </div>
+                        <div class="form-group">
                             <label>Trạng thái</label>
-                            <input ng-model="bv.TrangThai" type="text" class="form-control">
+                            <select ng-model="bv.TrangThai">
+                                <option value="{{bv.TrangThai}}" selected ="selected">{{bv.TrangThai}}</option>
+                                <option value="1">True</option>
+                                <option value="0">False</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Thời gian đăng</label>
-                            <input ng-model="bv.ThoiGianDang | filterdate | date:'dd-MM-yyyy'" type="text" class="form-control" />
+                            <input ng-model="bv.ThoiGianDang" type="date" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label>Nội dung nhỏ</label>
                             <input ng-model="bv.NoiDungCon" type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">Hình ảnh</label>
-                            <input ng-model="bv.HinhAnh" type="file" id="exampleInputFile">
                         </div>
 
                     </div>

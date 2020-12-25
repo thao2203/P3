@@ -28,7 +28,10 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         IList<baiViet> getBaiVietHaNoi();
         IList<baiViet> Search(string tenbaiviet);
 
+
+
         //admin
         //Areas
+
     }
 }

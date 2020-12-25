@@ -18,6 +18,7 @@ namespace Areas.Controllers
         IDanhMucCon idmc = new DanhMucCon_bll();
         IDanhMuc idm = new DanhMuc_bll();
         IUS ius = new US_bll();
+        IBaiViet ibv = new BaiViet_bll();
 
 
         // GET: Admin
@@ -45,10 +46,9 @@ namespace Areas.Controllers
         {
             return Json(bvb.Get_BV_byid(id), JsonRequestBehavior.AllowGet);
         }
-        [HttpPost]
-        public JsonResult Them_BV(baiViet dt)
+        public JsonResult Them_BV(baiViet info)
         {
-            return Json(bvb.Add_BV(dt), JsonRequestBehavior.AllowGet);
+            return Json(bvb.Add_BV(info), JsonRequestBehavior.AllowGet);
         }
         public JsonResult Sua_BV(baiViet dt)
         {
@@ -58,31 +58,25 @@ namespace Areas.Controllers
         {
             return Json(bvb.Delete_BV(id), JsonRequestBehavior.AllowGet);
         }
-        //public JsonResult Get_maDM()
-        //{
-        //    return Json(dmb.Get_maDM(), JsonRequestBehavior.AllowGet);
-        //}
         public JsonResult GetmaDM()
         {
             return Json(idm.GetmaDM(), JsonRequestBehavior.AllowGet);
         }
-        //public JsonResult Get_maDMC()
-        //{
-        //    return Json(dmcb.Get_maDMC(), JsonRequestBehavior.AllowGet);
-        //}
-        //public JsonResult Get_US()
-        //{
-        //    return Json(usb.Get_US(), JsonRequestBehavior.AllowGet);
-        //}
 
         public JsonResult Gettaikhoanus()
         {
-            return Json(ius.Gettaikhoanus(), JsonRequestBehavior.AllowGet);
+            return Json(ius.getUS(), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult getmaDMC()
         {
-            return Json(idmc.getmaDMC(), JsonRequestBehavior.AllowGet);
+            return Json(idmc.getdanhmuccon(), JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult getDMCbyMaDM(string MaDM)
+        {
+            return Json(idmc.getDMCbyMaDM(MaDM), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

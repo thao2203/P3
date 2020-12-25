@@ -13,6 +13,6 @@ namespace DTO_Data_Transfer_Object_
         public string tenUser { get; set; }
         public string chucVu { get; set; }
         public string ghiChu { get; set; }
-
+        public string hinhAnh { get; set; }
     }
 }

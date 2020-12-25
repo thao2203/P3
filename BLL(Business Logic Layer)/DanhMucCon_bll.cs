@@ -10,34 +10,27 @@ namespace BLL_Business_Logic_Layer_
     public class DanhMucCon_bll : IDanhMucCon
     {
         DanhMucCon_Dao dmc = new DanhMucCon_Dao();
+        //public IList<danhmuccon> getdanhmuccon()
+        //{
+        //    return dmc.getdanhmuccon("select DANHMUCCON.maDMC,DANHMUCCON.tenDMC,DANHMUCCON.maDM,DANHMUCCON.luotXem  from dbo.DANHMUCCON");
+        //}
         public IList<danhmuccon> getdanhmuccon()
         {
-            return dmc.getdanhmuccon("select DANHMUCCON.maDMC,DANHMUCCON.tenDMC,DANHMUCCON.maDM,DANHMUCCON.luotXem  from dbo.DANHMUCCON");
+            return dmc.getdanhmuccon("select * from dbo.DANHMUCCON");
         }
-        public IList<danhmuccon> getdanhmucconYMFooter()
-        {
-            return dmc.getdanhmuccon("select DANHMUCCON.maDMC, DANHMUCCON.tenDMC, DANHMUCCON.maDM,DANHMUCCON.luotXem from dbo.DANHMUCCON where maDM = 'dm01'");
-        }
-
-        //admin
-        //DataSet ds;
-        //public List<danhmuccon> Get_maDMC()
+        //public IList<danhmuccon> getdanhmucconYMFooter()
         //{
-        //    ds = dmc.Get_maDMC();
-        //    List<danhmuccon> l = new List<danhmuccon>();
-        //    foreach (DataRow dr in ds.Tables[0].Rows)
-        //    {
-        //        l.Add(new danhmuccon
-        //        {
-        //            madmc = dr["maDMC"].ToString(),
-        //        });
-        //    }
-        //    return l;
+        //    return dmc.getdanhmuccon("select DANHMUCCON.maDMC, DANHMUCCON.tenDMC, DANHMUCCON.maDM,DANHMUCCON.luotXem from dbo.DANHMUCCON where maDM = 'dm01'");
         //}
 
-        public IList<danhmuccon> getmaDMC()
+        public IList<danhmuccon> getDMCbyMaDM(string maDM)
         {
-            return dmc.getmadmc("select DANHMUCCON.maDMC, DANHMUCCON.tenDMC from dbo.DANHMUCCON");
+            return dmc.getdanhmuccon("select * from dbo.DANHMUCCON where maDM = '"+ maDM + "'");
         }
+
+        //public IList<danhmuccon> getmaDMC()
+        //{
+        //    return dmc.getmadmc("select * from dbo.DANHMUCCON");
+        //}
     }
 }
