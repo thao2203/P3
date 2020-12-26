@@ -18,10 +18,10 @@ namespace BLL_Business_Logic_Layer_
         {
             return dmc.getdanhmuccon("select * from dbo.DANHMUCCON");
         }
-        //public IList<danhmuccon> getdanhmucconYMFooter()
-        //{
-        //    return dmc.getdanhmuccon("select DANHMUCCON.maDMC, DANHMUCCON.tenDMC, DANHMUCCON.maDM,DANHMUCCON.luotXem from dbo.DANHMUCCON where maDM = 'dm01'");
-        //}
+        public IList<danhmuccon> getdanhmucconYMFooter()
+        {
+            return dmc.getdanhmuccon("select * from dbo.DANHMUCCON where maDM = 'dm01'");
+        }
 
         public IList<danhmuccon> getDMCbyMaDM(string maDM)
         {

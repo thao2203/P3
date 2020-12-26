@@ -1,0 +1,17 @@
+﻿<div ng-controller="NgauNhienPost3">
+    <div class="post post-row" ng-repeat="i in listNgauNhien3">
+        <a class="post-img" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
+        <div class="post-body">
+            <div class="post-category">
+                <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+            </div>
+            <h3 class="post-title"><a href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
+            <ul class="post-meta">
+                <li><a href="author.html">{{i.tacgia}}</a></li>
+                <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
+            </ul>
+            <p>{{i.NoiDungCon}}</p>
+        </div>
+    </div>
+
+</div>

@@ -138,88 +138,71 @@
                         <div class="section-title">
                             <h3 class="title">Bình luận</h3>
                         </div>
-                        <div class="post-comments">
+                        <div class="post-comments" ng-controller="PhanHoiController">
                             <!-- comment -->
-                            <div class="media">
+                            <div class="media" ng-repeat="i in listBL">
                                 <div class="media-left">
-                                    <img class="media-object" src="~/Assests/img/avatar-2.jpg" alt="">
+                                    <img class="media-object" src="~/Assests/img/download.png" alt="">
                                 </div>
                                 <div class="media-body">
                                     <div class="media-heading">
-                                        <h4>{{nguoiBL}}</h4>
-                                        <span class="time">{{thoiGianBL | filterdate | date:'dd, TMM, yyyy'}}</span>
+                                        <h4>{{i.tenNGuoiDang}}</h4>
+                                        <span class="time">{{i.thoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</span>
                                     </div>
-                                    <p>{{noiDungBL}}</p>
+                                    <p>{{i.noiDung}}</p>
                                     <a href="#" class="reply">Trả lời</a>
                                     <!-- comment -->
-                                    <div class="media media-author">
+                                    <div class="media media-author" ng-repeat="items in i.listTLBL">
                                         <div class="media-left">
-                                            <img class="media-object" src="~/Assests/img/avatar-1.jpg" alt="">
+                                            <img class="media-object" src="~/Assests/img/download.png" alt="">
                                         </div>
                                         <div class="media-body">
                                             <div class="media-heading">
-                                                <h4>Thảo Nguyễn</h4>
-                                                <span class="time">22, T03, 2020</span>
+                                                <h4>{{items.tenNguoiDang}}</h4>
+                                                <span class="time">{{items.thoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</span>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            <p>{{items.noiDung}}</p>
                                             <a href="#" class="reply">Trả lời</a>
                                         </div>
                                     </div>
                                     <!-- /comment -->
                                 </div>
                             </div>
-                            <!-- /comment -->
-                            <!-- comment -->
-                            @*<div class="media">
-                                <div class="media-left">
-                                    <img class="media-object" src="~/Assests/img/avatar-3.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <div class="media-heading">
-                                        <h4>John Doe</h4>
-                                        <span class="time">5 min ago</span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <a href="#" class="reply">Reply</a>
-                                </div>
-                            </div>*@
-                            <!-- /comment -->
                         </div>
                     </div>
                     <!-- /post comments -->
                     <!-- post reply -->
                     <div class="section-row">
                         <div class="section-title">
-                            <h3 class="title">Để lại câu trả lời</h3>
+                            <h3 class="title">Để lại bình luận</h3>
                         </div>
                         <form class="post-reply">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="input" name="message" placeholder="Nhập nội dung..."></textarea>
+                                        <textarea class="input" name="message" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="text" name="name" placeholder="Nhập tên...">
+                                        <input class="input" type="text" name="name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="email" name="email" placeholder="Nhập Email...">
+                                        <input class="input" type="email" name="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                        <button class="primary-button">Đăng</button>
-                                    </div>
+                                    <button class="primary-button">Đăng</button>
+                                </div>
 
-                                </div>
-                                </div>
+                            </div>
                         </form>
                     </div>
                     <!-- /post reply -->
                 </div>
+
                 <div class="col-md-4">
                     <!-- ad widget -->
                     @Html.Partial("_PartialAuthor")
@@ -237,28 +220,11 @@
                     @Html.Partial("_PartialBvNoiBat")
                     <!-- /post widget -->
                     <!-- galery widget -->
-                    <div class="aside-widget">
-                        <div class="section-title">
-                            <h2 class="title">Instagram</h2>
-                        </div>
-                        <div class="galery-widget">
-                            <ul>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-1.jpg" alt=""></a></li>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-2.jpg" alt=""></a></li>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-3.jpg" alt=""></a></li>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-4.jpg" alt=""></a></li>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-5.jpg" alt=""></a></li>
-                                <li><a href="https://www.instagram.com/nththaoo/"><img src="~/Assests/img/galery-6.jpg" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @Html.Partial("_Partialinstagram")
                     <!-- /galery widget -->
                     <!-- Ad widget -->
-                    <div class="aside-widget text-center">
-                        <a href="#" style="display: inline-block;margin: auto;">
-                            <img class="img-responsive" src="~/Assests/images/banner.jpg" alt="">
-                        </a>
-                    </div>
+                    @Html.Partial("_PartialPageQuangCao450x360")
+
                     <!-- /Ad widget -->
                 </div>
             </div>

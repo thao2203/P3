@@ -11,7 +11,6 @@ namespace DTO_Data_Transfer_Object_
         public string maCTBV { get; set; }
         public string maDMC { get; set; }
         public string maBV { get; set; }
-        public string maBL { get; set; }
         public string tenDM { get; set; }
         public string tenDMC { get; set; }
         public string tieuDe { get; set; }
@@ -27,6 +26,8 @@ namespace DTO_Data_Transfer_Object_
         public string hinhAnh1 { get; set; }
         public string hinhAnh2 { get; set; }
         public string hinhAnh3 { get; set; }
-
+        public string nguoiTLBL { get; set; }
+        public DateTime thoiGianTLBL { get; set; }
+        public string noiDungTLBL { get; set; }
     }
 }

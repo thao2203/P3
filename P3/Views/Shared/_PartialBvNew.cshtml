@@ -1,0 +1,26 @@
+﻿<div ng-controller="newpost" class="row">
+    <div class="col-md-12">
+        <div class="section-title">
+            <h2 class="title">BÀI ĐĂNG MỚI NHẤT</h2>
+        </div>
+    </div>
+    <!-- post -->
+    <div ng-repeat="i in listbaivietmoi" class="col-md-6">
+        <div class="post">
+            <a class="post-img" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
+            <div class="post-body">
+                <div class="post-category">
+                    <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
+
+                </div>
+                <h3 class="post-title"><a href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
+                <ul class="post-meta">
+                    <li><a href="author.html">{{i.tacgia}}</a></li>
+                    <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /post -->
+
+</div>

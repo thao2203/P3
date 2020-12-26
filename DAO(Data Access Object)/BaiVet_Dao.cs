@@ -81,7 +81,7 @@ namespace DAO_Data_Access_Object_
             return li;
         }
 
-        public IList<baiViet> getbaivietnoibat_DAO(string sql)
+        public IList<baiViet> getbaivietnoibat(string sql)
         {
             DataTable dt = new DataTable();
             string cmdtext = sql;

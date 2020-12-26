@@ -239,7 +239,6 @@ app.controller("SuaBVController", function ($scope, $http, $location, imgurUploa
     };
 });
 
-
 function ConvertDate(str) {
     var date = new Date(str),
         mnth = ("0" + (date.getMonth() + 1)).slice(-2),

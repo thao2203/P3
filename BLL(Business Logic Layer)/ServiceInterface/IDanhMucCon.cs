@@ -10,6 +10,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     public interface IDanhMucCon
     {
         IList<danhmuccon> getdanhmuccon();
+        IList<danhmuccon> getdanhmucconYMFooter();
         IList<danhmuccon> getDMCbyMaDM(string maDM);
 
     }

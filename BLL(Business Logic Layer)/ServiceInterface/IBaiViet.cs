@@ -13,7 +13,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         IList<baiViet> getBvTheoLoai(string maLoai);
         IList<baiViet> getPhanTrangBV(string maLoai,string pagesize);
         IList<baiViet> getBaiVietNoiBat();
-        IList<baiViet> getThongTinBV();
         IList<baiViet> getBaiVietHot();
         IList<baiViet> getBaiVietMoiNhat();
         IList<baiViet> getBaiVietMoiNhatCT();

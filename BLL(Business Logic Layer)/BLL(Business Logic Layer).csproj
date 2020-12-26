@@ -42,17 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaiViet_bll.cs" />
+    <Compile Include="binhLuan_BLL.cs" />
     <Compile Include="ChiTietBaiViet_bll.cs" />
+    <Compile Include="Customer_BLL.cs" />
     <Compile Include="DanhMucCon_bll.cs" />
     <Compile Include="DanhMuc_bll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quangCao_BLL.cs" />
     <Compile Include="ServiceInterface\IBaiViet.cs" />
+    <Compile Include="ServiceInterface\IbinhLuan.cs" />
     <Compile Include="ServiceInterface\IChiTietBaiViet.cs" />
+    <Compile Include="ServiceInterface\ICustomer.cs" />
     <Compile Include="ServiceInterface\IDanhMuc.cs" />
     <Compile Include="ServiceInterface\IDanhMucCon.cs" />
+    <Compile Include="ServiceInterface\IquangCao.cs" />
     <Compile Include="ServiceInterface\IthongKe.cs" />
+    <Compile Include="ServiceInterface\ITLbinhLuan.cs" />
     <Compile Include="ServiceInterface\IUS.cs" />
     <Compile Include="thongKe_BLL.cs" />
+    <Compile Include="TLbinhLuan_BLL.cs" />
     <Compile Include="US_bll.cs" />
   </ItemGroup>
   <ItemGroup>

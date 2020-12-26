@@ -18,6 +18,7 @@ namespace P3.Controllers
         {
             return View();
         }
+
         public ActionResult ChiTietBaiViet()
         {
             return View();

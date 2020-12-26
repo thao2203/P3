@@ -73,38 +73,14 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- row -->
-                <div ng-controller="newpost"  class="row">
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h2 class="title">BÀI ĐĂNG MỚI NHẤT</h2>
-                        </div>
-                    </div>
-                    <!-- post -->
-                    <div ng-repeat="i in listbaivietmoi" class="col-md-6">
-                        <div class="post">
-                            <a class="post-img" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
-                            <div class="post-body">
-                                <div class="post-category">
-                                    <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
-                                
-                                </div>
-                                <h3 class="post-title"><a href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
-                                <ul class="post-meta">
-                                    <li><a href="author.html">{{i.tacgia}}</a></li>
-                                    <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /post -->
 
-                </div>
+                @Html.Partial("_PartialBvNew")
                 <!-- /row -->
                 <!-- row -->
                 <div ng-controller="cakepost" class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2 class="title">BÁNH NGỌT</h2>    
+                            <h2 class="title">BÁNH NGỌT</h2>
                         </div>
                     </div>
                     <!-- post -->
@@ -152,7 +128,7 @@
                     <!-- /post -->
                 </div>
                 <!-- /row -->
-               
+
             </div>
             <div class="col-md-4">
                 <!-- ad widget-->
@@ -178,17 +154,19 @@
 </div>
 <!-- /SECTION -->
 <!-- SECTION -->
-<div class="section" ng-controller="QuangCaoPost">
+<div class="section" >
     <!-- container -->
     <div class="container">
         <!-- row -->
         <div class="row">
             <!-- ad -->
-            <div class="col-md-12 section-row text-center">
+            <div class="col-md-12 section-row text-center" ng-controller="imgQuangCaoPost728x90">
                 <a href="#" style="display: inline-block;margin: auto;">
-                    <img class="img-responsive" style="width:728px; height:90px" src="{{hinhAnh}}" alt="">
+                    <img class="img-responsive" style="" src="{{hinhAnh}}" alt="">
                 </a>
+              
             </div>
+
             <!-- /ad -->
         </div>
         <!-- /row -->
@@ -256,51 +234,17 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            <div class="col-md-8" ng-controller="NgauNhienPost3">
+            <div class="col-md-8">
                 <!-- post -->
-                <div class="post post-row" ng-repeat="i in listNgauNhien3">
-                    <a class="post-img" href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}"><img src="{{i.HinhAnh}}" alt=""></a>
-                    <div class="post-body">
-                        <div class="post-category">
-                            <a href="/baiViet/baiviettheoloai#!?maLoai={{i.MaDMC}}">{{i.tendanhmuc}}, {{i.tendanhmuccon}}</a>
-                        </div>
-                        <h3 class="post-title"><a href="/chiTietBaiViet/ChiTietBaiViet#!?maBV={{i.MaBV}}">{{i.TieuDe}}</a></h3>
-                        <ul class="post-meta">
-                            <li><a href="author.html">{{i.tacgia}}</a></li>
-                            <li>{{i.ThoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</li>
-                        </ul>
-                        <p>{{i.NoiDungCon}}</p>
-                    </div>
-                </div>
-                <!-- /post -->
-                @*<div class="section-row loadmore text-center">
-                    <a ng-click="load()" href="#" class="primary-button">Xem thêm</a>
-                </div>*@
+                @Html.Partial("_PartialBvRandom")
             </div>
             <div class="col-md-4">
                 <!-- galery widget -->
-                <div class="aside-widget">
-                    <div class="section-title">
-                        <h2 class="title">Instagram</h2>
-                    </div>
-                    <div class="galery-widget">
-                        <ul>
-                            <li><a href="#"><img src="~/Assests/img/galery-1.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="~/Assests/img/galery-2.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="~/Assests/img/galery-3.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="~/Assests/img/galery-4.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="~/Assests/img/galery-5.jpg" alt=""></a></li>
-                            <li><a href="#"><img src="~/Assests/img/galery-6.jpg" alt=""></a></li>
-                        </ul>
-                    </div>
-                </div>
+                @Html.Partial("_Partialinstagram")
                 <!-- /galery widget -->
                 <!-- Ad widget -->
-                <div class="aside-widget text-center">
-                    <a href="#" style="display: inline-block;margin: auto;">
-                        <img class="img-responsive" src="~/Assests/img/ad-1.jpg" alt="">
-                    </a>
-                </div>
+                @Html.Partial("_PartialPageQuangCao450x360")
+
                 <!-- /Ad widget -->
             </div>
         </div>

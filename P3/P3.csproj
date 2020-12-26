@@ -110,12 +110,14 @@
     <Content Include="Assests\images\Phan1.jpg" />
     <Content Include="Assests\images\Phan2.png" />
     <Content Include="Assests\images\Phan3.jpg" />
+    <Content Include="Assests\images\y2mate.com - KFC – Chizza Chizza_1080p.mp4" />
     <Content Include="Assests\img\ad-1.jpg" />
     <Content Include="Assests\img\ad-2.jpg" />
     <Content Include="Assests\img\ad-3.jpg" />
     <Content Include="Assests\img\avatar-1.jpg" />
     <Content Include="Assests\img\avatar-2.jpg" />
     <Content Include="Assests\img\avatar-3.jpg" />
+    <Content Include="Assests\img\download.png" />
     <Content Include="Assests\img\galery-1.jpg" />
     <Content Include="Assests\img\galery-2.jpg" />
     <Content Include="Assests\img\galery-3.jpg" />
@@ -186,6 +188,7 @@
     <Compile Include="Controllers\chiTietBaiVietController.cs" />
     <Compile Include="Controllers\DanhMucConController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\PhanHoiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +220,10 @@
     <Content Include="Views\Shared\_PartialVerticalMenu.cshtml" />
     <Content Include="Views\chiTietBaiViet\ChiTietBaiViet.cshtml" />
     <Content Include="Views\chiTietBaiViet\ChiTietTacGia.cshtml" />
+    <Content Include="Views\Shared\_PartialPageQuangCao450x360.cshtml" />
+    <Content Include="Views\Shared\_PartialBvNew.cshtml" />
+    <Content Include="Views\Shared\_PartialBvRandom.cshtml" />
+    <Content Include="Views\Shared\_Partialinstagram.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -227,6 +234,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\PhanHoi\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL%28Business Logic Layer%29\BLL%28Business Logic Layer%29.csproj">

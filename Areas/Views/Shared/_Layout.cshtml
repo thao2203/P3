@@ -181,14 +181,15 @@
                 
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">ĐIỀU HƯỚNG CHÍNH</li>
-                    <li>
+                    <li ng-controller="ThongKeController">
                         <a href="/ThongKe/Index">
                             <i class="fa fa-money"></i> 
                             <span>Thống kê</span>
                             <span class="pull-right-container">
-                                <small class="label pull-right bg-yellow">12</small>
-                                <small class="label pull-right bg-green">16</small>
-                                <small class="label pull-right bg-red">5</small>
+                                <small class="label pull-right bg-blue">{{ThongKe.BAIVIET}}</small>
+                                <small class="label pull-right bg-green">{{ThongKe.BINHLUAN}}</small>
+                                <small class="label pull-right bg-yellow">{{ThongKe.CUSTOMER}}</small>
+                                <small class="label pull-right bg-red">{{ThongKe.QUANGCAO}}</small>
                             </span>
                         </a>
                     </li>

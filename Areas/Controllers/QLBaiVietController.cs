@@ -38,6 +38,8 @@ namespace Areas.Controllers
         {
             return View();
         }
+        
+
         public JsonResult Get_data_BV(int pageindex, int pagesize)
         {
             return Json(bvb.Get_Paging_BV(pageindex, pagesize), JsonRequestBehavior.AllowGet);

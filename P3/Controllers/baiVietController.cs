@@ -13,6 +13,8 @@ namespace P3.Controllers
     {
         Tool.Class1 h = new Tool.Class1();
         IBaiViet bv = new BaiViet_bll();
+        IquangCao iqc = new quangCao_BLL();
+
         // GET: baiViet
         public ActionResult Index()
         {
@@ -81,11 +83,6 @@ namespace P3.Controllers
             return Json(bv.getBaiVietNoiBat(), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult getthongtinbaiviet(string mabaiviet)
-        {
-            return Json(bv.getThongTinBV(), JsonRequestBehavior.AllowGet);
-
-        }
         public ActionResult search()
         {
             return View();
@@ -120,5 +117,14 @@ namespace P3.Controllers
             h.mail(mail);
         }
 
+        public JsonResult getQuangCao728x90()
+        {
+            return Json(iqc.getQuangCao728x90(), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult getQuangCao450x360()
+        {
+            return Json(iqc.getQuangCao450x360(), JsonRequestBehavior.AllowGet);
+        }
     }
 }
