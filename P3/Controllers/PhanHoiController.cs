@@ -12,6 +12,8 @@ namespace P3.Controllers
     public class PhanHoiController : Controller
     {
         binhLuan_BLL blb = new binhLuan_BLL();
+        TLbinhLuan_BLL tlb = new TLbinhLuan_BLL();
+
         IbinhLuan ibl = new binhLuan_BLL();
         ITLbinhLuan itb = new TLbinhLuan_BLL();
         ICustomer ics = new Customer_BLL();
@@ -37,6 +39,11 @@ namespace P3.Controllers
         public JsonResult Them_BL(binhLuan cm)
         {
             return Json(blb.Add_BL(cm), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Them_TLBL(TLbinhLuan tlcm)
+        {
+            return Json(tlb.Add_TLBL(tlcm), JsonRequestBehavior.AllowGet);
         }
     }
 }

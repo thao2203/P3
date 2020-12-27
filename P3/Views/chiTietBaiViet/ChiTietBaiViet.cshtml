@@ -138,7 +138,7 @@
                         <div class="section-title">
                             <h3 class="title">Bình luận</h3>
                         </div>
-                        <div id="PhanHoiController" class="post-comments" ng-controller="PhanHoiController">
+                        <div id="PhanHoiController" class="post-comments" >
                             <!-- comment -->
                             <div class="media" ng-repeat="i in listBL">
                                 <div class="media-left">
@@ -147,10 +147,34 @@
                                 <div class="media-body">
                                     <div class="media-heading">
                                         <h4>{{i.tenNGuoiDang}}</h4>
-                                        <span class="time">{{i.thoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</span>
+                                        <span class="time">{{i.thoiGianDang | filterdate | date:'dd-MM-yyyy hh:mm:ss'}}</span>
                                     </div>
                                     <p>{{i.noiDung}}</p>
-                                    <a href="#" class="reply">Trả lời</a>
+                                    <a class="reply" onclick="document.getElementById('Hien').style.display = 'block'">Trả lời</a>
+                                    <br /><br />
+                                    <form class="post-reply" id="Hien" style="display:none;">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea ng-model="tlcm.noiDung" class="input" name="message" placeholder="Message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input ng-model="tlcm.tenNGuoiDang" class="input" type="text" name="name" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input ng-model="tlcm.email" class="input" type="email" name="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button ng-click="dangTLBL(i.mabL)" class="primary-button">Đăng</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
                                     <!-- comment -->
                                     <div class="media media-author" ng-repeat="items in i.listTLBL">
                                         <div class="media-left">
@@ -159,14 +183,15 @@
                                         <div class="media-body">
                                             <div class="media-heading">
                                                 <h4>{{items.tenNguoiDang}}</h4>
-                                                <span class="time">{{items.thoiGianDang | filterdate | date:'dd, TMM, yyyy'}}</span>
+                                                <span class="time">{{items.thoiGianDang | filterdate | date:'dd-MM-yyyy hh:mm:ss'}}</span>
                                             </div>
                                             <p>{{items.noiDung}}</p>
-                                            <a href="#" class="reply">Trả lời</a>
+                                            @* <a href="#" class="reply">Trả lời</a>*@
                                         </div>
                                     </div>
                                     <!-- /comment -->
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -176,7 +201,7 @@
                         <div class="section-title">
                             <h3 class="title">Để lại bình luận</h3>
                         </div>
-                        <form class="post-reply" ng-controller="DangBinhLuanController">
+                        <form class="post-reply" >
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -234,5 +259,7 @@
     </div>
     <!-- /SECTION -->
 </div>
+
+
 
 

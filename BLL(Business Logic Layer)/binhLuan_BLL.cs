@@ -14,7 +14,7 @@ namespace BLL_Business_Logic_Layer_
         binhLuan_DAO bl = new binhLuan_DAO();
         public IList<binhLuan> getbinhluan(string maBV)
         {
-            return bl.getbinhluan("Select * from BINHLUAN where maBV = '" + maBV + "' ");
+            return bl.getbinhluan("Select * from BINHLUAN where maBV = '" + maBV + "' and trangThai = '1' ");
         }
         public string Add_BL(binhLuan cm)
         {

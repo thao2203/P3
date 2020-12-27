@@ -15,7 +15,7 @@ namespace BLL_Business_Logic_Layer_
 
         public IList<ChiTietBaiViet> getCTBaiViet(string maBV)
         {
-            return bv.getCTBV("Select ct.maCTBV, dm.tenDM, dmc.tenDMC, bv.tieuDe, US.tenUser, bv.thoiGianDang, ct.luotXem, ct.noiDung1, ct.noiDung2, ct.noiDung3, ct.hinhAnh1, ct.hinhAnh2, ct.hinhAnh3, bl.tenNguoiDang, bl.thoiGianDang, bl.noiDung, dmc.maDMC, tb.tenNguoiDang, tb.noiDung, tb.thoiGianDang From CTBAIVIET ct, BAIVIET bv, DANHMUCCON dmc, US, BINHLUAN bl, DANHMUC dm, TLBINHLUAN tb, CUSTOMER cs Where ct.maBV = bv.maBV and bv.maBV=bl.maBV and bv.maDMC=dmc.maDMC and dm.maDM=dmc.maDM and bv.taiKhoanUs=US.taiKhoanUs and bl.maBL=tb.MABL and bv.maBV = '" + maBV+"' ");
+            return bv.getCTBV("Select ct.maCTBV, dm.tenDM, dmc.tenDMC, bv.tieuDe, US.tenUser, bv.thoiGianDang, ct.luotXem, ct.noiDung1, ct.noiDung2, ct.noiDung3, ct.hinhAnh1, ct.hinhAnh2, ct.hinhAnh3, dmc.maDMC from BAIVIET bv left join CTBAIVIET ct on bv.maBV=ct.maBV left join DANHMUCCON dmc on dmc.maDMC=bv.maDMC left join DANHMUC dm on dm.maDM=bv.maDM left join BINHLUAN bl on bl.maBV= bv.maBV left join TLBINHLUAN tb on tb.MABL=bl.maBL left join US on US.taiKhoanUs=bv.taiKhoanUs where bv.maBV = '" + maBV+"' ");
         }
         public IList<ChiTietBaiViet> getCTacGia(string maDMC)
         {

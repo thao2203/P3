@@ -15,7 +15,23 @@ namespace BLL_Business_Logic_Layer_
 
         public IList<TLbinhLuan> getTLbinhluan()
         {
-            return tb.getTLbinhluan("Select * from TLBINHLUAN");
+            return tb.getTLbinhluan("Select * from TLBINHLUAN where trangThai='1'");
+        }
+
+        public string Add_TLBL(TLbinhLuan tlcm)
+        {
+            string result = string.Empty;
+            try
+            {
+                tb.Add_TLBL(tlcm);
+                result = "Thêm thành công";
+            }
+            catch (Exception)
+            {
+                result = "Thêm thất bại";
+
+            }
+            return result;
         }
     }
 }
