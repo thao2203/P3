@@ -10,7 +10,6 @@ namespace DTO_Data_Transfer_Object_
     {
         public int mabL { get; set; }
         public string tenNGuoiDang { get; set; }
-        public int maCustomer { get; set; }
         public string email { get; set; }
         public string noiDung { get; set; }
         public DateTime thoiGianDang { get; set; }

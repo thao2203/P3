@@ -9,9 +9,6 @@ namespace DTO_Data_Transfer_Object_
     public class TLbinhLuan
     {
         public int maTLBL { get; set; }
-      
-        public int maCustomer { get; set; }
-        public string taiKhoanUs { get; set; }
         public string tenNguoiDang { get; set; }
         public string email { get; set; }
         public string noiDung { get; set; }

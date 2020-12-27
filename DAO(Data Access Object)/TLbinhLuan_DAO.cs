@@ -22,12 +22,10 @@ namespace DAO_Data_Access_Object_
                 tb.maTLBL = int.Parse(dr[0].ToString());
                 tb.maBL = Convert.ToInt32(dr[1]);
                 tb.tenNguoiDang = dr[2].ToString();
-                tb.taiKhoanUs = dr[3].ToString();
-                tb.maCustomer = int.Parse(dr[4].ToString());
-                tb.email = dr[5].ToString();
-                tb.noiDung = dr[6].ToString();
-                tb.thoiGianDang = DateTime.Parse(dr[7].ToString());
-                tb.trangThai = dr[8].ToString();
+                tb.email = dr[3].ToString();
+                tb.noiDung = dr[4].ToString();
+                tb.thoiGianDang = DateTime.Parse(dr[5].ToString());
+                tb.trangThai = dr[6].ToString();
 
                 li.Add(tb);
             }
