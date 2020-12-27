@@ -138,7 +138,7 @@
                         <div class="section-title">
                             <h3 class="title">Bình luận</h3>
                         </div>
-                        <div class="post-comments" ng-controller="PhanHoiController">
+                        <div id="PhanHoiController" class="post-comments" ng-controller="PhanHoiController">
                             <!-- comment -->
                             <div class="media" ng-repeat="i in listBL">
                                 <div class="media-left">
@@ -176,25 +176,25 @@
                         <div class="section-title">
                             <h3 class="title">Để lại bình luận</h3>
                         </div>
-                        <form class="post-reply">
+                        <form class="post-reply" ng-controller="DangBinhLuanController">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="input" name="message" placeholder="Message"></textarea>
+                                        <textarea ng-model="cm.noiDung" class="input" name="message" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="text" name="name" placeholder="Name">
+                                        <input ng-model="cm.tenNGuoiDang" class="input" type="text" name="name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input class="input" type="email" name="email" placeholder="Email">
+                                        <input ng-model="cm.email" class="input" type="email" name="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <button class="primary-button">Đăng</button>
+                                    <button ng-click="dangBL()" class="primary-button">Đăng</button>
                                 </div>
 
                             </div>

@@ -1,7 +1,9 @@
 ﻿using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,20 @@ namespace DAO_Data_Access_Object_
                 li.Add(bl);
             }
             return li;
+        }
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString);
+
+        public void Add_BL(binhLuan cm)
+        {
+            SqlCommand com = new SqlCommand("them_binhluan", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@tenNguoiDang", cm.tenNGuoiDang);
+            com.Parameters.AddWithValue("@email", cm.email);
+            com.Parameters.AddWithValue("@noiDung", cm.noiDung);
+            com.Parameters.AddWithValue("@maBV",cm.maBV);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

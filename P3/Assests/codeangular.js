@@ -422,30 +422,33 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
 
 app.controller("PhanHoiController", function ($scope, $http, $location) {
     var maBV = $location.search().maBV;
-    $http.get("/PhanHoi/getbinhluan?maBV=" + maBV).then(function (data) {
-        $scope.listBL = [];
-        $scope.binhLuan = data.data;
-        
+    $scope.getBl = function () {
 
-        $http.get('/PhanHoi/getTLBinhLuan').then(function (data) {
-            $scope.TLbinhluan = data.data;
-            //console.log($scope.binhLuan);
-            //console.log($scope.TLbinhluan);
+        $http.get("/PhanHoi/getbinhluan?maBV=" + maBV).then(function (data) {
+            $scope.listBL = [];
+            $scope.binhLuan = data.data;
 
-            for (let i = 0; i < $scope.binhLuan.length; i++) {
-                const node = $scope.binhLuan[i];
-                node.listTLBL = [];
-                for (let j = 0; j < $scope.TLbinhluan.length; j++) {
-                    const node_con = $scope.TLbinhluan[j];
-                    if (node_con.maBL == node.mabL) {
-                        node.listTLBL.push(node_con);
+
+            $http.get('/PhanHoi/getTLBinhLuan').then(function (data) {
+                $scope.TLbinhluan = data.data;
+                //console.log($scope.binhLuan);
+                //console.log($scope.TLbinhluan);
+
+                for (let i = 0; i < $scope.binhLuan.length; i++) {
+                    const node = $scope.binhLuan[i];
+                    node.listTLBL = [];
+                    for (let j = 0; j < $scope.TLbinhluan.length; j++) {
+                        const node_con = $scope.TLbinhluan[j];
+                        if (node_con.maBL == node.mabL) {
+                            node.listTLBL.push(node_con);
+                        }
                     }
+                    $scope.listBL.push(node);
                 }
-                $scope.listBL.push(node);
-            }
+            })
+            //console.log($scope.listBL);
         })
-        //console.log($scope.listBL);
-    })
+    }
     //console.log($scope.binhLuan);
 }).filter("filterdate", function () {
     var re = /\/Date\(([0-9]*)\)\//;
@@ -456,7 +459,31 @@ app.controller("PhanHoiController", function ($scope, $http, $location) {
     };
 });
 
+app.controller("DangBinhLuanController", function ($scope, $http, $location) {
+    $scope.cm = {};
+    $scope.dangBL = function () {
+        $scope.cm.maBV = $location.search().maBV
+        console.log($scope.cm)
 
+        $http({
+            method: 'POST',
+            url: '/PhanHoi/Them_BL',
+            data: $scope.cm
+        }).then(function (d) {
+            console.log(d.data)
+            angular.element(document.getElementById('PhanHoiController')).scope().getBl()
+        }, function (e) {
+                alert('failed')
+        })
+    }
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
 //Gmail
 //view gọi hàm thực hiện ng-click gọi hàm bv SendMail
 app.controller("myGmail", function ($scope, $http) {

@@ -16,5 +16,20 @@ namespace BLL_Business_Logic_Layer_
         {
             return bl.getbinhluan("Select * from BINHLUAN where maBV = '" + maBV + "' ");
         }
+        public string Add_BL(binhLuan cm)
+        {
+            string result = string.Empty;
+            try
+            {
+                bl.Add_BL(cm);
+                result = "Thêm thành công";
+            }
+            catch (Exception)
+            {
+                result = "Thêm thất bại";
+
+            }
+            return result;
+        }
     }
 }
