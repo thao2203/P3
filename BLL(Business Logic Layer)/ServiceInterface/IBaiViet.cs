@@ -11,6 +11,7 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
     {
 
         IList<baiViet> getBvTheoLoai(string maLoai);
+        void upluotxemview(string maDMC);
         IList<baiViet> getPhanTrangBV(string maLoai,string pagesize);
         IList<baiViet> getBaiVietNoiBat();
         IList<baiViet> getBaiVietHot();

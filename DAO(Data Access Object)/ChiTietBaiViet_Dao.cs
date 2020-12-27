@@ -31,13 +31,7 @@ namespace DAO_Data_Access_Object_
                 bv.hinhAnh1 = dr[10].ToString();
                 bv.hinhAnh2 = dr[11].ToString();
                 bv.hinhAnh3 = dr[12].ToString();
-                //bv.nguoiBL = dr[13].ToString();
-                //bv.thoiGianBL = DateTime.Parse(dr[14].ToString());
-                //bv.noiDungBL = dr[15].ToString();
                 bv.maDMC = dr[13].ToString();
-                //bv.nguoiTLBL = dr[17].ToString();
-                //bv.noiDungTLBL = dr[18].ToString();
-                //bv.thoiGianTLBL = DateTime.Parse(dr[19].ToString());
                 li.Add(bv);
             }
             return li;

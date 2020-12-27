@@ -288,16 +288,16 @@ app.controller("imgQuangCaoPost450x360", function ($scope, $http) {
 /////////////////////////////////////////////////////////
 
 app.controller("bvTheoLoai", function ($scope, $http, $location) {
+
     var maDMC = $location.search().maLoai;
+    $http.post("/baiViet/updateluotXemView?maDMC=" + maDMC);
     $http({
         method: 'get',
         url: '/baiViet/getbaiviettheoloai?maLoai=' + maDMC,
 
     }).then(function successCallback(res) {
-        //$scope.listBaiVietTheoLoai = res.data;//lưu dữ liệu vào biến $scope 
         $scope.view = res.data[0].tendanhmuccon;
-        //console.log($scope.listBaiVietTheoLoai);
-
+        $scope.luotXem = res.data[0].luotXem;
     })
 });
 //----------
@@ -402,12 +402,6 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
         $scope.hinhAnh2 = res.data[0].hinhAnh2;
         $scope.noiDung3 = res.data[0].noiDung3;
         $scope.hinhAnh3 = res.data[0].hinhAnh1;
-        //$scope.nguoiBL = res.data[0].nguoiBL;
-        //$scope.thoiGianBL = res.data[0].thoiGianBL;
-        //$scope.noiDungBL = res.data[0].noiDungBL;
-        //$scope.nguoiTLBL = res.data[0].nguoiTLBL;
-        //$scope.thoiGianTLBL = res.data[0].thoiGianTLBL;
-        //$scope.noiDungTLBL = res.data[0].noiDungTLBL;
 
     })
     //Hienthi
@@ -420,8 +414,6 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
 
             $http.get('/PhanHoi/getTLBinhLuan').then(function (data) {
                 $scope.TLbinhluan = data.data;
-                //console.log($scope.binhLuan);
-                //console.log($scope.TLbinhluan);
 
                 for (let i = 0; i < $scope.binhLuan.length; i++) {
                     const node = $scope.binhLuan[i];

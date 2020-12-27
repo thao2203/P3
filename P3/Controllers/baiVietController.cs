@@ -95,7 +95,10 @@ namespace P3.Controllers
         public JsonResult getbaiviettheoloai(string maLoai)
         {
             return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
-
+        }
+        public void updateluotXemView(string maDMC)
+        {
+            bv.upluotxemview(maDMC);
         }
         public JsonResult getphantrangBV(string maLoai, string pagesize)
         {
