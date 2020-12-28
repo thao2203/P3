@@ -1,6 +1,5 @@
 ﻿var app = angular.module('AdminApp', ['ui.bootstrap','imgurUpload']);
 
-
 app.controller("DanhSachBVController", function ($scope, $http) {
     $scope.maxsize = 5;
     $scope.totalcount = 0;
@@ -42,6 +41,8 @@ app.controller("DanhSachBVController", function ($scope, $http) {
             alert('Failed');
         });
     };
+
+
 }).filter("filterdate", function () {
     var re = /\/Date\(([0-9]*)\)\//;
     return function (x) {
@@ -63,9 +64,7 @@ app.controller("ThemBVController", function ($scope, $http, imgurUpload) {
                 url: '/QLBaiViet/Them_BV',
                 data: $scope.info
             }).then(function (d) {
-                console.log(d.data)
-
-
+                //console.log(d.data)
                 window.location.href = '/QLBaiViet/DanhSachBV';
             }, function (e) {
                 alert('failed');

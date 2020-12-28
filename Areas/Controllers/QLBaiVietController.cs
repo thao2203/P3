@@ -70,6 +70,6 @@ namespace Areas.Controllers
         {
             return Json(idmc.getDMCbyMaDM(MaDM), JsonRequestBehavior.AllowGet);
         }
-
+       
     }
 }

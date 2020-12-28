@@ -15,15 +15,13 @@ namespace DAO_Data_Access_Object_
 
         public DataSet ThongKe()
         {
-            con.Open();
             SqlCommand com = new SqlCommand("ThongKe", con);
             com.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(com);
+           
             DataSet ds = new DataSet();
-            con.Close();
-
+           
             da.Fill(ds);
-
             return ds;
 
         }

@@ -52,7 +52,7 @@ namespace BLL_Business_Logic_Layer_
             }
             return res;
         }
-
+        // BV theo Loai
         public IList<baiViet> getPhanTrangBV(string maLoai, string pagesize)
         {
             return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai + "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC and bv.trangThai='1' order by US.tenUser, dm.tenDM, dmc.tenDMC  desc Offset 0 Rows Fetch next " + pagesize + " rows only");
@@ -65,6 +65,10 @@ namespace BLL_Business_Logic_Layer_
         {
             DataAccessHelper.execCmd(string.Format("update DANHMUCCON set luotXem= (select luotXem from DANHMUCCON where MADMC ='{0}')+1 where  MADMC ='{0}'", maDMC));
         }
+
+       
+
+        //end BV theo Loai
         public IList<baiViet> getBaiVietYummy()
         {
             return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) where maBV='bv41' and bv.trangThai='1'");
@@ -136,6 +140,7 @@ namespace BLL_Business_Logic_Layer_
             bvlist = bv.Get_Paging_BV(pageindex, pagesize);
             return bvlist;
         }
+        
         public List<baiViet> Get_BV_byid(string id)
         {
             ds = bv.Get_bv_byid(id);
@@ -158,7 +163,9 @@ namespace BLL_Business_Logic_Layer_
             return list;
         }
 
-       
-        
+        public IList<baiViet> SearchAllBV(string key)
+        {
+            return bv.getbaiviet(string.Format(@"Select * From BaiViet Where tieuDe like N'%{0}%' or maBV like '%{0}%' or taiKhoanUs like '%{0}%' or noiDungNho like N'%{0}%' or thoiGianDang like '%{0}%' or trangThai like '%{0}%' or maDM like '%{0}%' or maDMC like '%{0}%'", key));
+        }
     }
 }

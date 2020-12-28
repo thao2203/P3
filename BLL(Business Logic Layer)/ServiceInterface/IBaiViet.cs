@@ -4,9 +4,11 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
 {
     public interface IBaiViet
     {
+        //BV theo Loai
         IList<baiViet> getBvTheoLoai(string maLoai);
         void upluotxemview(string maDMC);
         IList<baiViet> getPhanTrangBV(string maLoai,string pagesize);
+        //End BV theo Loai
         IList<baiViet> getBaiVietNoiBat();
         IList<baiViet> getBaiVietHot();
         IList<baiViet> getBaiVietMoiNhat();
@@ -21,5 +23,6 @@ namespace BLL_Business_Logic_Layer_.ServiceInterface
         IList<baiViet> getBaiVietNgauNhien3();
         IList<baiViet> getBaiVietYummy2();
         IList<baiViet> getBaiVietYummy3();
+        IList<baiViet> SearchAllBV(string key);
     }
 }

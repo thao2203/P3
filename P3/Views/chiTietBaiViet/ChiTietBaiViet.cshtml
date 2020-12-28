@@ -149,15 +149,16 @@
                                     </div>
                                     <p>{{i.noiDung}}</p>
                                     <a class="reply" ng-click="reply(i.mabL)">Trả lời</a>
-                                    <br /><br />
+                                    
                                     <form class="post-reply" id="{{i.mabL}}" style="display:none;">
+                                        <br /><br />
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <textarea ng-model="tlcm.noiDung" class="input" name="message" placeholder="Nội dung trả lời..."></textarea>
                                                 </div>
                                             </div>
-                                            <div class"col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <input ng-model="tlcm.tenNGuoiDang" class="input" type="text" name="name" placeholder="Tên...">
                                                 </div>
@@ -179,7 +180,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="media-heading">
-                                                <h4>{{items.tenNguoiDang}}</h4>
+                                                <h4>{{items.tenNguoiDang}}</h4> > <small>{{i.tenNGuoiDang}}</small>
                                                 <span class="time">{{items.thoiGianDang | filterdate | date:'dd-MM-yyyy hh:mm:ss'}}</span>
                                             </div>
                                             <p>{{items.noiDung}}</p>

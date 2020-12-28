@@ -74,7 +74,7 @@ namespace P3.Controllers
         {
             return Json(bv.getBaiVietNoiBat(), JsonRequestBehavior.AllowGet);
         }
-
+        //Search
         public ActionResult search()
         {
             return View();
@@ -84,6 +84,9 @@ namespace P3.Controllers
             key = key.Replace("%20", " ");
             return Json(bv.Search(key), JsonRequestBehavior.AllowGet);
         }
+        //End Search
+
+        //BV theo loại
         public JsonResult getbaiviettheoloai(string maLoai)
         {
             return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
@@ -97,7 +100,7 @@ namespace P3.Controllers
             return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
 
         }
-
+        //End BV theo loại
         public ActionResult baiviettheoloai()
         {
             return View();
