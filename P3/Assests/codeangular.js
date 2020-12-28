@@ -1,8 +1,20 @@
 ﻿var app = angular.module("myApp", []);
-//console.clear();
 
-
-
+app.controller("newpost", function ($scope, $http) {
+    $http({
+        method: 'get',
+        url: '/baiViet/getbaivietmoinhat'
+    }).then(function successCallback(res) {
+        $scope.listbaivietmoi = res.data;
+    })
+}).filter("filterdate", function () {
+    var re = /\/Date\(([0-9]*)\)\//;
+    return function (x) {
+        var m = x.match(re);
+        if (m) return new Date(parseInt(m[1]));
+        else return null;
+    };
+});
 //Slide Post
 app.controller("YmmyPost", function ($scope, $http) {
     $http({
@@ -95,25 +107,7 @@ app.controller("hotPost", function ($scope, $http) {
     };
 });
 ////////////////////////////////
-app.controller("newpost", function ($scope, $http) {
 
-    $http({
-        method: 'get',
-        url: '/baiViet/getbaivietmoinhat'
-    }).then(function successCallback(res) {
-
-        $scope.listbaivietmoi = res.data;//lưu dữ liệu vào biến $scope.listbaivietmoinhat 
-        //console.log($scope.listbaivietmoi);
-
-    })
-}).filter("filterdate", function () {
-    var re = /\/Date\(([0-9]*)\)\//;
-    return function (x) {
-        var m = x.match(re);
-        if (m) return new Date(parseInt(m[1]));
-        else return null;
-    };
-});
 app.controller("newpostCT", function ($scope, $http) {
 
     $http({
@@ -272,7 +266,7 @@ app.controller("imgQuangCaoPost728x90", function ($scope, $http) {
         $scope.hinhAnh = res.data[0].hinhAnh;
         $scope.video = res.data[0].video;
 
-        console.log($scope.hinhAnh);
+        //console.log($scope.hinhAnh);
     })
 });
 app.controller("imgQuangCaoPost450x360", function ($scope, $http) {
@@ -282,7 +276,7 @@ app.controller("imgQuangCaoPost450x360", function ($scope, $http) {
 
     }).then(function successCallback(res) {
         $scope.hinhAnh = res.data[0].hinhAnh;
-        console.log($scope.hinhAnh);
+        //console.log($scope.hinhAnh);
     })
 });
 /////////////////////////////////////////////////////////
@@ -411,7 +405,6 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
             $scope.listBL = [];
             $scope.binhLuan = data.data;
 
-
             $http.get('/PhanHoi/getTLBinhLuan').then(function (data) {
                 $scope.TLbinhluan = data.data;
 
@@ -427,7 +420,7 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
                     $scope.listBL.push(node);
                 }
             })
-            console.log($scope.listBL);
+            //console.log($scope.listBL);
         })
     }
     //console.log($scope.binhLuan);
@@ -437,14 +430,14 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
     $scope.cm = {};
     $scope.dangBL = function () {
         $scope.cm.maBV = $location.search().maBV
-        console.log($scope.cm)
+        //console.log($scope.cm)
 
         $http({
             method: 'POST',
             url: '/PhanHoi/Them_BL',
             data: $scope.cm
         }).then(function (d) {
-            console.log(d.data)
+            //console.log(d.data)
             $scope.getBl() //getbl sau bl
         }, function (e) {
             alert('failed')
@@ -464,7 +457,7 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
             url: '/PhanHoi/Them_TLBL',
             data: $scope.tlcm
         }).then(function (d) {
-            console.log(d.data)
+            //console.log(d.data)
             $scope.getBl() //getbl sau bl
         }, function (e) {
             alert('failed')

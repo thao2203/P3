@@ -1,12 +1,6 @@
 ﻿using BLL_Business_Logic_Layer_;
 using BLL_Business_Logic_Layer_.ServiceInterface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
-
 namespace P3.Controllers
 {
     public class baiVietController : Controller
@@ -14,17 +8,33 @@ namespace P3.Controllers
         Tool.Class1 h = new Tool.Class1();
         IBaiViet bv = new BaiViet_bll();
         IquangCao iqc = new quangCao_BLL();
-
-        // GET: baiViet
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult baiViet()
         {
-            
             return View();
         }
+        public JsonResult searchByName(string key)
+        {
+            key = key.Replace("%20", " ");
+            return Json(bv.Search(key), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaiviettheoloai(string maLoai)
+        {
+            return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
+        }
+        public void updateluotXemView(string maDMC)
+        {
+            bv.upluotxemview(maDMC);
+        }
+        public JsonResult getphantrangBV(string maLoai, string pagesize)
+        {
+            return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
+
+        }
+
         public JsonResult getbaivietngaunhien()
         {
             return Json(bv.getBaiVietNgauNhien(), JsonRequestBehavior.AllowGet);
@@ -87,25 +97,7 @@ namespace P3.Controllers
         {
             return View();
         }
-        public JsonResult searchByName(string key)
-        {
-            key = key.Replace("%20"," ");
-            return Json(bv.Search(key),JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult getbaiviettheoloai(string maLoai)
-        {
-            return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
-        }
-        public void updateluotXemView(string maDMC)
-        {
-            bv.upluotxemview(maDMC);
-        }
-        public JsonResult getphantrangBV(string maLoai, string pagesize)
-        {
-            return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
-
-        }
-
+        
         public ActionResult baiviettheoloai()
         {
             return View();

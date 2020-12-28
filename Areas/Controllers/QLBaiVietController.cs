@@ -1,17 +1,10 @@
 ﻿using BLL_Business_Logic_Layer_;
 using BLL_Business_Logic_Layer_.ServiceInterface;
 using DTO_Data_Transfer_Object_;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
 namespace Areas.Controllers
-{
-    public class QLBaiVietController : Controller
-    {
-        BaiViet_bll bvb = new BaiViet_bll();
+{   public class QLBaiVietController : Controller
+    {   BaiViet_bll bvb = new BaiViet_bll();
         DanhMuc_bll dmb = new DanhMuc_bll();
         DanhMucCon_bll dmcb = new DanhMucCon_bll();
         US_bll usb = new US_bll();
@@ -19,12 +12,21 @@ namespace Areas.Controllers
         IDanhMuc idm = new DanhMuc_bll();
         IUS ius = new US_bll();
         IBaiViet ibv = new BaiViet_bll();
-
-
-        // GET: Admin
         public ActionResult Index()
         {
             return View();
+        }
+        public JsonResult Them_BV(baiViet info)
+        {
+            return Json(bvb.Add_BV(info), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Sua_BV(baiViet dt)
+        {
+            return Json(bvb.Update_BV(dt), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Xoa_BV(string id)
+        {
+            return Json(bvb.Delete_BV(id), JsonRequestBehavior.AllowGet);
         }
         public ActionResult DanhSachBV()
         {
@@ -48,18 +50,7 @@ namespace Areas.Controllers
         {
             return Json(bvb.Get_BV_byid(id), JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Them_BV(baiViet info)
-        {
-            return Json(bvb.Add_BV(info), JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult Sua_BV(baiViet dt)
-        {
-            return Json(bvb.Update_BV(dt), JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult Xoa_BV(string id)
-        {
-            return Json(bvb.Delete_BV(id), JsonRequestBehavior.AllowGet);
-        }
+        
         public JsonResult GetmaDM()
         {
             return Json(idm.GetmaDM(), JsonRequestBehavior.AllowGet);

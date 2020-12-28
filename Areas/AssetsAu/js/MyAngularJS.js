@@ -1,49 +1,30 @@
-﻿
-
-var app = angular.module('AdminApp', ['ui.bootstrap','imgurUpload']);
+﻿var app = angular.module('AdminApp', ['ui.bootstrap','imgurUpload']);
 
 app.controller('ThongKeController', function ($scope, $http) {
     $http.get('/ThongKe/ThongKe').then(function (d) {
-
         $scope.ThongKe = d.data[0];
-        console.log($scope.ThongKe)
-
     }, function (error) {
-
         alert('failed');
-
     });
-
 })
 app.controller("DanhSachBVController", function ($scope, $http) {
     $scope.maxsize = 5;
-
     $scope.totalcount = 0;
-
     $scope.pageIndex = 1;
-
     $scope.pageSize = 5;
-
     $scope.searchText = '';
-    //----------------------------------------------------------------------------------------------------------------
     $scope.BVLisst = function () {
-
         $http.get("/QLBaiViet/Get_data_BV?pageindex=" + $scope.pageIndex + "&pagesize=" + $scope.pageSize).then(function (response) {
-
             $scope.listbv = response.data.listBaiViet;
-            console.log($scope.listbv);
-
             $scope.totalcount = response.data.totalcount;
-            console.log($scope.totalcount);
+            //console.log($scope.totalcount);
         }, function (error) {
             alert('failed');
         });
     }
     $scope.BVLisst();
     $scope.pagechanged = function () {
-
         $scope.BVLisst();
-
     }
     $scope.changePageSize = function () {
         $scope.pageIndex = 1;
@@ -75,9 +56,6 @@ app.controller("DanhSachBVController", function ($scope, $http) {
         else return null;
     };
 });
-
-//----------------------------------------Thêm -----------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------
 app.controller("ThemBVController", function ($scope, $http, imgurUpload) {
     $scope.info = { HinhAnh: "" }
     $scope.thembv = function () {
@@ -108,25 +86,25 @@ app.controller("ThemBVController", function ($scope, $http, imgurUpload) {
     $scope.getdmc = function (s) {
         $http.get('/QLBaiViet/getDMCbyMaDM?MaDM=' + s).then(function (sa) {
             $scope.listdmc = sa.data;
-            console.log($scope.listdmc)
+            //console.log($scope.listdmc)
         })
         }
     $http.get('/QLBaiViet/GetmaDM').then(function (d) {
         $scope.listmaDM = d.data;
-        console.log($scope.listmaDM)
+        //console.log($scope.listmaDM)
 
     }, function (error) {
         alert('failed');
     })
     $http.get('/QLBaiViet/getmaDMC').then(function (d) {
         $scope.listmaDMC = d.data;
-        console.log($scope.listmaDMC)
+        //console.log($scope.listmaDMC)
     }, function (error) {
         alert('failed /QLBaiViet/getmaDMC');
     })
     $http.get('/QLBaiViet/Gettaikhoanus').then(function (d) {
         $scope.listUS = d.data;
-        console.log($scope.listUS)
+        //console.log($scope.listUS)
 
     }, function (error) {
             alert('failed /QLBaiViet/Gettaikhoanus');
@@ -149,9 +127,9 @@ app.controller("SuaBVController", function ($scope, $http, $location, imgurUploa
 
     }).then(function (jsonResults) {
         $scope.bv = jsonResults.data[0];
-        console.log(jsonResults.data)
-        console.log($scope.bv.ThoiGianDang)
-        console.log($filter('filterdate')($scope.bv.ThoiGianDang, 'dd/mm/yyyy'))
+        //console.log(jsonResults.data)
+        //console.log($scope.bv.ThoiGianDang)
+        //console.log($filter('filterdate')($scope.bv.ThoiGianDang, 'dd/mm/yyyy'))
         $scope.bv.ThoiGianDang = new Date(ConvertDate($filter('filterdate')($scope.bv.ThoiGianDang, 'dd/mm/yyyy')))
       
     })
@@ -190,7 +168,7 @@ app.controller("SuaBVController", function ($scope, $http, $location, imgurUploa
                 url: '/QLBaiViet/Sua_BV',
                 data: $scope.bv
             }).then(function (d) {
-                console.log(d.data)
+                //console.log(d.data)
                 alert(d.data);
                 window.location.href = '/QLBaiViet/DanhSachBV';
             }, function (e) {
@@ -200,32 +178,32 @@ app.controller("SuaBVController", function ($scope, $http, $location, imgurUploa
     };
     $http.get('/QLBaiViet/getmaDMC').then(function (d) {
         $scope.listdmc = d.data;
-        console.log($scope.listdmc)
+        //console.log($scope.listdmc)
     }, function (error) {
         alert('failed /QLBaiViet/getmaDMC');
     })
     $scope.getdmc = function (s) {
         $http.get('/QLBaiViet/getDMCbyMaDM?MaDM=' + s).then(function (sa) {
             $scope.listdmc = sa.data;
-            console.log($scope.listdmc)
+            //console.log($scope.listdmc)
         })
     }
     $http.get('/QLBaiViet/GetmaDM').then(function (d) {
         $scope.listmaDM = d.data;
-        console.log($scope.listmaDM)
+        //console.log($scope.listmaDM)
 
     }, function (error) {
         alert('failed');
     })
     $http.get('/QLBaiViet/getmaDMC').then(function (d) {
         $scope.listdmc = d.data;
-        console.log($scope.listdmc)
+        //console.log($scope.listdmc)
     }, function (error) {
         alert('failed /QLBaiViet/getmaDMC');
     })
     $http.get('/QLBaiViet/Gettaikhoanus').then(function (d) {
         $scope.listUS = d.data;
-        console.log($scope.listUS)
+        //console.log($scope.listUS)
 
     }, function (error) {
         alert('failed /QLBaiViet/Gettaikhoanus');
@@ -238,6 +216,20 @@ app.controller("SuaBVController", function ($scope, $http, $location, imgurUploa
         else return null;
     };
 });
+
+app.controller("LoginController", function ($scope, $http) {
+    $scope.login = function () {
+        //console.log($scope.ad)
+        $http.post('/Admin/login_', $scope.ad).then(function (s) {
+            //console.log(s);
+            localStorage.setItem("ten", s.data[0].tenUser)
+            localStorage.setItem("anh", s.data[0].hinhAnh)
+            localStorage.setItem("chucvu", s.data[0].chucVu)
+            //console.log(s);
+            window.location.href = '/ThongKe/Index';
+        })
+    }
+})
 
 function ConvertDate(str) {
     var date = new Date(str),
@@ -260,20 +252,6 @@ function change(elm) {
 }
 
 ////////////////Login/////////////////////////////
-
-app.controller("LoginController", function ($scope, $http) {
-    $scope.login = function () {
-        console.log($scope.ad)
-        $http.post('/Admin/login_', $scope.ad).then(function (s) {
-            console.log(s);
-            localStorage.setItem("ten", s.data[0].tenUser)
-            localStorage.setItem("anh", s.data[0].hinhAnh)
-            localStorage.setItem("chucvu", s.data[0].chucVu)
-            console.log(s);
-            window.location.href = '/ThongKe/Index';
-        })
-    }
-})
 
 
 app.controller("acc", function ($scope, $http) {

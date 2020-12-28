@@ -4,14 +4,53 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DAO_Data_Access_Object_
 {
     public class BaiVet_Dao
     {
+        public void Add_BV(baiViet dt)
+        {
+            SqlCommand com = new SqlCommand("them_baiviet", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@maBV", dt.MaBV);
+            com.Parameters.AddWithValue("@maDM", dt.MaDM);
+            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
+            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
+            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
+            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
+            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
+            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
+            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+        public void Update_BV(baiViet dt)
+        {
+            SqlCommand com = new SqlCommand("sua_baiviet", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@maBV", dt.MaBV);
+            com.Parameters.AddWithValue("@maDM", dt.MaDM);
+            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
+            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
+            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
+            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
+            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
+            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
+            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+        public void Delete_BV(string MaBV)
+        {
+            SqlCommand com = new SqlCommand("xoa_baiviet", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@maBV", MaBV);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
         public IList<baiViet> getbaiviet(string sql)
         {
             DataTable dt = new DataTable();
@@ -157,49 +196,7 @@ namespace DAO_Data_Access_Object_
             return ds;
         }
 
-        public void Add_BV(baiViet dt)
-        {
-            SqlCommand com = new SqlCommand("them_baiviet", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@maBV", dt.MaBV);
-            com.Parameters.AddWithValue("@maDM", dt.MaDM);
-            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
-            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
-            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
-            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
-            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
-            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
-            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-        }
-        public void Update_BV(baiViet dt)
-        {
-            SqlCommand com = new SqlCommand("sua_baiviet", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@maBV", dt.MaBV);
-            com.Parameters.AddWithValue("@maDM", dt.MaDM);
-            com.Parameters.AddWithValue("@maDMC", dt.MaDMC);
-            com.Parameters.AddWithValue("@taiKhoanUS", dt.TaiKhoanUS);
-            com.Parameters.AddWithValue("@tieuDe", dt.TieuDe);
-            com.Parameters.AddWithValue("@trangThai", dt.TrangThai);
-            com.Parameters.AddWithValue("@thoiGianDang", dt.ThoiGianDang);
-            com.Parameters.AddWithValue("@noiDungNho", dt.NoiDungCon);
-            com.Parameters.AddWithValue("@hinhAnh", dt.HinhAnh);
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-        }
-        public void Delete_BV(string MaBV)
-        {
-            SqlCommand com = new SqlCommand("xoa_baiviet", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@maBV", MaBV);
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-        }
+        
 
 
     }

@@ -4,17 +4,71 @@ using DTO_Data_Transfer_Object_;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BLL_Business_Logic_Layer_
 {
     public class BaiViet_bll : IBaiViet
     {
         BaiVet_Dao bv = new BaiVet_Dao();
+        public string Add_BV(baiViet info)
+        {
+            string result = string.Empty;
+            try
+            {
+                bv.Add_BV(info);
+                result = "Thêm thành công";
+            }
+            catch (Exception)
+            {
+                result = "Thêm thất bại";
 
+            }
+            return result;
+        }
+        public string Update_BV(baiViet dt)
+        {
+            string res = string.Empty;
+            try
+            {
+                bv.Update_BV(dt);
+                res = "Cập nhật thành công";
+            }
+            catch (Exception)
+            {
+                res = "Cập nhật thất bại";
+            }
+            return res;
+        }
+        public string Delete_BV(string id)
+        {
+            string res = string.Empty;
+            try
+            {
+                bv.Delete_BV(id);
+                res = "Xóa thành công";
+            }
+            catch (Exception)
+            {
+                res = "Xóa thất bại";
+            }
+            return res;
+        }
 
+        public IList<baiViet> getPhanTrangBV(string maLoai, string pagesize)
+        {
+            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai + "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC and bv.trangThai='1' order by US.tenUser, dm.tenDM, dmc.tenDMC  desc Offset 0 Rows Fetch next " + pagesize + " rows only");
+        }
+        public IList<baiViet> getBvTheoLoai(string maLoai)
+        {
+            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai + "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC and bv.trangThai='1' ");
+        }
+        public void upluotxemview(string maDMC)
+        {
+            DataAccessHelper.execCmd(string.Format("update DANHMUCCON set luotXem= (select luotXem from DANHMUCCON where MADMC ='{0}')+1 where  MADMC ='{0}'", maDMC));
+        }
+        public IList<baiViet> getBaiVietYummy()
+        {
+            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) where maBV='bv41' and bv.trangThai='1'");
+        }
         public IList<baiViet> getBaiVietNgauNhien()
         {
             return bv.getbaivietngaunhien12("SELECT Top(3) bv.maBV, dmc.maDMC, bv.tieuDe, bv.hinhAnh, dm.tenDM, dmc.tenDMC FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) Where bv.trangThai='1' Order By NEWID()");
@@ -35,22 +89,7 @@ namespace BLL_Business_Logic_Layer_
         {
             return bv.getbaivietnoibat("SELECT Top(3) bv.maBV, bv.maDMC, bv.tieuDe, dm.tenDM, dmc.tenDMC, bv.hinhAnh, ct.luotXem FROM (BAIVIET bv INNER JOIN DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC inner join CTBAIVIET ct on ct.maBV=bv.maBV) Where bv.trangThai='1' Order By ct.luotXem DESC");
         }
-        public IList<baiViet> getPhanTrangBV(string maLoai ,string pagesize)
-        {
-            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai+ "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC and bv.trangThai='1' order by US.tenUser, dm.tenDM, dmc.tenDMC  desc Offset 0 Rows Fetch next " + pagesize+" rows only");
-        }
-        public IList<baiViet> getBvTheoLoai( string maLoai)
-        {
-            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem From BaiViet bv, US, DanhMuc dm, DanhMucCon dmc Where dmc.maDMC = '" + maLoai+ "' and bv.taiKhoanUs=Us.taiKhoanUs and dm.maDM=bv.maDM and dmc.maDMC=bv.maDMC and bv.trangThai='1' ");
-        }
-        public void upluotxemview(string maDMC)
-        {
-            DataAccessHelper.execCmd(string.Format("update DANHMUCCON set luotXem= (select luotXem from DANHMUCCON where MADMC ='{0}')+1 where  MADMC ='{0}'", maDMC));
-        }
-        public IList<baiViet> getBaiVietYummy()
-        {
-            return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) where maBV='bv41' and bv.trangThai='1'");
-        }
+        
         public IList<baiViet> getBaiVietYummy2()
         {
             return bv.getbaiviet("Select bv.*, US.tenUser, dm.tenDM, dmc.tenDMC, dmc.luotXem FROM (BAIVIET bv INNER JOIN US ON bv.taiKhoanUs = US.taiKhoanUs inner join DANHMUC dm ON bv.maDM=dm.maDM inner join DANHMUCCON dmc on bv.maDMC=dmc.maDMC) where maBV='bv45' and bv.trangThai='1'");
@@ -119,50 +158,7 @@ namespace BLL_Business_Logic_Layer_
             return list;
         }
 
-        public string Add_BV(baiViet info)
-        {
-            string result = string.Empty;
-            try
-            {
-                bv.Add_BV(info);
-                result = "Thêm thành công";
-            }
-            catch (Exception)
-            {
-                result = "Thêm thất bại";
-
-            }
-            return result;
-        }
-        public string Update_BV(baiViet dt)
-        {
-            string res = string.Empty;
-            try
-            {
-                bv.Update_BV(dt);
-                res = "Cập nhật thành công";
-            }
-            catch (Exception)
-            {
-                res = "Cập nhật thất bại";
-            }
-            return res;
-        }
-        public string Delete_BV(string id)
-        {
-            string res = string.Empty;
-            try
-            {
-                bv.Delete_BV(id);
-                res = "Xóa thành công";
-            }
-            catch (Exception)
-            {
-                res = "Xóa thất bại";
-            }
-            return res;
-        }
-
+       
         
     }
 }
