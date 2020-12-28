@@ -1,12 +1,6 @@
 ﻿var app = angular.module('AdminApp', ['ui.bootstrap','imgurUpload']);
 
-app.controller('ThongKeController', function ($scope, $http) {
-    $http.get('/ThongKe/ThongKe').then(function (d) {
-        $scope.ThongKe = d.data[0];
-    }, function (error) {
-        alert('failed');
-    });
-})
+
 app.controller("DanhSachBVController", function ($scope, $http) {
     $scope.maxsize = 5;
     $scope.totalcount = 0;
@@ -250,7 +244,13 @@ function change(elm) {
         reader.readAsDataURL(elm.files[0]);
     }
 }
-
+app.controller('ThongKeController', function ($scope, $http) {
+    $http.get('/ThongKe/ThongKe').then(function (d) {
+        $scope.ThongKe = d.data[0];
+    }, function (error) {
+        alert('failed');
+    });
+})
 ////////////////Login/////////////////////////////
 
 

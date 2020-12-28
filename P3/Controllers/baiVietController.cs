@@ -16,25 +16,7 @@ namespace P3.Controllers
         {
             return View();
         }
-        public JsonResult searchByName(string key)
-        {
-            key = key.Replace("%20", " ");
-            return Json(bv.Search(key), JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult getbaiviettheoloai(string maLoai)
-        {
-            return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
-        }
-        public void updateluotXemView(string maDMC)
-        {
-            bv.upluotxemview(maDMC);
-        }
-        public JsonResult getphantrangBV(string maLoai, string pagesize)
-        {
-            return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
-
-        }
-
+        
         public JsonResult getbaivietngaunhien()
         {
             return Json(bv.getBaiVietNgauNhien(), JsonRequestBehavior.AllowGet);
@@ -97,7 +79,25 @@ namespace P3.Controllers
         {
             return View();
         }
-        
+        public JsonResult searchByName(string key)
+        {
+            key = key.Replace("%20", " ");
+            return Json(bv.Search(key), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult getbaiviettheoloai(string maLoai)
+        {
+            return Json(bv.getBvTheoLoai(maLoai), JsonRequestBehavior.AllowGet);
+        }
+        public void updateluotXemView(string maDMC)
+        {
+            bv.upluotxemview(maDMC);
+        }
+        public JsonResult getphantrangBV(string maLoai, string pagesize)
+        {
+            return Json(bv.getPhanTrangBV(maLoai, pagesize), JsonRequestBehavior.AllowGet);
+
+        }
+
         public ActionResult baiviettheoloai()
         {
             return View();

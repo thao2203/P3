@@ -423,6 +423,11 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
             //console.log($scope.listBL);
         })
     }
+
+    $scope.reply = function (id) {
+        document.getElementById(id).style.display = 'block';
+        document.getElementById(id).reset();
+    }
     //console.log($scope.binhLuan);
     $scope.getBl(); //getbl khi load trang xong
 
@@ -442,6 +447,7 @@ app.controller("CTBVPost", function ($scope, $http, $location) {
         }, function (e) {
             alert('failed')
         })
+        document.getElementById("binhLuan").reset();
     }
 
 

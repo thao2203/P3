@@ -16,8 +16,10 @@ namespace DAO_Data_Access_Object_
 
 
             DataTable dt = new DataTable();
+            conn.Close();
             cmd.Fill(dt);
             return dt;
+            
         }
         public static void execCmd(string sql)
         {
