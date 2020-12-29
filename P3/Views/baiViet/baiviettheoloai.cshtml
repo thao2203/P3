@@ -28,7 +28,7 @@
                             <a href="#"><i class="fa fa-envelope"></i><span>Email</span></a>
                         </div>
                     </div>
-                   
+
                     <!--</div>-->
                     <div ng-controller="LoaibvPost">
                         <!-- post -->
@@ -51,6 +51,12 @@
                             <a ng-click="load()" class="primary-button">Xem thêm</a>
                         </div>
                     </div>
+                    @Html.Partial("_PartialBvNew")
+
+                    <div class="section-title">
+                        <h2 class="title">BÀI VIẾT HAY</h2>
+                    </div>
+                    @Html.Partial("_PartialBvRandom")
                 </div>
 
                 <div class="col-md-4">
